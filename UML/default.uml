@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Package xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="__Fw0MBX4EeKzE7e0GYHU5g" name="default">
+  <elementImport xmi:id="__JW6wBX4EeKzE7e0GYHU5g">
+    <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+  </elementImport>
+  <elementImport xmi:id="__Jv8UBX4EeKzE7e0GYHU5g">
+    <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+  </elementImport>
+  <elementImport xmi:id="__Jv8URX4EeKzE7e0GYHU5g">
+    <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
+  </elementImport>
+  <elementImport xmi:id="__Jv8UhX4EeKzE7e0GYHU5g">
+    <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+  </elementImport>
+  <packagedElement xmi:type="uml:Class" xmi:id="_eNHtwBX5EeKzE7e0GYHU5g" name="Construtora">
+    <ownedAttribute xmi:id="_l50TsBX5EeKzE7e0GYHU5g" name="nome" aggregation="composite"/>
+    <ownedOperation xmi:id="_rXLe0BX6EeKzE7e0GYHU5g" name="Construtora">
+      <ownedParameter xmi:id="_tK3C8BX6EeKzE7e0GYHU5g" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_uoCLkBX6EeKzE7e0GYHU5g" name="getNome">
+      <ownedParameter xmi:id="_vCc2sBX6EeKzE7e0GYHU5g" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_vWSYsBX6EeKzE7e0GYHU5g" name="getTamanho">
+      <ownedParameter xmi:id="_yMJykBX6EeKzE7e0GYHU5g" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_0SJOsBX6EeKzE7e0GYHU5g" name="adicionaObra">
+      <ownedParameter xmi:id="_01JOEBX6EeKzE7e0GYHU5g" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_1PFYEBX6EeKzE7e0GYHU5g" name="removeObraTT">
+      <ownedParameter xmi:id="_3H0bUBX6EeKzE7e0GYHU5g" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_-3TwcBfEEeKQKe8xfNX0zQ" name="leFicheiro">
+      <ownedParameter xmi:id="__Z7VUBfEEeKQKe8xfNX0zQ" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="__tYc0BfEEeKQKe8xfNX0zQ" name="escreveFicheiro">
+      <ownedParameter xmi:id="_AKczUBfFEeKQKe8xfNX0zQ" direction="return"/>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_-gFCUBX6EeKzE7e0GYHU5g" name="Obra">
+    <ownedAttribute xmi:id="__0epcBX6EeKzE7e0GYHU5g" name="trabalhos" aggregation="composite"/>
+    <ownedOperation xmi:id="_ICDH0BX7EeKzE7e0GYHU5g" name="getTamanho">
+      <ownedParameter xmi:id="_Ik9AkBX7EeKzE7e0GYHU5g" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_I31gUBX7EeKzE7e0GYHU5g" name="adicionaTrabalho">
+      <ownedParameter xmi:id="_Jb4okBX7EeKzE7e0GYHU5g" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_JuMgkBX7EeKzE7e0GYHU5g" name="eliminaTrabalho">
+      <ownedParameter xmi:id="_KSoDUBX7EeKzE7e0GYHU5g" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_RzqL0BX7EeKzE7e0GYHU5g" name="getCustoTotal">
+      <ownedParameter xmi:id="_Sckl8BX7EeKzE7e0GYHU5g" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_SvKx0BX7EeKzE7e0GYHU5g" name="getDuracaoTotal">
+      <ownedParameter xmi:id="_TMow8BX7EeKzE7e0GYHU5g" direction="return"/>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_W36I0BX7EeKzE7e0GYHU5g" name="Trabalho">
+    <ownedAttribute xmi:id="_ZamvEBX7EeKzE7e0GYHU5g" name="duracao" aggregation="composite"/>
+    <ownedAttribute xmi:id="_bfc7sBX7EeKzE7e0GYHU5g" name="custo" aggregation="composite"/>
+    <ownedAttribute xmi:id="_b_ftsBX7EeKzE7e0GYHU5g" name="empresa" aggregation="composite"/>
+    <ownedOperation xmi:id="_g0xakBX7EeKzE7e0GYHU5g" name="Trabalho">
+      <ownedParameter xmi:id="_h-ro8BX7EeKzE7e0GYHU5g" direction="return"/>
+      <ownedParameter xmi:id="_h-ro8RX7EeKzE7e0GYHU5g" name="duracao"/>
+      <ownedParameter xmi:id="_h-ro8hX7EeKzE7e0GYHU5g" name="custo"/>
+      <ownedParameter xmi:id="_h-ro8xX7EeKzE7e0GYHU5g" name="empresa"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_iRwV8BX7EeKzE7e0GYHU5g" name="getDuracao">
+      <ownedParameter xmi:id="_iqXDMBX7EeKzE7e0GYHU5g" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_i629UBX7EeKzE7e0GYHU5g" name="getCusto">
+      <ownedParameter xmi:id="_jQU3ABX7EeKzE7e0GYHU5g" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_jgQJYBX7EeKzE7e0GYHU5g" name="getEmpresa">
+      <ownedParameter xmi:id="_j1tcABX7EeKzE7e0GYHU5g" direction="return"/>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_rLldYBX7EeKzE7e0GYHU5g" name="Infra-Estrutura">
+    <generalization xmi:id="_fhpwYBX8EeKzE7e0GYHU5g" general="_W36I0BX7EeKzE7e0GYHU5g"/>
+    <ownedAttribute xmi:id="_sFeSwBX7EeKzE7e0GYHU5g" name="idRua" aggregation="composite"/>
+    <ownedOperation xmi:id="_wprdwBX7EeKzE7e0GYHU5g" name="getIdRua">
+      <ownedParameter xmi:id="_xEqwoBX7EeKzE7e0GYHU5g" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_6H1aQBX7EeKzE7e0GYHU5g" name="operation"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_-LVE4BX7EeKzE7e0GYHU5g" name="Domestico">
+    <generalization xmi:id="_gz2_IBX8EeKzE7e0GYHU5g" general="_W36I0BX7EeKzE7e0GYHU5g"/>
+    <ownedAttribute xmi:id="_-8D-QBX7EeKzE7e0GYHU5g" name="idHabitacao" aggregation="composite"/>
+    <ownedOperation xmi:id="_mva-oBX8EeKzE7e0GYHU5g" name="getIdHabitacao">
+      <ownedParameter xmi:id="_nc6WwBX8EeKzE7e0GYHU5g" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_n42r4BX8EeKzE7e0GYHU5g" name="Domestico">
+      <ownedParameter xmi:id="_pzNfwBX8EeKzE7e0GYHU5g" direction="return"/>
+      <ownedParameter xmi:id="_pzNfwRX8EeKzE7e0GYHU5g" name="duracao"/>
+      <ownedParameter xmi:id="_pzNfwhX8EeKzE7e0GYHU5g" name="custo"/>
+      <ownedParameter xmi:id="_pzNfwxX8EeKzE7e0GYHU5g" name="empresa"/>
+      <ownedParameter xmi:id="_pzNfxBX8EeKzE7e0GYHU5g" name="idHabitacao"/>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_S7IUwBX8EeKzE7e0GYHU5g" memberEnd="_S7IUwRX8EeKzE7e0GYHU5g _S7IUxBX8EeKzE7e0GYHU5g">
+    <ownedEnd xmi:id="_S7IUwRX8EeKzE7e0GYHU5g" name="src" isLeaf="true" type="_-gFCUBX6EeKzE7e0GYHU5g" association="_S7IUwBX8EeKzE7e0GYHU5g">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_S7IUwxX8EeKzE7e0GYHU5g" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_S7IUwhX8EeKzE7e0GYHU5g" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_S7IUxBX8EeKzE7e0GYHU5g" name="dst" type="_W36I0BX7EeKzE7e0GYHU5g" association="_S7IUwBX8EeKzE7e0GYHU5g">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_S7IUxhX8EeKzE7e0GYHU5g" value="*"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_S7IUxRX8EeKzE7e0GYHU5g" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_sdWKwBX8EeKzE7e0GYHU5g" name="Arruamento">
+    <generalization xmi:id="_8yM5UBX8EeKzE7e0GYHU5g" general="_rLldYBX7EeKzE7e0GYHU5g"/>
+    <ownedAttribute xmi:id="_tQjwYBX8EeKzE7e0GYHU5g" name="quantAsfalto" aggregation="composite"/>
+    <ownedOperation xmi:id="_ud5tQBX8EeKzE7e0GYHU5g" name="getQuantAsfalto">
+      <ownedParameter xmi:id="_vK0doBX8EeKzE7e0GYHU5g" direction="return"/>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_xHeXkBX8EeKzE7e0GYHU5g" name="Saneamento">
+    <generalization xmi:id="__-GNkBX8EeKzE7e0GYHU5g" general="_rLldYBX7EeKzE7e0GYHU5g"/>
+    <ownedAttribute xmi:id="_x7WrkBX8EeKzE7e0GYHU5g" name="quantBetao" aggregation="composite"/>
+    <ownedOperation xmi:id="_yhZ-8BX8EeKzE7e0GYHU5g" name="getQuantBetao">
+      <ownedParameter xmi:id="_zCmAcBX8EeKzE7e0GYHU5g" direction="return"/>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_09hcEBX8EeKzE7e0GYHU5g" name="Trolha">
+    <generalization xmi:id="_GbtKMBX9EeKzE7e0GYHU5g" general="_-LVE4BX7EeKzE7e0GYHU5g"/>
+    <ownedAttribute xmi:id="_12vjEBX8EeKzE7e0GYHU5g" name="quantBetao" aggregation="composite"/>
+    <ownedOperation xmi:id="_2neccBX8EeKzE7e0GYHU5g" name="getQuantBetao">
+      <ownedParameter xmi:id="_3F_kcBX8EeKzE7e0GYHU5g" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_H-mgUBX9EeKzE7e0GYHU5g" name="Trolha">
+      <ownedParameter xmi:id="_LMBekBX9EeKzE7e0GYHU5g" direction="return"/>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_CCd5EBX9EeKzE7e0GYHU5g" name="Electricista">
+    <generalization xmi:id="_HQ668BX9EeKzE7e0GYHU5g" general="_-LVE4BX7EeKzE7e0GYHU5g"/>
+    <ownedAttribute xmi:id="_DSAOUBX9EeKzE7e0GYHU5g" name="compCabo" aggregation="composite"/>
+    <ownedOperation xmi:id="_D9310BX9EeKzE7e0GYHU5g" name="getCompCabo">
+      <ownedParameter xmi:id="_ElczMBX9EeKzE7e0GYHU5g" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_NFVJkBX9EeKzE7e0GYHU5g" name="Electricista">
+      <ownedParameter xmi:id="_NbXD8BX9EeKzE7e0GYHU5g" direction="return"/>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_Qbnv8BX9EeKzE7e0GYHU5g" memberEnd="_Qb6D0BX9EeKzE7e0GYHU5g _Qb6D0xX9EeKzE7e0GYHU5g">
+    <ownedEnd xmi:id="_Qb6D0BX9EeKzE7e0GYHU5g" name="src" type="_eNHtwBX5EeKzE7e0GYHU5g" association="_Qbnv8BX9EeKzE7e0GYHU5g">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Qb6D0hX9EeKzE7e0GYHU5g" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Qb6D0RX9EeKzE7e0GYHU5g" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_Qb6D0xX9EeKzE7e0GYHU5g" name="dst" type="_-gFCUBX6EeKzE7e0GYHU5g" association="_Qbnv8BX9EeKzE7e0GYHU5g">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Qb6D1RX9EeKzE7e0GYHU5g" value="*"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Qb6D1BX9EeKzE7e0GYHU5g"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_YZ9EQBfFEeKQKe8xfNX0zQ" name="Carpinteiro">
+    <generalization xmi:id="_iIK2ABfFEeKQKe8xfNX0zQ" general="_-LVE4BX7EeKzE7e0GYHU5g"/>
+    <ownedAttribute xmi:id="_ZMjl4BfFEeKQKe8xfNX0zQ" name="areaMadeira" aggregation="composite"/>
+    <ownedOperation xmi:id="_bJZtEBfFEeKQKe8xfNX0zQ" name="getAreaMadeira">
+      <ownedParameter xmi:id="_b32ugBfFEeKQKe8xfNX0zQ" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_c1mJIBfFEeKQKe8xfNX0zQ" name="Carpinteiro">
+      <ownedParameter xmi:id="_dhEvEBfFEeKQKe8xfNX0zQ" direction="return"/>
+    </ownedOperation>
+  </packagedElement>
+</uml:Package>
