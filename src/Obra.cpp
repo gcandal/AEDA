@@ -39,8 +39,16 @@ int Trabalho::getMadeira() const {
 
 
 //CLASSE OBRA
+unsigned int Obra::nr=0;
+
+Obra::Obra(): nr(++nr) {}
+
 int Obra::getTamanho() const {
 	return trabalhos.size();
+}
+
+static unsigned int Obra::getNr() const {
+	return nr;
 }
 
 void Obra::adicionaTrabalho(Trabalho *t1) {
@@ -272,6 +280,16 @@ vector<Trabalho *> Obra::trabalhosEmpresa(string emp) {
 	}
 	return t;
 
+}
+
+void Obra::imprimeFicheiro(ofstream& ficheiro_escrita) const {
+
+	ficheiro_escrita << "+Obra " << nr << endl << endl;
+
+	vector<Trabalho *>::iterator it = trabalhos.begin();
+
+	for(;it!=trabalhos.end();it++)
+		(*it)->imprimeFicheiro(ficheiro_escrita);
 }
 //CLASSE CONSTRUTORA
 string Construtora::getNome() const {
@@ -557,9 +575,7 @@ void Construtora::lerFicheiroTrabalho(Obra& o1, ifstream& ficheiro_leitura) {
 
 }
 
-void Construtora::lerFicheiro() {
-
-	ifstream ficheiro_leitura(NOME_FICHEIRO);
+void Construtora::lerFicheiro(ifstream& ficheiro_leitura) {
 
 	if(!ficheiro_leitura)
 		throw ErroFicheiro(time(NULL));
@@ -581,11 +597,18 @@ void Construtora::lerFicheiro() {
 
 			adicionaObra(o1);
 		}
-
-
-
 	}
 
+}
+
+void Construtora::escreverFicheiro(ofstream& ficheiro_escrita) const {
+
+	ficheiro_escrita << nome << endl;
+
+	vector<Obra>::iterator it=obras.begin();
+
+	for(; it!=obras.end(); it++)
+		it->imprimeFicheiro(ficheiro_escrita);
 }
 
 Construtora::ErroFicheiro::ErroFicheiro(time_t tempo): tempo(tempo) {};

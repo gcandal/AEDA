@@ -3,11 +3,24 @@
 #include "Domestico.h"
 
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
 int main() {
 
+	ifstream ficheiro_leitura(NOME_FICHEIRO);
+	Construtora c1;
+
+	try {
+		c1.lerFicheiro(ficheiro_leitura);
+	}
+	catch(Construtora::ErroFicheiro &e) {
+		cout << "Tentativa de abrir o ficheiro falhou.\n";
+	}
+
+
+	ficheiro_leitura.close();
 
 	return 1;
 }

@@ -34,7 +34,6 @@ int Domestico::getDuracao() const {
 	return Trabalho::getDuracao();
 }*/
 
-
 //CLASSE TROLHA
 Trolha::Trolha(int duracao, int custo, string empresa, int idHabitacao,
 		int quantBetao) :
@@ -64,6 +63,10 @@ int Trolha::getMadeira() const {
 int Trolha::getDuracao() const {
 	return Trabalho::getDuracao();
 }*/
+
+void Trolha::imprimeFicheiro(ofstream& ficheiro_leitura) const {
+
+}
 
 //CLASSE ELETRICISTA
 Eletricista::Eletricista(int duracao, int custo, string empresa,
@@ -95,6 +98,9 @@ int Eletricista::getDuracao() const {
 	return Trabalho::getDuracao();
 }*/
 
+void Eletricista::imprimeFicheiro(ofstream& ficheiro_leitura) const {
+
+}
 
 //CLASSE CARPINTEIRO
 Carpinteiro::Carpinteiro(int duracao, int custo, string empresa,
@@ -115,4 +121,6 @@ int Carpinteiro::getDuracao() const {
 	return Trabalho::getDuracao();
 }*/
 
+void Carpinteiro::imprimeFicheiro(ofstream& ficheiro_leitura) const {
 
+}

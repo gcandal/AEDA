@@ -21,21 +21,18 @@ public:
 	Trabalho(int duracao, int custo, string empresa);
 	virtual ~Trabalho() {}
 	string getEmpresa() const;
+	static unsigned int getNr();
 	/*virtual*/ int getCusto() const /*= 0*/;
 	/*virtual*/ int getDuracao() const /*= 0*/;
-<<<<<<< .mine
 	//virtual int getAsfalto() const = 0;
 	//virtual int getBetao() const = 0;
 	//virtual int getCabo() const = 0;
 	//virtual int getMadeira() const = 0;
-=======
 	virtual int getAsfalto() const;
 	virtual int getBetao() const;
 	virtual int getCabo() const;
 	virtual int getMadeira() const;
->>>>>>> .r10
-	//virtual void imprimeEcra() const;
-	//virtual void imprimeFicheiro() const;
+	virtual void imprimeFicheiro(ofstream& ficheiro_escrita) const;
 };
 
 /*class Empresa {
@@ -49,8 +46,10 @@ public:
 
 class Obra {
 	vector<Trabalho *> trabalhos;
+	static unsigned int nr;
 public:
 	int getTamanho() const;
+	static unsigned int getNr() const;
 	void adicionaTrabalho(Trabalho *t1);
 	int getCustoTotal() const;
 	int getDuracaoTotal() const;
@@ -75,6 +74,7 @@ public:
 	vector<Trabalho *> trabalhosCaboMaior(int c);
 	vector<Trabalho *> trabalhosMadeiraMaior(int m);
 	vector<Trabalho *> trabalhosEmpresa(string emp);
+	void imprimeFicheiro(ofstream& ficheiro_escrita) const;
 };
 
 class Construtora {
@@ -108,8 +108,8 @@ public:
 	vector<Obra> obrasBetaoMaior(int b);
 	vector<Obra> obrasCaboMaior(int c);
 	vector<Obra> obrasMadeiraMaior(int m);
-	void escreverFicheiro() const;
-	void lerFicheiro();
+	void escreverFicheiro(ofstream& ficheiro_escrita) const;
+	void lerFicheiro(ifstream& ficheiro_leitura);
 
 	class ErroFicheiro {
 		time_t tempo;

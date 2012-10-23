@@ -67,6 +67,18 @@ int Arruamento::getMadeira() const {
 	return 0;
 }
 
+void Arruamento::imprimeFicheiro(ofstream& ficheiro_escrita) const {
+
+	duracao
+	custo
+	idRua
+	mateiral
+	tipo trabalho
+	nome empresa
+
+	ficheiro_escrita <<
+}
+
 //CLASSE SANEAMENTO
 Saneamento::Saneamento(int duracao, int custo, string empresa, int idRua,
 		int quantBetao) :
@@ -96,5 +108,9 @@ int Saneamento::getMadeira() const {
 int Saneamento::getDuracao() const {
 	return Trabalho::getDuracao();
 }*/
+
+void Saneamento::imprimeFicheiro(ofstream& ficheiro_escrita) const {
+
+}
 
 

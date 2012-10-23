@@ -31,8 +31,6 @@ public:
 	virtual int getMadeira() const;
 	//virtual int getCusto() const;
 	//virtual int getDuracao() const;
-	//virtual void imprimeEcra() const;
-	//virtual void imprimeFicheiro() const;
 };
 
 class Trolha: public Domestico {
@@ -46,6 +44,7 @@ public:
 	int getMadeira() const;
 	//int getCusto() const;
 	//int getDuracao() const;
+	void imprimeFicheiro(ofstream& ficheiro_escrita) const;
 };
 
 class Eletricista: public Domestico {
@@ -60,6 +59,7 @@ public:
 	int getMadeira() const;
 	//int getCusto() const;
 	//int getDuracao() const;
+	void imprimeFicheiro(ofstream& ficheiro_escrita) const;
 };
 
 class Carpinteiro: public Domestico {
@@ -71,6 +71,7 @@ public:
 	int getMadeira() const;
 	//int getCusto() const;
 	//int getDuracao() const;
+	void imprimeFicheiro(ofstream& ficheiro_escrita) const;
 };
 
 

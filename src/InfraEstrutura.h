@@ -16,8 +16,6 @@ public:
 	virtual int getMadeira() const;
 	//virtual int getCusto() const;
 	//virtual int getDuracao() const;
-	//virtual void imprimeEcra() const;
-	//virtual void imprimeFicheiro() const;
 };
 
 class Arruamento: public InfraEstrutura {
@@ -32,8 +30,7 @@ public:
 	int getMadeira() const;
 	//int getCusto() const;
 	//int getDuracao() const;
-	//virtual void imprimeEcra() const;
-	//virtual void imprimeFicheiro() const;
+	void imprimeFicheiro(ofstream& ficheiro_escrita) const;
 };
 
 class Saneamento: public InfraEstrutura {
@@ -48,8 +45,7 @@ public:
 	int getMadeira() const;
 	//int getCusto() const;
 	//int getDuracao() const;
-	//virtual void imprimeEcra() const;
-	//virtual void imprimeFicheiro() const;
+	void imprimeFicheiro(ofstream& ficheiro_escrita) const;
 };
 
 #endif /* INFRAESTRUTURA_H_ */
