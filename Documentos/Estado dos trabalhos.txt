@@ -22,12 +22,13 @@ Funcionalidades implementadas:
 
 - trabalhos de x empresa numa obra
 
+- trabalhos em x rua
+- trabalhos em x habitacao
 
 
 Funcionalidades que podemos implementar:
 
-- trabalhos em x rua
-- trabalhos em x habitacao
+
 - custo por tipo de trabalho
 - funçoes para imprimir dados de uma obra e construtora
 - operadores ==, +
