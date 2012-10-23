@@ -7,6 +7,8 @@
 
 using namespace std;
 
+const char NOME_FICHEIRO[] = "obras.txt";
+
 int main() {
 
 	ifstream ficheiro_leitura(NOME_FICHEIRO);

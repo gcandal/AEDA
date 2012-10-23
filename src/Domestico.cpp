@@ -64,8 +64,9 @@ int Trolha::getDuracao() const {
 	return Trabalho::getDuracao();
 }*/
 
-void Trolha::imprimeFicheiro(ofstream& ficheiro_leitura) const {
+void Trolha::imprimeFicheiro(ofstream& ficheiro_escrita) const {
 
+	ficheiro_escrita << duracao << '\n' << custo << '\n' << idHabitacao << '\n' << quantBetao << '\n' << "Trolha" << '\n' << empresa << '\n' << '\n';
 }
 
 //CLASSE ELETRICISTA
@@ -98,8 +99,9 @@ int Eletricista::getDuracao() const {
 	return Trabalho::getDuracao();
 }*/
 
-void Eletricista::imprimeFicheiro(ofstream& ficheiro_leitura) const {
+void Eletricista::imprimeFicheiro(ofstream& ficheiro_escrita) const {
 
+	ficheiro_escrita << duracao << '\n' << custo << '\n' << idHabitacao << '\n' << compCabo << '\n' << "Eletricista" << '\n' << empresa << '\n' << '\n';
 }
 
 //CLASSE CARPINTEIRO
@@ -121,6 +123,7 @@ int Carpinteiro::getDuracao() const {
 	return Trabalho::getDuracao();
 }*/
 
-void Carpinteiro::imprimeFicheiro(ofstream& ficheiro_leitura) const {
+void Carpinteiro::imprimeFicheiro(ofstream& ficheiro_escrita) const {
 
+	ficheiro_escrita << duracao << '\n' << custo << '\n' << idHabitacao << '\n' << areaMadeira << '\n' << "Carpinteiro" << '\n' << empresa << '\n' << '\n';
 }

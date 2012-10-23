@@ -10,8 +10,6 @@
 
 using namespace std;
 
-const char NOME_FICHEIRO[] = "obras.txt";
-
 enum tipoTrabalho{arruamento, saneamento, trolha, eletricista, carpinteiro};
 
 class Trabalho {
