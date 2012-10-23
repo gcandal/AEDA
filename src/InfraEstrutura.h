@@ -18,6 +18,7 @@ public:
 	//virtual int getDuracao() const;
 	virtual tipoTrabalho getTipoTrabalho() const;
 	virtual int getId() const {return idRua;}
+	virtual string info() const;
 };
 
 class Arruamento: public InfraEstrutura {
@@ -34,6 +35,7 @@ public:
 	//int getDuracao() const;
 	void imprimeFicheiro(ofstream& ficheiro_escrita) const;
 	virtual tipoTrabalho getTipoTrabalho() const {return tipo;}
+	virtual string info() const;
 };
 
 class Saneamento: public InfraEstrutura {
@@ -50,6 +52,7 @@ public:
 	//int getDuracao() const;
 	void imprimeFicheiro(ofstream& ficheiro_escrita) const;
 	virtual tipoTrabalho getTipoTrabalho() const {return tipo;}
+	virtual string info() const;
 };
 
 #endif /* INFRAESTRUTURA_H_ */

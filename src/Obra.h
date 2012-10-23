@@ -33,6 +33,7 @@ public:
 	virtual void imprimeFicheiro(ofstream& ficheiro_escrita) const;
 	virtual tipoTrabalho getTipoTrabalho() const;
 	virtual int getId() const;
+	virtual string info() const;
 };
 
 /*class Empresa {

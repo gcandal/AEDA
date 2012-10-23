@@ -26,13 +26,21 @@ int Domestico::getMadeira() const {
 	return 0;
 }
 
-/*int Domestico::getCusto() const {
-	return Trabalho::getCusto();
-}
+string Domestico::info() const {
+	stringstream ss;
 
-int Domestico::getDuracao() const {
-	return Trabalho::getDuracao();
-}*/
+	ss << "ID Habitacao: " << idHabitacao << '\n';
+	ss << Trabalho::info();
+
+	return ss.str();
+}
+/*int Domestico::getCusto() const {
+ return Trabalho::getCusto();
+ }
+
+ int Domestico::getDuracao() const {
+ return Trabalho::getDuracao();
+ }*/
 
 //CLASSE TROLHA
 Trolha::Trolha(int duracao, int custo, string empresa, int idHabitacao,
@@ -57,16 +65,29 @@ int Trolha::getMadeira() const {
 }
 
 /*int Trolha::getCusto() const {
-	return Trabalho::getCusto();
-}
+ return Trabalho::getCusto();
+ }
 
-int Trolha::getDuracao() const {
-	return Trabalho::getDuracao();
-}*/
+ int Trolha::getDuracao() const {
+ return Trabalho::getDuracao();
+ }*/
 
 void Trolha::imprimeFicheiro(ofstream& ficheiro_escrita) const {
 
-	ficheiro_escrita << duracao << '\n' << custo << '\n' << idHabitacao << '\n' << quantBetao << '\n' << "Trolha" << '\n' << empresa << '\n' << '\n';
+	ficheiro_escrita << duracao << '\n' << custo << '\n' << idHabitacao << '\n'
+			<< quantBetao << '\n' << "Trolha" << '\n' << empresa << '\n'
+			<< '\n';
+}
+
+string Trolha::info() const {
+	stringstream ss;
+
+	ss << "Tipo de trabalho: Trolha \n";
+	ss << "Quantidade de betao: " << quantBetao << '\n';
+	ss << Domestico::info();
+	ss << Trabalho::info();
+
+	return ss.str();
 }
 
 //CLASSE ELETRICISTA
@@ -92,18 +113,30 @@ int Eletricista::getMadeira() const {
 }
 
 /*int Eletricista::getCusto() const {
-	return Trabalho::getCusto();
-}
+ return Trabalho::getCusto();
+ }
 
-int Eletricista::getDuracao() const {
-	return Trabalho::getDuracao();
-}*/
+ int Eletricista::getDuracao() const {
+ return Trabalho::getDuracao();
+ }*/
 
 void Eletricista::imprimeFicheiro(ofstream& ficheiro_escrita) const {
 
-	ficheiro_escrita << duracao << '\n' << custo << '\n' << idHabitacao << '\n' << compCabo << '\n' << "Eletricista" << '\n' << empresa << '\n' << '\n';
+	ficheiro_escrita << duracao << '\n' << custo << '\n' << idHabitacao << '\n'
+			<< compCabo << '\n' << "Eletricista" << '\n' << empresa << '\n'
+			<< '\n';
 }
 
+string Eletricista::info() const {
+	stringstream ss;
+
+	ss << "Tipo de trabalho: Eletricista \n";
+	ss << "Comprimento de cabo: " << compCabo << '\n';
+	ss << Domestico::info();
+	ss << Trabalho::info();
+
+	return ss.str();
+}
 //CLASSE CARPINTEIRO
 Carpinteiro::Carpinteiro(int duracao, int custo, string empresa,
 		int idHabitacao, unsigned int areaMadeira) :
@@ -116,14 +149,27 @@ int Carpinteiro::getMadeira() const {
 }
 
 /*int Carpinteiro::getCusto() const {
-	return Trabalho::getCusto();
-}
+ return Trabalho::getCusto();
+ }
 
-int Carpinteiro::getDuracao() const {
-	return Trabalho::getDuracao();
-}*/
+ int Carpinteiro::getDuracao() const {
+ return Trabalho::getDuracao();
+ }*/
 
 void Carpinteiro::imprimeFicheiro(ofstream& ficheiro_escrita) const {
 
-	ficheiro_escrita << duracao << '\n' << custo << '\n' << idHabitacao << '\n' << areaMadeira << '\n' << "Carpinteiro" << '\n' << empresa << '\n' << '\n';
+	ficheiro_escrita << duracao << '\n' << custo << '\n' << idHabitacao << '\n'
+			<< areaMadeira << '\n' << "Carpinteiro" << '\n' << empresa << '\n'
+			<< '\n';
+}
+
+string Carpinteiro::info() const {
+	stringstream ss;
+
+	ss << "Tipo de trabalho: Carpinteiro \n";
+	ss << "Area de madeira: " << areaMadeira << '\n';
+	ss << Domestico::info();
+	ss << Trabalho::info();
+
+	return ss.str();
 }

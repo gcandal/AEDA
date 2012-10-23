@@ -28,13 +28,21 @@ int InfraEstrutura::getMadeira() const {
 }
 
 /*int InfraEstrutura::getCusto() const {
-	return Trabalho::getCusto();
+ return Trabalho::getCusto();
+ }
+
+ int InfraEstrutura::getDuracao() const {
+ return Trabalho::getDuracao();
+ }*/
+
+string InfraEstrutura::info() const {
+	stringstream ss;
+
+	ss << "ID Rua: " << idRua << '\n';
+	ss << Trabalho::info();
+
+	return ss.str();
 }
-
-int InfraEstrutura::getDuracao() const {
-	return Trabalho::getDuracao();
-}*/
-
 //CLASSE ARRUAMENTO
 Arruamento::Arruamento(int duracao, int custo, string empresa, int idRua,
 		int quantAsfalto) :
@@ -42,14 +50,13 @@ Arruamento::Arruamento(int duracao, int custo, string empresa, int idRua,
 				quantAsfalto) {
 }
 
-
 /*int Arruamento::getCusto() const {
-	return Trabalho::getCusto();
-}
+ return Trabalho::getCusto();
+ }
 
-int Arruamento::getDuracao() const {
-	return Trabalho::getDuracao();
-}*/
+ int Arruamento::getDuracao() const {
+ return Trabalho::getDuracao();
+ }*/
 
 int Arruamento::getAsfalto() const {
 	return quantAsfalto;
@@ -69,7 +76,20 @@ int Arruamento::getMadeira() const {
 
 void Arruamento::imprimeFicheiro(ofstream& ficheiro_escrita) const {
 
-	ficheiro_escrita << duracao << '\n' << custo << '\n' << idRua << '\n' << quantAsfalto << '\n' << "Arruamento" << '\n' << empresa << '\n' << '\n';
+	ficheiro_escrita << duracao << '\n' << custo << '\n' << idRua << '\n'
+			<< quantAsfalto << '\n' << "Arruamento" << '\n' << empresa << '\n'
+			<< '\n';
+}
+
+string Arruamento::info() const {
+	stringstream ss;
+
+	ss << "Tipo de trabalho: Arruamento \n";
+	ss << "Quantidade de asfalto: " << quantAsfalto << '\n';
+	ss << InfraEstrutura::info();
+	ss << Trabalho::info();
+
+	return ss.str();
 }
 
 //CLASSE SANEAMENTO
@@ -95,16 +115,27 @@ int Saneamento::getMadeira() const {
 }
 
 /*int Saneamento::getCusto() const {
-	return Trabalho::getCusto();
-}
+ return Trabalho::getCusto();
+ }
 
-int Saneamento::getDuracao() const {
-	return Trabalho::getDuracao();
-}*/
+ int Saneamento::getDuracao() const {
+ return Trabalho::getDuracao();
+ }*/
 
 void Saneamento::imprimeFicheiro(ofstream& ficheiro_escrita) const {
 
-	ficheiro_escrita << duracao << '\n' << custo << '\n' << idRua << '\n' << quantBetao << '\n' << "Saneamento" << '\n' << empresa << '\n' << '\n';
+	ficheiro_escrita << duracao << '\n' << custo << '\n' << idRua << '\n'
+			<< quantBetao << '\n' << "Saneamento" << '\n' << empresa << '\n'
+			<< '\n';
 }
 
+string Saneamento::info() const {
+	stringstream ss;
 
+	ss << "Tipo de trabalho: Saneamento \n";
+	ss << "Quantidade de betao: " << quantBetao << '\n';
+	ss << InfraEstrutura::info();
+	ss << Trabalho::info();
+
+	return ss.str();
+}

@@ -37,6 +37,14 @@ int Trabalho::getMadeira() const {
 	return 0;
 }
 
+string Trabalho::info() const {
+	stringstream ss;
+
+	ss << "Empresa: " << empresa << "\nDuracao: " << duracao << "\nCusto: " << custo << '\n';
+
+	return ss.str();
+}
+
 //CLASSE OBRA
 unsigned int Obra::nr = 0;
 
