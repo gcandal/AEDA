@@ -31,6 +31,8 @@ public:
 	virtual int getMadeira() const;
 	//virtual int getCusto() const;
 	//virtual int getDuracao() const;
+	virtual tipoTrabalho getTipoTrabalho() const;
+	virtual int getId() const {return idHabitacao;}
 };
 
 class Trolha: public Domestico {
@@ -45,6 +47,7 @@ public:
 	//int getCusto() const;
 	//int getDuracao() const;
 	void imprimeFicheiro(ofstream& ficheiro_escrita) const;
+	virtual tipoTrabalho getTipoTrabalho() const {return tipo;}
 };
 
 class Eletricista: public Domestico {
@@ -60,6 +63,7 @@ public:
 	//int getCusto() const;
 	//int getDuracao() const;
 	void imprimeFicheiro(ofstream& ficheiro_escrita) const;
+	virtual tipoTrabalho getTipoTrabalho() const {return tipo;}
 };
 
 class Carpinteiro: public Domestico {
@@ -72,6 +76,7 @@ public:
 	//int getCusto() const;
 	//int getDuracao() const;
 	void imprimeFicheiro(ofstream& ficheiro_escrita) const;
+	virtual tipoTrabalho getTipoTrabalho() const {return tipo;}
 };
 
 

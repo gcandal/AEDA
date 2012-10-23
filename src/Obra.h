@@ -31,6 +31,8 @@ public:
 	virtual int getCabo() const;
 	virtual int getMadeira() const;
 	virtual void imprimeFicheiro(ofstream& ficheiro_escrita) const;
+	virtual tipoTrabalho getTipoTrabalho() const;
+	virtual int getId() const;
 };
 
 /*class Empresa {
@@ -72,6 +74,8 @@ public:
 	vector<Trabalho *> trabalhosCaboMaior(int c);
 	vector<Trabalho *> trabalhosMadeiraMaior(int m);
 	vector<Trabalho *> trabalhosEmpresa(string emp);
+	vector<Trabalho *> trabalhosRua(int id);
+	vector<Trabalho *> trabalhosHabitacao(int id);
 	void imprimeFicheiro(ofstream& ficheiro_escrita) const;
 };
 
