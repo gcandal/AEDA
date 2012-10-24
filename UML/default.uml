@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <uml:Package xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="__Fw0MBX4EeKzE7e0GYHU5g" name="default">
+  <ownedComment xmi:id="_z13mIB3AEeK0joV0wjZd2A">
+    <body>Por defeito, quando src ou dst são iguais a 1, omite o número.</body>
+  </ownedComment>
+  <ownedComment xmi:id="_mMx9cB3EEeK0joV0wjZd2A">
+    <body>D/C/M - equivale a dizer que a funcao pode ser usada para retornar a duracao, custo ou quantidade de um dado material.</body>
+  </ownedComment>
+  <ownedComment xmi:id="_OjVxgB3FEeK0joV0wjZd2A">
+    <body>&quot;Material&quot; corresponde a dizer que pode tomar nome de qualquer material</body>
+  </ownedComment>
   <elementImport xmi:id="__JW6wBX4EeKzE7e0GYHU5g">
     <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
   </elementImport>
@@ -29,15 +38,61 @@
     <ownedOperation xmi:id="_1PFYEBX6EeKzE7e0GYHU5g" name="removeObraTT">
       <ownedParameter xmi:id="_3H0bUBX6EeKzE7e0GYHU5g" direction="return"/>
     </ownedOperation>
-    <ownedOperation xmi:id="_-3TwcBfEEeKQKe8xfNX0zQ" name="leFicheiro">
-      <ownedParameter xmi:id="__Z7VUBfEEeKQKe8xfNX0zQ" direction="return"/>
+    <ownedOperation xmi:id="_-3TwcBfEEeKQKe8xfNX0zQ" name="lerFicheiro">
+      <ownedParameter xmi:id="_VGAKEB3BEeK0joV0wjZd2A" direction="return"/>
     </ownedOperation>
-    <ownedOperation xmi:id="__tYc0BfEEeKQKe8xfNX0zQ" name="escreveFicheiro">
-      <ownedParameter xmi:id="_AKczUBfFEeKQKe8xfNX0zQ" direction="return"/>
+    <ownedOperation xmi:id="__tYc0BfEEeKQKe8xfNX0zQ" name="escreverFicheiro">
+      <ownedParameter xmi:id="_UPQvUB3BEeK0joV0wjZd2A" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_viM8EB3BEeK0joV0wjZd2A" name="getDuracaoTotal">
+      <ownedParameter xmi:id="_wT_lYB3BEeK0joV0wjZd2A" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_wof1wB3BEeK0joV0wjZd2A" name="getCaboTotal">
+      <ownedParameter xmi:id="_xDxcgB3BEeK0joV0wjZd2A" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_xXCWwB3BEeK0joV0wjZd2A" name="getAsfaltoTotal">
+      <ownedParameter xmi:id="_yBSNoB3BEeK0joV0wjZd2A" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_zn5mIB3BEeK0joV0wjZd2A" name="getBetaoTotal">
+      <ownedParameter xmi:id="_0LeNQB3BEeK0joV0wjZd2A" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_0eEZIB3BEeK0joV0wjZd2A" name="getMadeiraTotal">
+      <ownedParameter xmi:id="_07iYQB3BEeK0joV0wjZd2A" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_4D_-AB3BEeK0joV0wjZd2A" name="obraMaisBarato">
+      <ownedParameter xmi:id="_7HaEoB3BEeK0joV0wjZd2A" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_7ak4QB3BEeK0joV0wjZd2A" name="obraMaisCaro">
+      <ownedParameter xmi:id="_74_5oB3BEeK0joV0wjZd2A" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_9BGKIB3BEeK0joV0wjZd2A" name="obraMenorDuracao">
+      <ownedParameter xmi:id="_9f_soB3BEeK0joV0wjZd2A" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_9xivoB3BEeK0joV0wjZd2A" name="obraMaiorDuracao">
+      <ownedParameter xmi:id="_-nncAB3BEeK0joV0wjZd2A" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_FZD6oB3CEeK0joV0wjZd2A" name="obrasMaterialMaior">
+      <ownedParameter xmi:id="_K0GnAB3CEeK0joV0wjZd2A" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_L-rjwB3CEeK0joV0wjZd2A" name="obrasMaterialMenor">
+      <ownedParameter xmi:id="_MpyWQB3CEeK0joV0wjZd2A" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_M8MU4B3CEeK0joV0wjZd2A" name="obrasCustoMaior">
+      <ownedParameter xmi:id="_NaCugB3CEeK0joV0wjZd2A" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_N1IIAB3CEeK0joV0wjZd2A" name="obrasCustoMenor">
+      <ownedParameter xmi:id="_OT1dQB3CEeK0joV0wjZd2A" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_bqU9QB3CEeK0joV0wjZd2A" name="obrasDuracaoMaior">
+      <ownedParameter xmi:id="_c3q6IB3CEeK0joV0wjZd2A" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_dCu6oB3CEeK0joV0wjZd2A" name="obrasDuracaoMenor">
+      <ownedParameter xmi:id="_dsaJwB3CEeK0joV0wjZd2A" direction="return"/>
     </ownedOperation>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_-gFCUBX6EeKzE7e0GYHU5g" name="Obra">
     <ownedAttribute xmi:id="__0epcBX6EeKzE7e0GYHU5g" name="trabalhos" aggregation="composite"/>
+    <ownedAttribute xmi:id="_ppjRMB3CEeK0joV0wjZd2A" name="nr" isStatic="true" aggregation="composite"/>
     <ownedOperation xmi:id="_ICDH0BX7EeKzE7e0GYHU5g" name="getTamanho">
       <ownedParameter xmi:id="_Ik9AkBX7EeKzE7e0GYHU5g" direction="return"/>
     </ownedOperation>
@@ -47,16 +102,32 @@
     <ownedOperation xmi:id="_JuMgkBX7EeKzE7e0GYHU5g" name="eliminaTrabalho">
       <ownedParameter xmi:id="_KSoDUBX7EeKzE7e0GYHU5g" direction="return"/>
     </ownedOperation>
-    <ownedOperation xmi:id="_RzqL0BX7EeKzE7e0GYHU5g" name="getCustoTotal">
-      <ownedParameter xmi:id="_Sckl8BX7EeKzE7e0GYHU5g" direction="return"/>
+    <ownedOperation xmi:id="_SvKx0BX7EeKzE7e0GYHU5g" name="getDCMTotal">
+      <ownedParameter xmi:id="_zQMwcB3EEeK0joV0wjZd2A" direction="return"/>
     </ownedOperation>
-    <ownedOperation xmi:id="_SvKx0BX7EeKzE7e0GYHU5g" name="getDuracaoTotal">
-      <ownedParameter xmi:id="_TMow8BX7EeKzE7e0GYHU5g" direction="return"/>
+    <ownedOperation xmi:id="_15kmcB3EEeK0joV0wjZd2A" name="trabalhoMaisBarato">
+      <ownedParameter xmi:id="_6N8lsB3EEeK0joV0wjZd2A" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_6gKXEB3EEeK0joV0wjZd2A" name="trabalhoMaisCaro">
+      <ownedParameter xmi:id="_7RqFcB3EEeK0joV0wjZd2A" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_7cbyEB3EEeK0joV0wjZd2A" name="trabalhoMenorDuracao">
+      <ownedParameter xmi:id="_8G980B3EEeK0joV0wjZd2A" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_85m6sB3EEeK0joV0wjZd2A" name="trabalhoMaiorDuracao">
+      <ownedParameter xmi:id="_9qPtcB3EEeK0joV0wjZd2A" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="__dvEUB3EEeK0joV0wjZd2A" name="operation"/>
+    <ownedOperation xmi:id="_A2bVkB3FEeK0joV0wjZd2A" name="trabalhosDCMMaior">
+      <ownedParameter xmi:id="_B1Lc0B3FEeK0joV0wjZd2A" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_CA6LsB3FEeK0joV0wjZd2A" name="trabalhosEmpresa">
+      <ownedParameter xmi:id="_Ct7CsB3FEeK0joV0wjZd2A" direction="return"/>
     </ownedOperation>
   </packagedElement>
-  <packagedElement xmi:type="uml:Class" xmi:id="_W36I0BX7EeKzE7e0GYHU5g" name="Trabalho">
-    <ownedAttribute xmi:id="_ZamvEBX7EeKzE7e0GYHU5g" name="duracao" aggregation="composite"/>
-    <ownedAttribute xmi:id="_bfc7sBX7EeKzE7e0GYHU5g" name="custo" aggregation="composite"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_W36I0BX7EeKzE7e0GYHU5g" name="Trabalho" isAbstract="true">
+    <ownedAttribute xmi:id="_ZamvEBX7EeKzE7e0GYHU5g" name="duracao" isReadOnly="true" aggregation="composite"/>
+    <ownedAttribute xmi:id="_bfc7sBX7EeKzE7e0GYHU5g" name="custo" isReadOnly="true" aggregation="composite"/>
     <ownedAttribute xmi:id="_b_ftsBX7EeKzE7e0GYHU5g" name="empresa" aggregation="composite"/>
     <ownedOperation xmi:id="_g0xakBX7EeKzE7e0GYHU5g" name="Trabalho">
       <ownedParameter xmi:id="_h-ro8BX7EeKzE7e0GYHU5g" direction="return"/>
@@ -73,8 +144,14 @@
     <ownedOperation xmi:id="_jgQJYBX7EeKzE7e0GYHU5g" name="getEmpresa">
       <ownedParameter xmi:id="_j1tcABX7EeKzE7e0GYHU5g" direction="return"/>
     </ownedOperation>
+    <ownedOperation xmi:id="_LARTYB3FEeK0joV0wjZd2A" name="getMaterial">
+      <ownedParameter xmi:id="_L7TYQB3FEeK0joV0wjZd2A" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_MTt4QB3FEeK0joV0wjZd2A" name="imprimeFicheiro">
+      <ownedParameter xmi:id="_M73dYB3FEeK0joV0wjZd2A" direction="return"/>
+    </ownedOperation>
   </packagedElement>
-  <packagedElement xmi:type="uml:Class" xmi:id="_rLldYBX7EeKzE7e0GYHU5g" name="Infra-Estrutura">
+  <packagedElement xmi:type="uml:Class" xmi:id="_rLldYBX7EeKzE7e0GYHU5g" name="Infra-Estrutura" isAbstract="true">
     <generalization xmi:id="_fhpwYBX8EeKzE7e0GYHU5g" general="_W36I0BX7EeKzE7e0GYHU5g"/>
     <ownedAttribute xmi:id="_sFeSwBX7EeKzE7e0GYHU5g" name="idRua" aggregation="composite"/>
     <ownedOperation xmi:id="_wprdwBX7EeKzE7e0GYHU5g" name="getIdRua">
@@ -82,7 +159,7 @@
     </ownedOperation>
     <ownedOperation xmi:id="_6H1aQBX7EeKzE7e0GYHU5g" name="operation"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:Class" xmi:id="_-LVE4BX7EeKzE7e0GYHU5g" name="Domestico">
+  <packagedElement xmi:type="uml:Class" xmi:id="_-LVE4BX7EeKzE7e0GYHU5g" name="Domestico" isAbstract="true">
     <generalization xmi:id="_gz2_IBX8EeKzE7e0GYHU5g" general="_W36I0BX7EeKzE7e0GYHU5g"/>
     <ownedAttribute xmi:id="_-8D-QBX7EeKzE7e0GYHU5g" name="idHabitacao" aggregation="composite"/>
     <ownedOperation xmi:id="_mva-oBX8EeKzE7e0GYHU5g" name="getIdHabitacao">

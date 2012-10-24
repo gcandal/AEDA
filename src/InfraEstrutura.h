@@ -2,6 +2,7 @@
 #define INFRAESTRUTURA_H_
 #include <vector>
 #include <string>
+#include "Obra.h"
 
 using namespace std;
 

@@ -19,14 +19,9 @@ public:
 	Trabalho(int duracao, int custo, string empresa);
 	virtual ~Trabalho() {}
 	string getEmpresa() const;
-	static unsigned int getNr();
-	/*virtual*/ int getCusto() const /*= 0*/;
-	/*virtual*/ int getDuracao() const /*= 0*/;
-	//virtual int getAsfalto() const = 0;
-	//virtual int getBetao() const = 0;
-	//virtual int getCabo() const = 0;
-	//virtual int getMadeira() const = 0;
-	virtual int getAsfalto() const;
+	/*virtual*/ int getCusto() const;
+	/*virtual*/ int getDuracao() const;
+	virtual int getAsfalto() const = 0;
 	virtual int getBetao() const;
 	virtual int getCabo() const;
 	virtual int getMadeira() const;
@@ -49,8 +44,9 @@ class Obra {
 	vector<Trabalho *> trabalhos;
 	static unsigned int nr;
 public:
+	Obra();
 	int getTamanho() const;
-	static unsigned int getNr() const;
+	static unsigned int getNr();
 	void adicionaTrabalho(Trabalho *t1);
 	int getCustoTotal() const;
 	int getDuracaoTotal() const;
@@ -85,10 +81,12 @@ class Construtora {
 	vector<Obra> obras;
 	void lerFicheiroTrabalho(Obra& o1, ifstream& ficheiro_leitura);
 public:
+	Construtora(string nome);
 	Construtora();
 	string getNome() const;
 	int getTamanho() const;
 	void adicionaObra(Obra o1);
+	//Remove Obra?
 	int getCustoTotal() const;
 	int getDuracaoTotal() const;
 	int getAsfaltoTotal() const;
