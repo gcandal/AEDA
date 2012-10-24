@@ -56,7 +56,7 @@ int Obra::getTamanho() const {
 	return trabalhos.size();
 }
 
-static unsigned int Obra::getNr() const {
+static unsigned int Obra::getNr() {
 	return nr;
 }
 
@@ -642,8 +642,3 @@ void Construtora::escreverFicheiro(ofstream& ficheiro_escrita) const {
 	for (; it != obras.end(); it++)
 		it->imprimeFicheiro(ficheiro_escrita);
 }
-
-Construtora::ErroFicheiro::ErroFicheiro(time_t tempo) :
-		tempo(tempo) {
-}
-;
