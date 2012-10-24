@@ -9,7 +9,7 @@
 using namespace std;
 
 const char NOME_FICHEIRO[] = "obras.txt";
-
+/*
 int pedirValor() {
 
 	stringstream ss;
@@ -233,9 +233,9 @@ void novaObra(Construtora& c1) {
 
 	c1.adicionaObra(o1);
 }
-
+*/
 int main() {
-
+/*
 	ifstream ficheiro_leitura(NOME_FICHEIRO);
 	Construtora c1;
 	string op;
@@ -280,7 +280,7 @@ int main() {
 		} while (op != "40");
 
 	ficheiro_leitura.close();
-
+*/
 	return 1;
 }
 

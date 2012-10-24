@@ -5,12 +5,12 @@
 #include <fstream>
 #include <ctime>
 #include <sstream>
-#include "Domestico.h"
-#include "InfraEstrutura.h"
+//#include "Domestico.h"
+//#include "InfraEstrutura.h"
 
 using namespace std;
 
-enum tipoTrabalho{arruamento, saneamento, trolha, eletricista, carpinteiro};
+//enum tipoTrabalho{arruamento, saneamento, trolha, eletricista, carpinteiro};
 
 class Trabalho {
 	const unsigned int duracao, custo;
@@ -26,7 +26,7 @@ public:
 	virtual int getCabo() const;
 	virtual int getMadeira() const;
 	virtual void imprimeFicheiro(ofstream& ficheiro_escrita) const;
-	virtual tipoTrabalho getTipoTrabalho() const;
+	//virtual tipoTrabalho getTipoTrabalho() const;
 	virtual int getId() const;
 	virtual string info() const;
 };
@@ -116,7 +116,7 @@ public:
 		time_t tempo;
 	public:
 		ErroFicheiro(time_t tempo): tempo(tempo) {}
-		time_t getTempo() {return tempo;};
+		time_t getTempo() {return tempo;}
 	};
 };
 

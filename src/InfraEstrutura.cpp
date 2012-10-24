@@ -1,6 +1,8 @@
 #include "Obra.h"
 #include "InfraEstrutura.h"
 
+using namespace std;
+
 //CLASSE INFRA-ESTRUTURA
 InfraEstrutura::InfraEstrutura(int duracao, int custo, string empresa,
 		int idRua) :
@@ -43,6 +45,7 @@ string InfraEstrutura::info() const {
 
 	return ss.str();
 }
+
 //CLASSE ARRUAMENTO
 Arruamento::Arruamento(int duracao, int custo, string empresa, int idRua,
 		int quantAsfalto) :
@@ -76,8 +79,8 @@ int Arruamento::getMadeira() const {
 
 void Arruamento::imprimeFicheiro(ofstream& ficheiro_escrita) const {
 
-	ficheiro_escrita << duracao << '\n' << custo << '\n' << idRua << '\n'
-			<< quantAsfalto << '\n' << "Arruamento" << '\n' << empresa << '\n'
+	ficheiro_escrita << Trabalho::getDuracao() << '\n' << Trabalho::getCusto() << '\n' << InfraEstrutura::getIdRua() << '\n'
+			<< quantAsfalto << '\n' << "Arruamento" << '\n' << Trabalho::getEmpresa() << '\n'
 			<< '\n';
 }
 
@@ -122,10 +125,10 @@ int Saneamento::getMadeira() const {
  return Trabalho::getDuracao();
  }*/
 
-void Saneamento::imprimeFicheiro(ofstream& ficheiro_escrita) const {
+void Saneamento::imprimeFicheiro(ofstream & ficheiro_escrita) const {
 
-	ficheiro_escrita << duracao << '\n' << custo << '\n' << idRua << '\n'
-			<< quantBetao << '\n' << "Saneamento" << '\n' << empresa << '\n'
+	ficheiro_escrita << Trabalho::getDuracao() << '\n' << Trabalho::getCusto() << '\n' << InfraEstrutura::getIdRua() << '\n'
+			<< quantBetao << '\n' << "Saneamento" << '\n' << Trabalho::getEmpresa() << '\n'
 			<< '\n';
 }
 

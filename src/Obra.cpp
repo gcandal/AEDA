@@ -48,15 +48,15 @@ string Trabalho::info() const {
 //CLASSE OBRA
 unsigned int Obra::nr = 0;
 
-Obra::Obra() :
-		nr(++nr) {
+Obra::Obra() {
+	this->nr=nr++;
 }
 
 int Obra::getTamanho() const {
 	return trabalhos.size();
 }
 
-static unsigned int Obra::getNr() {
+unsigned int Obra::getNr() {
 	return nr;
 }
 
@@ -289,7 +289,7 @@ vector<Trabalho *> Obra::trabalhosEmpresa(string emp) {
 
 }
 
-vector<Trabalho *> Obra::trabalhosRua(int id) {
+/*vector<Trabalho *> Obra::trabalhosRua(int id) {
 	vector<Trabalho *> t;
 
 	for (int i = 0; i < getTamanho(); i++) {
@@ -314,7 +314,7 @@ vector<Trabalho *> Obra::trabalhosHabitacao(int id) {
 		}
 	}
 	return t;
-}
+}*/
 
 void Obra::imprimeFicheiro(ofstream& ficheiro_escrita) const {
 
@@ -325,6 +325,7 @@ void Obra::imprimeFicheiro(ofstream& ficheiro_escrita) const {
 	for (; it != trabalhos.end(); it++)
 		(*it)->imprimeFicheiro(ficheiro_escrita);
 }
+
 //CLASSE CONSTRUTORA
 string Construtora::getNome() const {
 	return nome;
@@ -552,7 +553,7 @@ vector<Obra> Construtora::obrasMadeiraMaior(int m) {
 	return o;
 }
 
-void Construtora::lerFicheiroTrabalho(Obra& o1, ifstream& ficheiro_leitura) {
+void Construtora::lerFicheiroTrabalho(Obra& o1, ifstream& ficheiro_leitura) {/*
 
 	string tmp;
 	int tmpn[4];
@@ -578,33 +579,33 @@ void Construtora::lerFicheiroTrabalho(Obra& o1, ifstream& ficheiro_leitura) {
 
 	case 'S':
 		getline(ficheiro_leitura, tmp);
-		Trabalho *t1 = new Saneamento(tmpn[0], tmpn[1], tmp, tmpn[2], tmpn[3]);
-		o1.adicionaTrabalho(t1);
+		Trabalho *t2 = new Saneamento(tmpn[0], tmpn[1], tmp, tmpn[2], tmpn[3]);
+		o1.adicionaTrabalho(t2);
 		break;
 
 	case 'T':
 		getline(ficheiro_leitura, tmp);
-		Trabalho *t1 = new Trolha(tmpn[0], tmpn[1], tmp, tmpn[2], tmpn[3]);
-		o1.adicionaTrabalho(t1);
+		Trabalho *t3 = new Trolha(tmpn[0], tmpn[1], tmp, tmpn[2], tmpn[3]);
+		o1.adicionaTrabalho(t3);
 		break;
 
 	case 'E':
 		getline(ficheiro_leitura, tmp);
-		Trabalho *t1 = new Eletricista(tmpn[0], tmpn[1], tmp, tmpn[2], tmpn[3]);
-		o1.adicionaTrabalho(t1);
+		Trabalho * t4 = new Eletricista(tmpn[0], tmpn[1], tmp, tmpn[2], tmpn[3]);
+		o1.adicionaTrabalho(t4);
 		break;
 
 	case 'C':
 		getline(ficheiro_leitura, tmp);
-		Trabalho *t1 = new Carpinteiro(tmpn[0], tmpn[1], tmp, tmpn[2], tmpn[3]);
-		o1.adicionaTrabalho(t1);
+		Trabalho *t5 = new Carpinteiro(tmpn[0], tmpn[1], tmp, tmpn[2], tmpn[3]);
+		o1.adicionaTrabalho(t5);
 		break;
 	}
 
 	getline(ficheiro_leitura, tmp);
 
 	if (tmp.length() == 0)
-		lerFicheiroTrabalho(o1, ficheiro_leitura);
+		lerFicheiroTrabalho(o1, ficheiro_leitura);*/
 
 }
 

@@ -32,14 +32,14 @@ public:
 	virtual int getMadeira() const;
 	//virtual int getCusto() const;
 	//virtual int getDuracao() const;
-	virtual tipoTrabalho getTipoTrabalho() const;
+	//virtual tipoTrabalho getTipoTrabalho() const;
 	virtual int getId() const {return idHabitacao;}
 	virtual string info() const;
 };
 
 class Trolha: public Domestico {
 	const unsigned int quantBetao;
-	const static tipoTrabalho tipo = trolha;
+	//const static tipoTrabalho tipo = trolha;
 public:
 	Trolha(int duracao, int custo, string empresa, int idRua, int quantBetao);
 	int getBetao() const;
@@ -49,13 +49,13 @@ public:
 	//int getCusto() const;
 	//int getDuracao() const;
 	void imprimeFicheiro(ofstream& ficheiro_escrita) const;
-	virtual tipoTrabalho getTipoTrabalho() const {return tipo;}
+	//virtual tipoTrabalho getTipoTrabalho() const {return tipo;}
 	virtual string info() const;
 };
 
 class Eletricista: public Domestico {
 	const unsigned int compCabo;
-	const static tipoTrabalho tipo = eletricista;
+	//const static tipoTrabalho tipo = eletricista;
 public:
 	Eletricista(int duracao, int custo, string empresa, int idRua,
 			int compCabo);
@@ -66,13 +66,13 @@ public:
 	//int getCusto() const;
 	//int getDuracao() const;
 	void imprimeFicheiro(ofstream& ficheiro_escrita) const;
-	virtual tipoTrabalho getTipoTrabalho() const {return tipo;}
+	//virtual tipoTrabalho getTipoTrabalho() const {return tipo;}
 	virtual string info() const;
 };
 
 class Carpinteiro: public Domestico {
 	const unsigned int areaMadeira;
-	const static tipoTrabalho tipo = carpinteiro;
+	//const static tipoTrabalho tipo = carpinteiro;
 public:
 	Carpinteiro(int duracao, int custo, string empresa, int idRua,
 			unsigned int areaMadeira);
@@ -80,7 +80,7 @@ public:
 	//int getCusto() const;
 	//int getDuracao() const;
 	void imprimeFicheiro(ofstream& ficheiro_escrita) const;
-	virtual tipoTrabalho getTipoTrabalho() const {return tipo;}
+	//virtual tipoTrabalho getTipoTrabalho() const {return tipo;}
 	virtual string info() const;
 };
 
