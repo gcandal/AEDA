@@ -3,61 +3,21 @@
 
 using namespace std;
 
-//CLASSE TRABALHO
-Trabalho::Trabalho(int duracao, int custo, string empresa) :
-		duracao(duracao), custo(custo), empresa(empresa) {
-
-}
-
-int Trabalho::getDuracao() const {
-	return duracao;
-}
-
-int Trabalho::getCusto() const {
-	return custo;
-}
-
-string Trabalho::getEmpresa() const {
-	return empresa;
-}
-
-int Trabalho::getAsfalto() const {
-	return 0;
-}
-
-int Trabalho::getBetao() const {
-	return 0;
-}
-
-int Trabalho::getCabo() const {
-	return 0;
-}
-
-int Trabalho::getMadeira() const {
-	return 0;
-}
-
-string Trabalho::info() const {
-	stringstream ss;
-
-	ss << "Empresa: " << empresa << "\nDuracao: " << duracao << "\nCusto: " << custo << '\n';
-
-	return ss.str();
-}
-
 //CLASSE OBRA
-unsigned int Obra::nr = 0;
+unsigned int Obra::ultimoNr = 0;
 
-Obra::Obra() {
-	this->nr=nr++;
-}
+Obra::Obra(): nr(++ultimoNr) {}
+
+unsigned int Obra::getNr() const {
+	return nr;
+};
 
 int Obra::getTamanho() const {
 	return trabalhos.size();
 }
 
-unsigned int Obra::getNr() {
-	return nr;
+unsigned int Obra::getUltimoNr() {
+	return ultimoNr;
 }
 
 void Obra::adicionaTrabalho(Trabalho *t1) {
@@ -320,11 +280,15 @@ void Obra::imprimeFicheiro(ofstream& ficheiro_escrita) const {
 
 	ficheiro_escrita << "+Obra " << nr << endl << endl;
 
-	for (int i = 0; i < trabalhos.size(); i++)
+	for (unsigned int i = 0; i < trabalhos.size(); i++)
 		trabalhos[i]->imprimeFicheiro(ficheiro_escrita);
 }
 
 //CLASSE CONSTRUTORA
+Construtora::Construtora() {};
+
+Construtora::Construtora(string nome): nome(nome) {};
+
 string Construtora::getNome() const {
 	return nome;
 }
@@ -551,7 +515,7 @@ vector<Obra> Construtora::obrasMadeiraMaior(int m) {
 	return o;
 }
 
-void Construtora::lerFicheiroTrabalho(Obra& o1, ifstream& ficheiro_leitura) {/*
+void Construtora::lerFicheiroTrabalho(Obra& o1, ifstream& ficheiro_leitura) {
 
 	string tmp;
 	int tmpn[4];
@@ -571,39 +535,39 @@ void Construtora::lerFicheiroTrabalho(Obra& o1, ifstream& ficheiro_leitura) {/*
 	switch (tmp[0]) {
 	case 'A':
 		getline(ficheiro_leitura, tmp);
-		Trabalho *t1 = new Arruamento(tmpn[0], tmpn[1], tmp, tmpn[2], tmpn[3]);
-		o1.adicionaTrabalho(t1);
+		{Trabalho *t1 = new Arruamento(tmpn[0], tmpn[1], tmp, tmpn[2], tmpn[3]);
+		o1.adicionaTrabalho(t1);}
 		break;
 
 	case 'S':
 		getline(ficheiro_leitura, tmp);
-		Trabalho *t2 = new Saneamento(tmpn[0], tmpn[1], tmp, tmpn[2], tmpn[3]);
-		o1.adicionaTrabalho(t2);
+		{Trabalho *t2 = new Saneamento(tmpn[0], tmpn[1], tmp, tmpn[2], tmpn[3]);
+		o1.adicionaTrabalho(t2);}
 		break;
 
 	case 'T':
 		getline(ficheiro_leitura, tmp);
-		Trabalho *t3 = new Trolha(tmpn[0], tmpn[1], tmp, tmpn[2], tmpn[3]);
-		o1.adicionaTrabalho(t3);
+		{Trabalho *t3 = new Trolha(tmpn[0], tmpn[1], tmp, tmpn[2], tmpn[3]);
+		o1.adicionaTrabalho(t3);}
 		break;
 
 	case 'E':
 		getline(ficheiro_leitura, tmp);
-		Trabalho * t4 = new Eletricista(tmpn[0], tmpn[1], tmp, tmpn[2], tmpn[3]);
-		o1.adicionaTrabalho(t4);
+		{Trabalho * t4 = new Eletricista(tmpn[0], tmpn[1], tmp, tmpn[2], tmpn[3]);
+		o1.adicionaTrabalho(t4);}
 		break;
 
 	case 'C':
 		getline(ficheiro_leitura, tmp);
-		Trabalho *t5 = new Carpinteiro(tmpn[0], tmpn[1], tmp, tmpn[2], tmpn[3]);
-		o1.adicionaTrabalho(t5);
+		{Trabalho *t5 = new Carpinteiro(tmpn[0], tmpn[1], tmp, tmpn[2], tmpn[3]);
+		o1.adicionaTrabalho(t5);}
 		break;
 	}
 
 	getline(ficheiro_leitura, tmp);
 
 	if (tmp.length() == 0)
-		lerFicheiroTrabalho(o1, ficheiro_leitura);*/
+		lerFicheiroTrabalho(o1, ficheiro_leitura);
 
 }
 
@@ -637,6 +601,6 @@ void Construtora::escreverFicheiro(ofstream& ficheiro_escrita) const {
 	ficheiro_escrita << nome << endl;
 
 
-	for (int i = 0; i < obras.size(); i++)
+	for (unsigned int i = 0; i < obras.size(); i++)
 		obras[i].imprimeFicheiro(ficheiro_escrita);
 }

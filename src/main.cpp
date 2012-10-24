@@ -1,7 +1,4 @@
 #include "Obra.h"
-#include "InfraEstrutura.h"
-#include "Domestico.h"
-
 #include <iostream>
 #include <fstream>
 #include <vector>
@@ -9,7 +6,7 @@
 using namespace std;
 
 const char NOME_FICHEIRO[] = "obras.txt";
-/*
+
 int pedirValor() {
 
 	stringstream ss;
@@ -25,7 +22,7 @@ int pedirValor() {
 }
 
 void infoConstrutora(const Construtora& c1) {
-
+/*
 	string op;
 	int valor;
 
@@ -113,7 +110,7 @@ void infoConstrutora(const Construtora& c1) {
 		}
 		else if(op=="9") {
 			valor=pedirValor();
-			c1.obrasCustoMenor(valor);
+			int a = c1.obrasCustoMenor(valor);
 		}
 		else if (op=="40")
 			cout << endl;
@@ -121,7 +118,7 @@ void infoConstrutora(const Construtora& c1) {
 
 	} while (op != "40");
 
-
+*/
 }
 
 bool lerTrabalho(int& a) {
@@ -233,9 +230,9 @@ void novaObra(Construtora& c1) {
 
 	c1.adicionaObra(o1);
 }
-*/
+
 int main() {
-/*
+
 	ifstream ficheiro_leitura(NOME_FICHEIRO);
 	Construtora c1;
 	string op;
@@ -280,7 +277,7 @@ int main() {
 		} while (op != "40");
 
 	ficheiro_leitura.close();
-*/
+
 	return 1;
 }
 

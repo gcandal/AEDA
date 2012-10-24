@@ -12,7 +12,8 @@ InfraEstrutura::InfraEstrutura(int duracao, int custo, string empresa,
 int InfraEstrutura::getIdRua() const {
 	return idRua;
 }
-
+/*
+ * Useless
 int InfraEstrutura::getAsfalto() const {
 	return 0;
 }
@@ -29,7 +30,7 @@ int InfraEstrutura::getMadeira() const {
 	return 0;
 }
 
-/*int InfraEstrutura::getCusto() const {
+int InfraEstrutura::getCusto() const {
  return Trabalho::getCusto();
  }
 

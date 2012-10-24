@@ -9,7 +9,8 @@ Domestico::Domestico(int duracao, int custo, string empresa, int idHabitacao) :
 int Domestico::getIdHabitacao() const {
 	return idHabitacao;
 }
-
+/*
+ * Useless
 int Domestico::getAsfalto() const {
 	return 0;
 }
@@ -26,6 +27,14 @@ int Domestico::getMadeira() const {
 	return 0;
 }
 
+int Domestico::getCusto() const {
+ return Trabalho::getCusto();
+ }
+
+ int Domestico::getDuracao() const {
+ return Trabalho::getDuracao();
+ }*/
+
 string Domestico::info() const {
 	stringstream ss;
 
@@ -34,14 +43,6 @@ string Domestico::info() const {
 
 	return ss.str();
 }
-
-/*int Domestico::getCusto() const {
- return Trabalho::getCusto();
- }
-
- int Domestico::getDuracao() const {
- return Trabalho::getDuracao();
- }*/
 
 //CLASSE TROLHA
 Trolha::Trolha(int duracao, int custo, string empresa, int idHabitacao,
@@ -143,6 +144,18 @@ Carpinteiro::Carpinteiro(int duracao, int custo, string empresa,
 		int idHabitacao, unsigned int areaMadeira) :
 		Domestico(duracao, custo, empresa, idHabitacao), areaMadeira(
 				areaMadeira) {
+}
+
+int Carpinteiro::getCabo() const {
+	return 0;
+}
+
+int Carpinteiro::getBetao() const {
+	return 0;
+}
+
+int Carpinteiro::getAsfalto() const {
+	return 0;
 }
 
 int Carpinteiro::getMadeira() const {
