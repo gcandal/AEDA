@@ -320,10 +320,8 @@ void Obra::imprimeFicheiro(ofstream& ficheiro_escrita) const {
 
 	ficheiro_escrita << "+Obra " << nr << endl << endl;
 
-	vector<Trabalho *>::iterator it = trabalhos.begin();
-
-	for (; it != trabalhos.end(); it++)
-		(*it)->imprimeFicheiro(ficheiro_escrita);
+	for (int i = 0; i < trabalhos.size(); i++)
+		trabalhos[i]->imprimeFicheiro(ficheiro_escrita);
 }
 
 //CLASSE CONSTRUTORA
@@ -638,8 +636,7 @@ void Construtora::escreverFicheiro(ofstream& ficheiro_escrita) const {
 
 	ficheiro_escrita << nome << endl;
 
-	vector<Obra>::iterator it = obras.begin();
 
-	for (; it != obras.end(); it++)
-		it->imprimeFicheiro(ficheiro_escrita);
+	for (int i = 0; i < obras.size(); i++)
+		obras[i].imprimeFicheiro(ficheiro_escrita);
 }
