@@ -7,7 +7,7 @@
 
 using namespace std;
 
-const char NOME_FICHEIRO[] = "obras.txt";
+const char NOME_FICHEIRO[] = "obras.txt", NOME_FICHEIRO_TMP[]="obras_tmp.txt";
 
 int pedirValor() {
 
@@ -233,6 +233,7 @@ void novaObra(Construtora& c1) {
 int main() {
 
 	ifstream ficheiro_leitura(NOME_FICHEIRO);
+	ofstream ficheiro_escrita(NOME_FICHEIRO_TMP);
 	Construtora c1;
 	string construtora;
 	stringstream ss;
@@ -294,7 +295,13 @@ int main() {
 		ss.clear();
 	} while (op != 40);
 
+
+
+	c1.escreverFicheiro(ficheiro_escrita);
 	ficheiro_leitura.close();
+	ficheiro_escrita.close();
+	remove(NOME_FICHEIRO);
+	rename(NOME_FICHEIRO_TMP,NOME_FICHEIRO);
 
 	return 1;
 }
