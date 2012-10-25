@@ -22,9 +22,9 @@ public:
 	virtual int getBetao() const;
 	virtual int getCabo() const;
 	virtual int getMadeira() const;
-	virtual void imprimeFicheiro(ofstream& ficheiro_escrita) const;
-	virtual tipoTrabalho getTipoTrabalho() const;
-	virtual int getId() const;
+	virtual void imprimeFicheiro(ofstream& ficheiro_escrita) const =0;
+	virtual tipoTrabalho getTipoTrabalho() const =0;
+	virtual int getId() const =0;
 	virtual string info() const;
 };
 
