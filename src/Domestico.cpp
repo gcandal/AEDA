@@ -77,8 +77,7 @@ int Trolha::getMadeira() const {
 void Trolha::imprimeFicheiro(ofstream& ficheiro_escrita) const {
 
 	ficheiro_escrita << Trabalho::getDuracao() << '\n' << Trabalho::getCusto() << '\n' << Domestico::getIdHabitacao() << '\n'
-			<< quantBetao << '\n' << "Trolha" << '\n' << Trabalho::getEmpresa() << '\n'
-			<< '\n';
+			<< quantBetao << '\n' << "Trolha" << '\n' << Trabalho::getEmpresa() << '\n';
 }
 
 string Trolha::info() const {
@@ -125,8 +124,7 @@ int Eletricista::getMadeira() const {
 void Eletricista::imprimeFicheiro(ofstream& ficheiro_escrita) const {
 
 	ficheiro_escrita << Trabalho::getDuracao() << '\n' << Trabalho::getCusto() << '\n' << Domestico::getIdHabitacao() << '\n'
-			<< compCabo << '\n' << "Eletricista" << '\n' << Trabalho::getEmpresa() << '\n'
-			<< '\n';
+			<< compCabo << '\n' << "Eletricista" << '\n' << Trabalho::getEmpresa() << '\n';
 }
 
 string Eletricista::info() const {
@@ -173,8 +171,7 @@ int Carpinteiro::getMadeira() const {
 void Carpinteiro::imprimeFicheiro(ofstream& ficheiro_escrita) const {
 
 	ficheiro_escrita << Trabalho::getDuracao() << '\n' << Trabalho::getCusto() << '\n' << Domestico::getIdHabitacao() << '\n'
-			<< areaMadeira << '\n' << "Carpinteiro" << '\n' << Trabalho::getEmpresa() << '\n'
-			<< '\n';
+			<< areaMadeira << '\n' << "Carpinteiro" << '\n' << Trabalho::getEmpresa() << '\n';
 }
 
 string Carpinteiro::info() const {

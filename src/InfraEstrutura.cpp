@@ -81,8 +81,7 @@ int Arruamento::getMadeira() const {
 void Arruamento::imprimeFicheiro(ofstream& ficheiro_escrita) const {
 
 	ficheiro_escrita << Trabalho::getDuracao() << '\n' << Trabalho::getCusto() << '\n' << InfraEstrutura::getIdRua() << '\n'
-			<< quantAsfalto << '\n' << "Arruamento" << '\n' << Trabalho::getEmpresa() << '\n'
-			<< '\n';
+			<< quantAsfalto << '\n' << "Arruamento" << '\n' << Trabalho::getEmpresa() << '\n';
 }
 
 string Arruamento::info() const {
@@ -129,8 +128,7 @@ int Saneamento::getMadeira() const {
 void Saneamento::imprimeFicheiro(ofstream & ficheiro_escrita) const {
 
 	ficheiro_escrita << Trabalho::getDuracao() << '\n' << Trabalho::getCusto() << '\n' << InfraEstrutura::getIdRua() << '\n'
-			<< quantBetao << '\n' << "Saneamento" << '\n' << Trabalho::getEmpresa() << '\n'
-			<< '\n';
+			<< quantBetao << '\n' << "Saneamento" << '\n' << Trabalho::getEmpresa() << '\n';
 }
 
 string Saneamento::info() const {

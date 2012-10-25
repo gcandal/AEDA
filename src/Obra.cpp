@@ -280,8 +280,13 @@ void Obra::imprimeFicheiro(ofstream& ficheiro_escrita) const {
 
 	ficheiro_escrita << "+Obra " << nr << endl << endl;
 
-	for (unsigned int i = 0; i < trabalhos.size(); i++)
+	for (unsigned int i = 0; i < trabalhos.size(); i++) {
 		trabalhos[i]->imprimeFicheiro(ficheiro_escrita);
+		if(i==trabalhos.size()-1)
+			ficheiro_escrita << "*";
+		else ficheiro_escrita << "\n";
+	}
+
 }
 
 //CLASSE CONSTRUTORA
@@ -518,16 +523,14 @@ vector<Obra> Construtora::obrasMadeiraMaior(int m) {
 void Construtora::lerFicheiroTrabalho(Obra& o1, ifstream& ficheiro_leitura) {
 
 	string tmp;
-	int tmpn[4];
+	int tmpn[]={0,0,0,0};
 	stringstream ss;
 
-	getline(ficheiro_leitura, tmp);
-	getline(ficheiro_leitura, tmp);
-
-	for (int i = 0; i < 5; i++) {
+	for (int i = 0; i < 4; i++) {
 		getline(ficheiro_leitura, tmp);
 		ss << tmp;
 		ss >> tmpn[i];
+		ss.clear();
 	}
 
 	getline(ficheiro_leitura, tmp);
@@ -568,6 +571,10 @@ void Construtora::lerFicheiroTrabalho(Obra& o1, ifstream& ficheiro_leitura) {
 
 	if (tmp.length() == 0)
 		lerFicheiroTrabalho(o1, ficheiro_leitura);
+	else {
+		getline(ficheiro_leitura, tmp);
+		getline(ficheiro_leitura, tmp);
+	}
 
 }
 
@@ -578,17 +585,17 @@ void Construtora::lerFicheiro(ifstream& ficheiro_leitura) {
 	else {
 
 		string tmp;
-		int tmpn[4];
 		stringstream ss;
 
 		getline(ficheiro_leitura, tmp);
 		this->nome = tmp;
 
+		getline(ficheiro_leitura, tmp);
+		getline(ficheiro_leitura, tmp);
+
 		while (!ficheiro_leitura.eof()) {
 			Obra o1;
-
 			lerFicheiroTrabalho(o1, ficheiro_leitura);
-			getline(ficheiro_leitura, tmp);
 
 			adicionaObra(o1);
 		}
@@ -601,6 +608,11 @@ void Construtora::escreverFicheiro(ofstream& ficheiro_escrita) const {
 	ficheiro_escrita << nome << endl;
 
 
-	for (unsigned int i = 0; i < obras.size(); i++)
+	for (unsigned int i = 0; i < obras.size(); i++) {
 		obras[i].imprimeFicheiro(ficheiro_escrita);
+
+		if(i<obras.size()-1)
+			ficheiro_escrita << "\n";
+	}
+
 }
