@@ -129,6 +129,9 @@ void infoConstrutora(const Construtora& c1) {
 			 case 9:
 			 valor = pedirValor();
 			 int a = c1.obrasCustoMenor(valor);*/
+		case 40:
+			cout << endl;
+			break;
 		default:
 			cout << "Opcao invalida.\n";
 			break;
@@ -190,10 +193,6 @@ Trabalho* novoTrabalho() {
 	cout << "3. Trolha\n";
 	cout << "4. Eletricista\n";
 	cout << "5. Carpinteiro\n";
-
-	cout << "Opcao: ";
-
-	cin >> op;
 
 	while (true) {
 		cout << "Opcao: ";
