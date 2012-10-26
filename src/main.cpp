@@ -23,12 +23,19 @@ int pedirValor() {
 	return res;
 }
 
+void imprimeVectorTrabalhos(vector<Trabalho *> vctr) {
+	for (int i = 0; i < vctr.size(); i++) {
+		cout << vctr[i]->info();
+	}
+}
+
 void infoConstrutora(const Construtora& c1) {
 
 	stringstream ss;
 	int op;
 	string str;
 	int valor;
+	vector<Trabalho *> printVector;
 
 	//Erro de quê? -> depois de corrigir adicionar .size() no fim
 	//Não usa ainda funcoes que retornam obra
@@ -59,23 +66,24 @@ void infoConstrutora(const Construtora& c1) {
 
 		switch (op) {
 		case 1:
-			c1.getDuracaoTotal();
+			cout << c1.getDuracaoTotal();
 			break;
 		case 21:
-			c1.getAsfaltoTotal();
+			cout << c1.getAsfaltoTotal();
 			break;
 		case 22:
-			c1.getBetaoTotal();
+			 cout << c1.getBetaoTotal();
 			break;
 		case 23:
-			c1.getCaboTotal();
+			 cout << c1.getCaboTotal();
 			break;
 		case 24:
-			c1.getMadeiraTotal();
+			cout << c1.getMadeiraTotal();
 			break;
 			/*case 31:
 			 valor = pedirValor();
-			 c1.obrasAsfaltoMenor(valor);
+			 printVector = c1.obrasAsfaltoMenor(valor);
+			 imprimeVectorTrabalhos(printVector); //VER SE FUNCIONA E ADICIONAR AOS OUTROS
 			 break;
 			 case 32:
 			 valor = pedirValor();
@@ -108,24 +116,24 @@ void infoConstrutora(const Construtora& c1) {
 		case 5:
 			cout << c1.getTamanho();
 			break;
-		/*case 6:
-			valor = pedirValor();
-			c1.obrasDuracaoMaior(valor);
-			break;
-		case 7:
-			valor = pedirValor();
-			c1.obrasDuracaoMenor(valor);
-		case 8:
-			valor = pedirValor();
-			c1.obrasCustoMaior(valor);
-		case 9:
-			valor = pedirValor();
-			int a = c1.obrasCustoMenor(valor);*/
+			/*case 6:
+			 valor = pedirValor();
+			 c1.obrasDuracaoMaior(valor);
+			 break;
+			 case 7:
+			 valor = pedirValor();
+			 c1.obrasDuracaoMenor(valor);
+			 case 8:
+			 valor = pedirValor();
+			 c1.obrasCustoMaior(valor);
+			 case 9:
+			 valor = pedirValor();
+			 int a = c1.obrasCustoMenor(valor);*/
 		default:
 			cout << "Opcao invalida.\n";
 			break;
 		}
-
+		ss.clear();
 	} while (op != 40);
 
 }
