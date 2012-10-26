@@ -7,7 +7,7 @@
 
 using namespace std;
 
-const char NOME_FICHEIRO[] = "obras.txt", NOME_FICHEIRO_TMP[]="obras_tmp.txt";
+const char NOME_FICHEIRO[] = "obras.txt", NOME_FICHEIRO_TMP[] = "obras_tmp.txt";
 
 int pedirValor() {
 
@@ -73,67 +73,58 @@ void infoConstrutora(const Construtora& c1) {
 		case 24:
 			c1.getMadeiraTotal();
 			break;
-		case 31:
-			valor = pedirValor();
-			//c1.obrasAsfaltoMenor(200);
+			/*case 31:
+			 valor = pedirValor();
+			 c1.obrasAsfaltoMenor(valor);
+			 break;
+			 case 32:
+			 valor = pedirValor();
+			 c1.obrasBetaoMenor(valor);
+			 break;
+			 case 33:
+			 valor = pedirValor();
+			 c1.obrasCaboMenor(valor);
+			 break;
+			 case 31:
+			 valor = pedirValor();
+			 c1.obrasMadeiraMenor(valor);
+			 break;
+			 case 41:
+			 valor = pedirValor();
+			 c1.obrasAsfaltoMaior(valor);
+			 break;
+			 case 42:
+			 valor = pedirValor();
+			 c1.obrasBetaoMaior(valor);
+			 break;
+			 case 43:
+			 valor = pedirValor();
+			 c1.obrasCaboMaior(valor);
+			 break;
+			 case 44:
+			 valor = pedirValor();
+			 c1.obrasMadeiraMaior(valor);
+			 break;*/
+		case 5:
+			cout << c1.getTamanho();
 			break;
+		/*case 6:
+			valor = pedirValor();
+			c1.obrasDuracaoMaior(valor);
+			break;
+		case 7:
+			valor = pedirValor();
+			c1.obrasDuracaoMenor(valor);
+		case 8:
+			valor = pedirValor();
+			c1.obrasCustoMaior(valor);
+		case 9:
+			valor = pedirValor();
+			int a = c1.obrasCustoMenor(valor);*/
 		default:
 			cout << "Opcao invalida.\n";
 			break;
 		}
-		/*
-		 if (op == "1")
-		 c1.getDuracaoTotal();
-		 else if (op == "21")
-		 c1.getAsfaltoTotal();
-		 else if (op == "22")
-		 c1.getBetaoTotal();
-		 else if (op == "23")
-		 c1.getCaboTotal();
-		 else if (op == "24")
-		 c1.getMadeiraTotal();
-		 else if (op == "31") {
-		 valor = pedirValor();
-		 c1.obrasAsfaltoMenor(valor);
-		 } else if (op == "32") {
-		 valor = pedirValor();
-		 c1.obrasBetaoMenor(valor);
-		 } else if (op == "33") {
-		 valor = pedirValor();
-		 c1.obrasCaboMenor(valor);
-		 } else if (op == "34") {
-		 valor = pedirValor();
-		 c1.obrasMadeiraMenor(valor);
-		 } else if (op == "41") {
-		 valor = pedirValor();
-		 c1.obrasAsfaltoMaior(valor);
-		 } else if (op == "42") {
-		 valor = pedirValor();
-		 c1.obrasBetaoMaior(valor);
-		 } else if (op == "43") {
-		 valor = pedirValor();
-		 c1.obrasCaboMaior(valor);
-		 } else if (op == "44") {
-		 valor = pedirValor();
-		 c1.obrasMadeiraMaior(valor);
-		 } else if (op == "5")
-		 c1.getTamanho();
-		 else if (op == "6") {
-		 valor = pedirValor();
-		 c1.obrasDuracaoMaior(valor);
-		 } else if (op == "7") {
-		 valor = pedirValor();
-		 c1.obrasDuracaoMenor(valor);
-		 } else if (op == "8") {
-		 valor = pedirValor();
-		 c1.obrasCustoMaior(valor);
-		 } else if (op == "9") {
-		 valor = pedirValor();
-		 int a = c1.obrasCustoMenor(valor);
-		 } else if (op == "40")
-		 cout << endl;
-		 else
-		 cout << "Opcao invalida.\n";*/
 
 	} while (op != 40);
 
@@ -311,13 +302,11 @@ int main() {
 		ss.clear();
 	} while (op != 40);
 
-
-
 	c1.escreverFicheiro(ficheiro_escrita);
 	ficheiro_leitura.close();
 	ficheiro_escrita.close();
 	remove(NOME_FICHEIRO);
-	rename(NOME_FICHEIRO_TMP,NOME_FICHEIRO);
+	rename(NOME_FICHEIRO_TMP, NOME_FICHEIRO);
 
 	return 1;
 }
