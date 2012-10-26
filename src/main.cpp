@@ -24,103 +24,119 @@ int pedirValor() {
 }
 
 void infoConstrutora(const Construtora& c1) {
-	/*
-	 string op;
-	 int valor;
 
+	stringstream ss;
+	int op;
+	string str;
+	int valor;
 
-	 //Erro de quê? -> depois de corrigir adicionar .size() no fim
-	 //Não usa ainda funcoes que retornam obra
+	//Erro de quê? -> depois de corrigir adicionar .size() no fim
+	//Não usa ainda funcoes que retornam obra
 
-	 do {
-	 cout << "1. Tempo total ate terminarem todas as obras" << endl;
-	 cout << "2x. Material total necessario para todas as obras" << endl;
-	 cout << "3x. Material necessario menor do que..." << endl;
-	 cout << "4x. Material necessario maior do que..." << endl;
-	 cout << "5. Numero de obras a serem realizadas" << endl;
-	 cout << "6. Obras que vao demorar mais do que..." << endl;
-	 cout << "7. Obras que vao demorar menos do que..." << endl;
-	 cout << "8. Obras que vao custar mais do que..." << endl;
-	 cout << "9. Obras que vao custar menos do que..." << endl;
-	 cout << "40. Sair" << endl << endl;
+	do {
+		cout << "1. Tempo total ate terminarem todas as obras" << endl;
+		cout << "2x. Material total necessario para todas as obras" << endl;
+		cout << "3x. Material necessario menor do que..." << endl;
+		cout << "4x. Material necessario maior do que..." << endl;
+		cout << "5. Numero de obras a serem realizadas" << endl;
+		cout << "6. Obras que vao demorar mais do que..." << endl;
+		cout << "7. Obras que vao demorar menos do que..." << endl;
+		cout << "8. Obras que vao custar mais do que..." << endl;
+		cout << "9. Obras que vao custar menos do que..." << endl;
+		cout << "40. Sair" << endl << endl;
 
-	 cout << "Valores de x:" << endl;
-	 cout << "1: Asfalto" << endl;
-	 cout << "2: Betao" << endl;
-	 cout << "3: Cabo" << endl;
-	 cout << "4: Madeira" << endl;
+		cout << "Valores de x:" << endl;
+		cout << "1: Asfalto" << endl;
+		cout << "2: Betao" << endl;
+		cout << "3: Cabo" << endl;
+		cout << "4: Madeira" << endl;
 
-	 cout << "\nEscolha opcao: ";
-	 cin >> op;
-	 cout << "\n";
+		cout << "\nEscolha opcao: ";
+		cin >> str;
+		ss << str;
+		ss >> op;
+		cout << "\n";
 
-	 if(op=="1")
-	 c1.getDuracaoTotal();
-	 else if(op=="21")
-	 c1.getAsfaltoTotal();
-	 else if(op=="22")
-	 c1.getBetaoTotal();
-	 else if(op=="23")
-	 c1.getCaboTotal();
-	 else if(op=="24")
-	 c1.getMadeiraTotal();
-	 else if(op=="31") {
-	 valor=pedirValor();
-	 c1.obrasAsfaltoMenor(valor);
-	 }
-	 else if(op=="32") {
-	 valor=pedirValor();
-	 c1.obrasBetaoMenor(valor);
-	 }
-	 else if(op=="33") {
-	 valor=pedirValor();
-	 c1.obrasCaboMenor(valor);
-	 }
-	 else if(op=="34") {
-	 valor=pedirValor();
-	 c1.obrasMadeiraMenor(valor);
-	 }
-	 else if(op=="41") {
-	 valor=pedirValor();
-	 c1.obrasAsfaltoMaior(valor);
-	 }
-	 else if(op=="42") {
-	 valor=pedirValor();
-	 c1.obrasBetaoMaior(valor);
-	 }
-	 else if(op=="43") {
-	 valor=pedirValor();
-	 c1.obrasCaboMaior(valor);
-	 }
-	 else if(op=="44") {
-	 valor=pedirValor();
-	 c1.obrasMadeiraMaior(valor);
-	 }
-	 else if(op=="5")
-	 c1.getTamanho();
-	 else if(op=="6") {
-	 valor=pedirValor();
-	 c1.obrasDuracaoMaior(valor);
-	 }
-	 else if(op=="7") {
-	 valor=pedirValor();
-	 c1.obrasDuracaoMenor(valor);
-	 }
-	 else if(op=="8") {
-	 valor=pedirValor();
-	 c1.obrasCustoMaior(valor);
-	 }
-	 else if(op=="9") {
-	 valor=pedirValor();
-	 int a = c1.obrasCustoMenor(valor);
-	 }
-	 else if (op=="40")
-	 cout << endl;
-	 else cout << "Opcao invalida.\n";
+		switch (op) {
+		case 1:
+			c1.getDuracaoTotal();
+			break;
+		case 21:
+			c1.getAsfaltoTotal();
+			break;
+		case 22:
+			c1.getBetaoTotal();
+			break;
+		case 23:
+			c1.getCaboTotal();
+			break;
+		case 24:
+			c1.getMadeiraTotal();
+			break;
+		case 31:
+			valor = pedirValor();
+			//c1.obrasAsfaltoMenor(200);
+			break;
+		default:
+			cout << "Opcao invalida.\n";
+			break;
+		}
+		/*
+		 if (op == "1")
+		 c1.getDuracaoTotal();
+		 else if (op == "21")
+		 c1.getAsfaltoTotal();
+		 else if (op == "22")
+		 c1.getBetaoTotal();
+		 else if (op == "23")
+		 c1.getCaboTotal();
+		 else if (op == "24")
+		 c1.getMadeiraTotal();
+		 else if (op == "31") {
+		 valor = pedirValor();
+		 c1.obrasAsfaltoMenor(valor);
+		 } else if (op == "32") {
+		 valor = pedirValor();
+		 c1.obrasBetaoMenor(valor);
+		 } else if (op == "33") {
+		 valor = pedirValor();
+		 c1.obrasCaboMenor(valor);
+		 } else if (op == "34") {
+		 valor = pedirValor();
+		 c1.obrasMadeiraMenor(valor);
+		 } else if (op == "41") {
+		 valor = pedirValor();
+		 c1.obrasAsfaltoMaior(valor);
+		 } else if (op == "42") {
+		 valor = pedirValor();
+		 c1.obrasBetaoMaior(valor);
+		 } else if (op == "43") {
+		 valor = pedirValor();
+		 c1.obrasCaboMaior(valor);
+		 } else if (op == "44") {
+		 valor = pedirValor();
+		 c1.obrasMadeiraMaior(valor);
+		 } else if (op == "5")
+		 c1.getTamanho();
+		 else if (op == "6") {
+		 valor = pedirValor();
+		 c1.obrasDuracaoMaior(valor);
+		 } else if (op == "7") {
+		 valor = pedirValor();
+		 c1.obrasDuracaoMenor(valor);
+		 } else if (op == "8") {
+		 valor = pedirValor();
+		 c1.obrasCustoMaior(valor);
+		 } else if (op == "9") {
+		 valor = pedirValor();
+		 int a = c1.obrasCustoMenor(valor);
+		 } else if (op == "40")
+		 cout << endl;
+		 else
+		 cout << "Opcao invalida.\n";*/
 
-	 } while (op != "40");
+	} while (op != 40);
 
-	 */
 }
 
 bool lerTrabalho(int& a) {
