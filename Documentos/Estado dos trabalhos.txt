@@ -25,16 +25,18 @@ Funcionalidades implementadas:
 - trabalhos em x rua
 - trabalhos em x habitacao
 
+- custo por tipo de trabalho
+- duracao por tipo de trabalho
+
+- funçoes para imprimir dados de uma obra e construtora
+
+
 
 Funcionalidades que podemos implementar:
 
-
-- custo por tipo de trabalho
-- funçoes para imprimir dados de uma obra e construtora
 - operadores ==, +
 - eliminar um trabalho de uma obra (para isto é preciso o operador ==)
 - eliminar uma obra de uma construtora
-
 
 
 Coisas que precisamos de ver:
