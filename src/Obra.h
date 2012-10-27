@@ -30,6 +30,8 @@ public:
 	int getTamanho() const;
 	static unsigned int getUltimoNr();
 	void adicionaTrabalho(Trabalho *t1);
+	bool eliminaTrab(Trabalho *t1);
+	bool eliminaTrab(unsigned int n);
 	unsigned int getNr() const;
 	int getCustoTotal() const;
 	int getCustoTrab(tipoTrabalho t);
@@ -71,7 +73,8 @@ public:
 	string getNome() const;
 	int getTamanho() const;
 	void adicionaObra(Obra o1);
-	//Remove Obra?
+	bool eliminaObra(Obra o1);
+	bool eliminaObra(unsigned int n);
 	int getCustoTotal() const;
 	int getDuracaoTotal() const;
 	int getAsfaltoTotal() const;

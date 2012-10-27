@@ -1,10 +1,16 @@
 #include "Trabalho.h"
 
 //CLASSE TRABALHO
+unsigned int Trabalho::ultimoNum = 0;
+
 Trabalho::Trabalho(int duracao, int custo, string empresa) :
-		duracao(duracao), custo(custo), empresa(empresa) {
+		duracao(duracao), custo(custo), empresa(empresa), num(++ultimoNum) {
 
 }
+
+unsigned int Trabalho::getNum() const {
+	return num;
+};
 
 int Trabalho::getDuracao() const {
 	return duracao;

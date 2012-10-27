@@ -12,9 +12,12 @@ enum tipoTrabalho{arruamento, saneamento, trolha, eletricista, carpinteiro};
 class Trabalho {
 	const unsigned int duracao, custo;
 	string empresa;
+	static unsigned int ultimoNum;
+	unsigned int num;
 public:
 	Trabalho(int duracao, int custo, string empresa);
 	virtual ~Trabalho() {}
+	unsigned int getNum() const;
 	string getEmpresa() const;
 	/*virtual*/ int getCusto() const;
 	/*virtual*/ int getDuracao() const;
