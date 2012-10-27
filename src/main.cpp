@@ -24,7 +24,7 @@ int pedirValor() {
 }
 
 void imprimeVectorTrabalhos(vector<Trabalho *> vctr) {
-	for (int i = 0; i < vctr.size(); i++) {
+	for (unsigned int i = 0; i < vctr.size(); i++) {
 		cout << vctr[i]->info();
 	}
 }
@@ -270,7 +270,7 @@ int main() {
 	}
 
 	do {
-		cout << "Construtora " << c1.getNome() << endl;
+		cout << /*"Construtora " <<*/ c1.getNome() << endl;
 		cout << "1. Informacao sobre Construtora" << endl;
 		cout << "2. Adicionar uma Obra" << endl;
 		cout << "3. (...)" << endl;

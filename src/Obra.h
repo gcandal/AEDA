@@ -32,6 +32,8 @@ public:
 	void adicionaTrabalho(Trabalho *t1);
 	unsigned int getNr() const;
 	int getCustoTotal() const;
+	int getCustoTrab(tipoTrabalho t);
+	int getDuracaoTrab(tipoTrabalho t);
 	int getDuracaoTotal() const;
 	int getAsfaltoTotal() const;
 	int getBetaoTotal() const;

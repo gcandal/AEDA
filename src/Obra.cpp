@@ -286,7 +286,26 @@ void Obra::imprimeFicheiro(ofstream& ficheiro_escrita) const {
 			ficheiro_escrita << "*";
 		else ficheiro_escrita << "\n";
 	}
+}
 
+int Obra::getCustoTrab(tipoTrabalho t) {
+	int count=0;
+
+	for(unsigned int i=0; i<trabalhos.size(); i++) {
+		if(trabalhos[i]->getTipoTrabalho() == t)
+			count += trabalhos[i]->getCusto();
+	}
+	return count;
+}
+
+int Obra::getDuracaoTrab(tipoTrabalho t) {
+	int count=0;
+
+	for(unsigned int i=0; i<trabalhos.size(); i++) {
+		if(trabalhos[i]->getTipoTrabalho() == t)
+			count += trabalhos[i]->getDuracao();
+	}
+	return count;
 }
 
 //CLASSE CONSTRUTORA
@@ -607,12 +626,12 @@ void Construtora::escreverFicheiro(ofstream& ficheiro_escrita) const {
 
 	ficheiro_escrita << nome << endl;
 
-
 	for (unsigned int i = 0; i < obras.size(); i++) {
 		obras[i].imprimeFicheiro(ficheiro_escrita);
 
 		if(i<obras.size()-1)
 			ficheiro_escrita << "\n";
 	}
-
 }
+
+
