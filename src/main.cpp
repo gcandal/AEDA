@@ -50,7 +50,7 @@ void infoConstrutora(const Construtora& c1) {
 		cout << "7. Obras que vao demorar menos do que..." << endl;
 		cout << "8. Obras que vao custar mais do que..." << endl;
 		cout << "9. Obras que vao custar menos do que..." << endl;
-		cout << "40. Sair" << endl << endl;
+		cout << "10. Voltar ao menu anterior" << endl << endl;
 
 		cout << "Valores de x:" << endl;
 		cout << "1: Asfalto" << endl;
@@ -66,19 +66,19 @@ void infoConstrutora(const Construtora& c1) {
 
 		switch (op) {
 		case 1:
-			cout << c1.getDuracaoTotal();
+			cout << c1.getDuracaoTotal() << endl;
 			break;
 		case 21:
-			cout << c1.getAsfaltoTotal();
+			cout << c1.getAsfaltoTotal() << endl;
 			break;
 		case 22:
-			 cout << c1.getBetaoTotal();
+			 cout << c1.getBetaoTotal() << endl;
 			break;
 		case 23:
-			 cout << c1.getCaboTotal();
+			 cout << c1.getCaboTotal() << endl;
 			break;
 		case 24:
-			cout << c1.getMadeiraTotal();
+			cout << c1.getMadeiraTotal() << endl;
 			break;
 			/*case 31:
 			 valor = pedirValor();
@@ -129,7 +129,7 @@ void infoConstrutora(const Construtora& c1) {
 			 case 9:
 			 valor = pedirValor();
 			 int a = c1.obrasCustoMenor(valor);*/
-		case 40:
+		case 10:
 			cout << endl;
 			break;
 		default:
@@ -137,7 +137,7 @@ void infoConstrutora(const Construtora& c1) {
 			break;
 		}
 		ss.clear();
-	} while (op != 40);
+	} while (op != 10);
 
 }
 
@@ -258,7 +258,7 @@ int main() {
 		c1.lerFicheiro(ficheiro_leitura);
 	} catch (Construtora::ErroFicheiro &e) {
 		cout << "Tentativa de abrir o ficheiro falhou ha "
-				<< time(NULL) - e.getTempo() << " segundos atras.\n";
+				<< time(NULL) - e.getTempo() << " segundos atras.\n" << endl;
 		cout << "Por favor insira o nome da construtora: ";
 
 		cin >> construtora;
@@ -270,7 +270,7 @@ int main() {
 	}
 
 	do {
-		cout << /*"Construtora " <<*/ c1.getNome() << endl;
+		cout << "Construtora " << c1.getNome() << endl;
 		cout << "1. Informacao sobre Construtora" << endl;
 		cout << "2. Adicionar uma Obra" << endl;
 		cout << "3. (...)" << endl;
