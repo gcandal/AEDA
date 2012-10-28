@@ -648,7 +648,7 @@ void Construtora::lerFicheiroTrabalho(Obra& o1, ifstream& ficheiro_leitura) {
 void Construtora::lerFicheiro(ifstream& ficheiro_leitura) {
 
 	if (!ficheiro_leitura)
-		throw ErroFicheiro(time(NULL));
+		throw ErroFicheiro();
 	else {
 
 		string tmp;

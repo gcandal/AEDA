@@ -1,13 +1,4 @@
-#include "Obra.h"
-#include <iostream>
-#include <fstream>
-#include <vector>
-#include <stdio.h>
-#include <stdlib.h>
-
-using namespace std;
-
-const char NOME_FICHEIRO[] = "obras.txt", NOME_FICHEIRO_TMP[] = "obras_tmp.txt";
+#include "main.h"
 
 int pedirValor() {
 
@@ -246,20 +237,30 @@ void novaObra(Construtora& c1) {
 
 int main() {
 
-	ifstream ficheiro_leitura(NOME_FICHEIRO);
-	ofstream ficheiro_escrita(NOME_FICHEIRO_TMP);
+	string NOME_FICHEIRO = "obras", NOME_FICHEIRO_TMP = "obras_tmp";
 	Construtora c1;
 	string construtora;
 	stringstream ss;
 	int op;
 	string str;
 
+
+	cout << "Insira o numero da construtora sobre a qual quer trabalhar: ";
+	cin >> str;
+	cout << endl;
+	NOME_FICHEIRO+=(str+".txt");
+	NOME_FICHEIRO_TMP+=(str+".txt");
+
+
+	ifstream ficheiro_leitura(NOME_FICHEIRO.c_str());
+	ofstream ficheiro_escrita(NOME_FICHEIRO_TMP.c_str());
+
+
 	try {
 		c1.lerFicheiro(ficheiro_leitura);
 	} catch (Construtora::ErroFicheiro &e) {
-		cout << "Tentativa de abrir o ficheiro falhou ha "
-				<< time(NULL) - e.getTempo() << " segundos atras.\n" << endl;
-		cout << "Por favor insira o nome da construtora: ";
+		cout << "Tentativa de abrir o ficheiro falhou.\n" << endl;
+		cout << "Por favor insira o nome para a construtora a ser criada no ficheiro " << NOME_FICHEIRO << ":\n";
 
 		cin >> construtora;
 		Construtora* c2 = new Construtora(construtora);
@@ -312,8 +313,8 @@ int main() {
 	c1.escreverFicheiro(ficheiro_escrita);
 	ficheiro_leitura.close();
 	ficheiro_escrita.close();
-	remove(NOME_FICHEIRO);
-	rename(NOME_FICHEIRO_TMP, NOME_FICHEIRO);
+	remove(NOME_FICHEIRO.c_str());
+	rename(NOME_FICHEIRO_TMP.c_str(), NOME_FICHEIRO.c_str());
 
 	return 1;
 }

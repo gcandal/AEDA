@@ -101,10 +101,8 @@ public:
 	void lerFicheiro(ifstream& ficheiro_leitura);
 
 	class ErroFicheiro {
-		time_t tempo;
 	public:
-		ErroFicheiro(time_t tempo): tempo(tempo) {}
-		time_t getTempo() {return tempo;}
+		ErroFicheiro() {}
 	};
 };
 
