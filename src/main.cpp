@@ -20,13 +20,19 @@ void imprimeVectorTrabalhos(vector<Trabalho *> vctr) {
 	}
 }
 
-void infoConstrutora(const Construtora& c1) {
+void imprimeVectorObras(vector<Obra> vctr){
+	for (unsigned int i = 0; i < vctr.size(); i++) {
+			cout << vctr[i].getNr() << endl;
+		}
+}
+
+void infoConstrutora( Construtora& c1) {
 
 	stringstream ss;
 	int op;
 	string str;
 	int valor;
-	vector<Trabalho *> printVector;
+
 
 	//Erro de quê? -> depois de corrigir adicionar .size() no fim
 	//Não usa ainda funcoes que retornam obra
@@ -55,6 +61,7 @@ void infoConstrutora(const Construtora& c1) {
 		ss >> op;
 		cout << "\n";
 
+
 		switch (op) {
 		case 1:
 			cout << c1.getDuracaoTotal() << endl;
@@ -63,63 +70,62 @@ void infoConstrutora(const Construtora& c1) {
 			cout << c1.getAsfaltoTotal() << endl;
 			break;
 		case 22:
-			 cout << c1.getBetaoTotal() << endl;
+			cout << c1.getBetaoTotal() << endl;
 			break;
 		case 23:
-			 cout << c1.getCaboTotal() << endl;
+			cout << c1.getCaboTotal() << endl;
 			break;
 		case 24:
 			cout << c1.getMadeiraTotal() << endl;
 			break;
-			case 31:
-			 /*valor = pedirValor();
-			 printVector = c1.obrasAsfaltoMenor();
-			 imprimeVectorTrabalhos(printVector); //VER SE FUNCIONA E ADICIONAR AOS OUTROS
-			 break;
-			 case 32:
-			 valor = pedirValor();
-			 c1.obrasBetaoMenor(valor);
-			 break;
-			 case 33:
-			 valor = pedirValor();
-			 c1.obrasCaboMenor(valor);
-			 break;
-			 case 31:
-			 valor = pedirValor();
-			 c1.obrasMadeiraMenor(valor);
-			 break;
-			 case 41:
-			 valor = pedirValor();
-			 c1.obrasAsfaltoMaior(valor);
-			 break;
-			 case 42:
-			 valor = pedirValor();
-			 c1.obrasBetaoMaior(valor);
-			 break;
-			 case 43:
-			 valor = pedirValor();
-			 c1.obrasCaboMaior(valor);
-			 break;
-			 case 44:
-			 valor = pedirValor();
-			 c1.obrasMadeiraMaior(valor);
-			 break;*/
+		case 31:
+			valor = pedirValor();
+			imprimeVectorObras(c1.obrasAsfaltoMenor(valor)); //VER SE FUNCIONA E ADICIONAR AOS OUTROS
+			break;
+		case 32:
+			valor = pedirValor();
+			c1.obrasBetaoMenor(valor);
+			break;
+		case 33:
+			valor = pedirValor();
+			c1.obrasCaboMenor(valor);
+			break;
+		case 34:
+			valor = pedirValor();
+			c1.obrasMadeiraMenor(valor);
+			break;
+		case 41:
+			valor = pedirValor();
+			c1.obrasAsfaltoMaior(valor);
+			break;
+		case 42:
+			valor = pedirValor();
+			c1.obrasBetaoMaior(valor);
+			break;
+		case 43:
+			valor = pedirValor();
+			c1.obrasCaboMaior(valor);
+			break;
+		case 44:
+			valor = pedirValor();
+			c1.obrasMadeiraMaior(valor);
+			break;
 		case 5:
 			cout << c1.getTamanho();
 			break;
-			/*case 6:
-			 valor = pedirValor();
-			 c1.obrasDuracaoMaior(valor);
-			 break;
-			 case 7:
-			 valor = pedirValor();
-			 c1.obrasDuracaoMenor(valor);
-			 case 8:
-			 valor = pedirValor();
-			 c1.obrasCustoMaior(valor);
-			 case 9:
-			 valor = pedirValor();
-			 int a = c1.obrasCustoMenor(valor);*/
+		case 6:
+			valor = pedirValor();
+			c1.obrasDuracaoMaior(valor);
+			break;
+		case 7:
+			valor = pedirValor();
+			c1.obrasDuracaoMenor(valor);
+		case 8:
+			valor = pedirValor();
+			c1.obrasCustoMaior(valor);
+		case 9:
+			valor = pedirValor();
+			c1.obrasCustoMenor(valor);
 		case 10:
 			cout << endl;
 			break;
@@ -244,23 +250,22 @@ int main() {
 	int op;
 	string str;
 
-
 	cout << "Insira o numero da construtora sobre a qual quer trabalhar: ";
 	cin >> str;
 	cout << endl;
-	NOME_FICHEIRO+=(str+".txt");
-	NOME_FICHEIRO_TMP+=(str+".txt");
-
+	NOME_FICHEIRO += (str + ".txt");
+	NOME_FICHEIRO_TMP += (str + ".txt");
 
 	ifstream ficheiro_leitura(NOME_FICHEIRO.c_str());
 	ofstream ficheiro_escrita(NOME_FICHEIRO_TMP.c_str());
-
 
 	try {
 		c1.lerFicheiro(ficheiro_leitura);
 	} catch (Construtora::ErroFicheiro &e) {
 		cout << "Tentativa de abrir o ficheiro falhou.\n" << endl;
-		cout << "Por favor insira o nome para a construtora a ser criada no ficheiro " << NOME_FICHEIRO << ":\n";
+		cout
+				<< "Por favor insira o nome para a construtora a ser criada no ficheiro "
+				<< NOME_FICHEIRO << ":\n";
 
 		cin >> construtora;
 		Construtora* c2 = new Construtora(construtora);
