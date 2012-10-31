@@ -273,7 +273,7 @@ vector<Trabalho *> Obra::trabalhosEmpresa(string emp) {
 
 }
 
-/*vector<Trabalho *> Obra::trabalhosRua(int id) {
+vector<Trabalho *> Obra::trabalhosRua(int id) {
 	vector<Trabalho *> t;
 
 	for (int i = 0; i < getTamanho(); i++) {
@@ -298,7 +298,7 @@ vector<Trabalho *> Obra::trabalhosHabitacao(int id) {
 		}
 	}
 	return t;
-}*/
+}
 
 void Obra::imprimeFicheiro(ofstream& ficheiro_escrita) const {
 
