@@ -142,7 +142,7 @@ Trabalho & Obra::trabalhoMaiorDuracao() {
 	return *trabalhos[j];
 }
 
-vector<Trabalho *> Obra::trabalhosCustoMenor(int c) {
+vector<Trabalho *> Obra::trabalhosCustoMenor(int c) const {
 	vector<Trabalho *> t;
 
 	for (int i = 0; i < getTamanho(); i++) {
@@ -152,7 +152,7 @@ vector<Trabalho *> Obra::trabalhosCustoMenor(int c) {
 	return t;
 }
 
-vector<Trabalho *> Obra::trabalhosDuracaoMenor(int d) {
+vector<Trabalho *> Obra::trabalhosDuracaoMenor(int d) const {
 	vector<Trabalho *> t;
 
 	for (int i = 0; i < getTamanho(); i++) {
@@ -162,7 +162,7 @@ vector<Trabalho *> Obra::trabalhosDuracaoMenor(int d) {
 	return t;
 }
 
-vector<Trabalho *> Obra::trabalhosAsfaltoMenor(int a) {
+vector<Trabalho *> Obra::trabalhosAsfaltoMenor(int a) const {
 	vector<Trabalho *> t;
 
 	for (int i = 0; i < getTamanho(); i++) {
@@ -172,7 +172,7 @@ vector<Trabalho *> Obra::trabalhosAsfaltoMenor(int a) {
 	return t;
 }
 
-vector<Trabalho *> Obra::trabalhosBetaoMenor(int b) {
+vector<Trabalho *> Obra::trabalhosBetaoMenor(int b) const {
 	vector<Trabalho *> t;
 
 	for (int i = 0; i < getTamanho(); i++) {
@@ -182,7 +182,7 @@ vector<Trabalho *> Obra::trabalhosBetaoMenor(int b) {
 	return t;
 }
 
-vector<Trabalho *> Obra::trabalhosCaboMenor(int c) {
+vector<Trabalho *> Obra::trabalhosCaboMenor(int c) const {
 	vector<Trabalho *> t;
 
 	for (int i = 0; i < getTamanho(); i++) {
@@ -192,7 +192,7 @@ vector<Trabalho *> Obra::trabalhosCaboMenor(int c) {
 	return t;
 }
 
-vector<Trabalho *> Obra::trabalhosMadeiraMenor(int m) {
+vector<Trabalho *> Obra::trabalhosMadeiraMenor(int m) const {
 	vector<Trabalho *> t;
 
 	for (int i = 0; i < getTamanho(); i++) {
@@ -202,7 +202,7 @@ vector<Trabalho *> Obra::trabalhosMadeiraMenor(int m) {
 	return t;
 }
 
-vector<Trabalho *> Obra::trabalhosCustoMaior(int c) {
+vector<Trabalho *> Obra::trabalhosCustoMaior(int c) const {
 	vector<Trabalho *> t;
 
 	for (int i = 0; i < getTamanho(); i++) {
@@ -212,7 +212,7 @@ vector<Trabalho *> Obra::trabalhosCustoMaior(int c) {
 	return t;
 }
 
-vector<Trabalho *> Obra::trabalhosDuracaoMaior(int d) {
+vector<Trabalho *> Obra::trabalhosDuracaoMaior(int d) const {
 	vector<Trabalho *> t;
 
 	for (int i = 0; i < getTamanho(); i++) {
@@ -222,7 +222,7 @@ vector<Trabalho *> Obra::trabalhosDuracaoMaior(int d) {
 	return t;
 }
 
-vector<Trabalho *> Obra::trabalhosAsfaltoMaior(int a) {
+vector<Trabalho *> Obra::trabalhosAsfaltoMaior(int a) const {
 	vector<Trabalho *> t;
 
 	for (int i = 0; i < getTamanho(); i++) {
@@ -232,7 +232,7 @@ vector<Trabalho *> Obra::trabalhosAsfaltoMaior(int a) {
 	return t;
 }
 
-vector<Trabalho *> Obra::trabalhosBetaoMaior(int b) {
+vector<Trabalho *> Obra::trabalhosBetaoMaior(int b) const {
 	vector<Trabalho *> t;
 
 	for (int i = 0; i < getTamanho(); i++) {
@@ -242,7 +242,7 @@ vector<Trabalho *> Obra::trabalhosBetaoMaior(int b) {
 	return t;
 }
 
-vector<Trabalho *> Obra::trabalhosCaboMaior(int c) {
+vector<Trabalho *> Obra::trabalhosCaboMaior(int c) const {
 	vector<Trabalho *> t;
 
 	for (int i = 0; i < getTamanho(); i++) {
@@ -252,7 +252,7 @@ vector<Trabalho *> Obra::trabalhosCaboMaior(int c) {
 	return t;
 }
 
-vector<Trabalho *> Obra::trabalhosMadeiraMaior(int m) {
+vector<Trabalho *> Obra::trabalhosMadeiraMaior(int m) const {
 	vector<Trabalho *> t;
 
 	for (int i = 0; i < getTamanho(); i++) {
@@ -262,7 +262,7 @@ vector<Trabalho *> Obra::trabalhosMadeiraMaior(int m) {
 	return t;
 }
 
-vector<Trabalho *> Obra::trabalhosEmpresa(string emp) {
+vector<Trabalho *> Obra::trabalhosEmpresa(string emp) const {
 	vector<Trabalho *> t;
 
 	for (int i = 0; i < getTamanho(); i++) {
@@ -273,7 +273,7 @@ vector<Trabalho *> Obra::trabalhosEmpresa(string emp) {
 
 }
 
-vector<Trabalho *> Obra::trabalhosRua(int id) {
+vector<Trabalho *> Obra::trabalhosRua(int id) const {
 	vector<Trabalho *> t;
 
 	for (int i = 0; i < getTamanho(); i++) {
@@ -286,7 +286,7 @@ vector<Trabalho *> Obra::trabalhosRua(int id) {
 	return t;
 }
 
-vector<Trabalho *> Obra::trabalhosHabitacao(int id) {
+vector<Trabalho *> Obra::trabalhosHabitacao(int id) const {
 	vector<Trabalho *> t;
 
 	for (int i = 0; i < getTamanho(); i++) {
@@ -312,7 +312,7 @@ void Obra::imprimeFicheiro(ofstream& ficheiro_escrita) const {
 	}
 }
 
-int Obra::getCustoTrab(tipoTrabalho t) {
+int Obra::getCustoTrab(tipoTrabalho t) const {
 	int count=0;
 
 	for(unsigned int i=0; i<trabalhos.size(); i++) {
@@ -322,7 +322,7 @@ int Obra::getCustoTrab(tipoTrabalho t) {
 	return count;
 }
 
-int Obra::getDuracaoTrab(tipoTrabalho t) {
+int Obra::getDuracaoTrab(tipoTrabalho t) const {
 	int count=0;
 
 	for(unsigned int i=0; i<trabalhos.size(); i++) {
@@ -467,7 +467,7 @@ Obra & Construtora::obraMaiorDuracao() {
 	return obras[j];
 }
 
-vector<Obra> Construtora::obrasCustoMenor(int c) {
+vector<Obra> Construtora::obrasCustoMenor(int c) const {
 	vector<Obra> o;
 
 	for (int i = 1; i < getTamanho(); i++) {
@@ -477,7 +477,7 @@ vector<Obra> Construtora::obrasCustoMenor(int c) {
 	return o;
 }
 
-vector<Obra> Construtora::obrasDuracaoMenor(int d) {
+vector<Obra> Construtora::obrasDuracaoMenor(int d) const {
 	vector<Obra> o;
 
 	for (int i = 1; i < getTamanho(); i++) {
@@ -487,7 +487,7 @@ vector<Obra> Construtora::obrasDuracaoMenor(int d) {
 	return o;
 }
 
-vector<Obra> Construtora::obrasAsfaltoMenor(int a) {
+vector<Obra> Construtora::obrasAsfaltoMenor(int a) const {
 	vector<Obra> o;
 
 	for (int i = 1; i < getTamanho(); i++) {
@@ -497,7 +497,7 @@ vector<Obra> Construtora::obrasAsfaltoMenor(int a) {
 	return o;
 }
 
-vector<Obra> Construtora::obrasBetaoMenor(int b) {
+vector<Obra> Construtora::obrasBetaoMenor(int b) const {
 	vector<Obra> o;
 
 	for (int i = 1; i < getTamanho(); i++) {
@@ -507,7 +507,7 @@ vector<Obra> Construtora::obrasBetaoMenor(int b) {
 	return o;
 }
 
-vector<Obra> Construtora::obrasCaboMenor(int c) {
+vector<Obra> Construtora::obrasCaboMenor(int c) const {
 	vector<Obra> o;
 
 	for (int i = 1; i < getTamanho(); i++) {
@@ -517,7 +517,7 @@ vector<Obra> Construtora::obrasCaboMenor(int c) {
 	return o;
 }
 
-vector<Obra> Construtora::obrasMadeiraMenor(int m) {
+vector<Obra> Construtora::obrasMadeiraMenor(int m) const {
 	vector<Obra> o;
 
 	for (int i = 1; i < getTamanho(); i++) {
@@ -527,7 +527,7 @@ vector<Obra> Construtora::obrasMadeiraMenor(int m) {
 	return o;
 }
 
-vector<Obra> Construtora::obrasCustoMaior(int c) {
+vector<Obra> Construtora::obrasCustoMaior(int c) const {
 	vector<Obra> o;
 
 	for (int i = 1; i < getTamanho(); i++) {
@@ -537,7 +537,7 @@ vector<Obra> Construtora::obrasCustoMaior(int c) {
 	return o;
 }
 
-vector<Obra> Construtora::obrasDuracaoMaior(int d) {
+vector<Obra> Construtora::obrasDuracaoMaior(int d) const {
 	vector<Obra> o;
 
 	for (int i = 1; i < getTamanho(); i++) {
@@ -547,7 +547,7 @@ vector<Obra> Construtora::obrasDuracaoMaior(int d) {
 	return o;
 }
 
-vector<Obra> Construtora::obrasAsfaltoMaior(int a) {
+vector<Obra> Construtora::obrasAsfaltoMaior(int a) const {
 	vector<Obra> o;
 
 	for (int i = 1; i < getTamanho(); i++) {
@@ -557,7 +557,7 @@ vector<Obra> Construtora::obrasAsfaltoMaior(int a) {
 	return o;
 }
 
-vector<Obra> Construtora::obrasBetaoMaior(int b) {
+vector<Obra> Construtora::obrasBetaoMaior(int b) const {
 	vector<Obra> o;
 
 	for (int i = 1; i < getTamanho(); i++) {
@@ -567,7 +567,7 @@ vector<Obra> Construtora::obrasBetaoMaior(int b) {
 	return o;
 }
 
-vector<Obra> Construtora::obrasCaboMaior(int c) {
+vector<Obra> Construtora::obrasCaboMaior(int c) const {
 	vector<Obra> o;
 
 	for (int i = 1; i < getTamanho(); i++) {
@@ -577,7 +577,7 @@ vector<Obra> Construtora::obrasCaboMaior(int c) {
 	return o;
 }
 
-vector<Obra> Construtora::obrasMadeiraMaior(int m) {
+vector<Obra> Construtora::obrasMadeiraMaior(int m) const {
 	vector<Obra> o;
 
 	for (int i = 1; i < getTamanho(); i++) {

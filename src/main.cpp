@@ -33,10 +33,6 @@ void infoConstrutora( Construtora& c1) {
 	string str;
 	int valor;
 
-
-	//Erro de quê? -> depois de corrigir adicionar .size() no fim
-	//Não usa ainda funcoes que retornam obra
-
 	do {
 		cout << "1. Tempo total ate terminarem todas as obras" << endl;
 		cout << "2x. Material total necessario para todas as obras" << endl;
@@ -149,7 +145,7 @@ bool lerTrabalho(int& a) {
 	return !(ss >> a);
 }
 
-Trabalho* novoTrabalho() {
+Trabalho* inserirTrabalho() {
 
 	string op;
 	int tmpn[4];
@@ -218,10 +214,7 @@ Trabalho* novoTrabalho() {
 
 }
 
-void novaObra(Construtora& c1) {
-
-	Obra o1;
-	cout << "A criar Obra nr " << o1.getNr() << ":\n";
+void novoTrabalho(Obra& o1) {
 
 	string op;
 
@@ -229,14 +222,28 @@ void novaObra(Construtora& c1) {
 		cout << "Quer adicionar um novo trabalho a obra? (s/n)";
 		cin >> op;
 
-		if (op == "s" || op == "S")
-			o1.adicionaTrabalho(novoTrabalho());
-		else if (op == "n" || op == "N")
-			cout << endl;
-		else
-			cout << "Opcao invalida.\n";
+		if(o1.getTamanho()==0)
+			cout << "A Obra tem que ter pelo menos um trabalho!\n";
+		else {
 
-	} while (op != "n" && op != "N");
+			if (op == "s" || op == "S")
+				o1.adicionaTrabalho(inserirTrabalho());
+			else if (op == "n" || op == "N")
+				cout << endl;
+			else
+				cout << "Opcao invalida.\n";
+		}
+
+	} while ((op != "n" && op != "N") || o1.getTamanho()==0);
+
+}
+
+void novaObra(Construtora& c1) {
+
+	Obra o1;
+	cout << "A criar Obra nr " << o1.getNr() << ":\n";
+
+	novoTrabalho(o1);
 
 	c1.adicionaObra(o1);
 }
@@ -287,15 +294,6 @@ int main() {
 		ss << str;
 		ss >> op;
 		cout << "\n";
-
-		/*if (op == "1")
-		 infoConstrutora(c1);
-		 if (op == "")
-		 novaObra(c1);
-		 else if (op == "40")
-		 cout << endl;
-		 else
-		 cout << "Opcao invalida.\n";*/
 
 		switch (op) {
 		case 1:
