@@ -30,7 +30,7 @@ public:
 	int getTamanho() const;
 	static unsigned int getUltimoNr();
 	void adicionaTrabalho(Trabalho *t1);
-	bool eliminaTrab(Trabalho *t1);
+	//bool eliminaTrab(Trabalho *t1);
 	bool eliminaTrab(unsigned int n);
 	unsigned int getNr() const;
 	int getCustoTotal() const;
@@ -61,7 +61,13 @@ public:
 	vector<Trabalho *> trabalhosRua(int id) const;
 	vector<Trabalho *> trabalhosHabitacao(int id) const;
 	void imprimeFicheiro(ofstream& ficheiro_escrita) const;
-};
+
+	class TrabalhoInexistente {
+	public:
+		int id;
+		TrabalhoInexistente(int id): id(id) {}
+	};
+ };
 
 class Construtora {
 	string nome;
@@ -73,7 +79,7 @@ public:
 	string getNome() const;
 	int getTamanho() const;
 	void adicionaObra(Obra o1);
-	bool eliminaObra(Obra o1);
+	//bool eliminaObra(Obra o1);
 	bool eliminaObra(unsigned int n);
 	int getCustoTotal() const;
 	int getDuracaoTotal() const;
@@ -104,6 +110,13 @@ public:
 	public:
 		ErroFicheiro() {}
 	};
+
+	class ObraInexistente {
+	public:
+		int id;
+		ObraInexistente(int id): id(id) {}
+	};
+
 };
 
 #endif /*OBRA_H_*/

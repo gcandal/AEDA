@@ -32,11 +32,11 @@ bool Obra::eliminaTrab(unsigned int n) {
 			return true;
 		}
 	}
-	//throw TrabalhoInexistente;
+	throw TrabalhoInexistente(n);
 	return false;
 }
 
-bool Obra::eliminaTrab(Trabalho *t1) {
+/*bool Obra::eliminaTrab(Trabalho *t1) {
 
 	for(unsigned int i=0; i<trabalhos.size(); i++) {
 		if(trabalhos[i]->getNum() ==  t1->getNum()) {
@@ -46,7 +46,7 @@ bool Obra::eliminaTrab(Trabalho *t1) {
 	}
 	//throw TrabalhoInexistente;
 	return false;
-}
+}*/
 
 int Obra::getCustoTotal() const {
 	int count = 0;
@@ -349,7 +349,7 @@ void Construtora::adicionaObra(Obra o1) {
 	obras.push_back(o1);
 }
 
-bool Construtora::eliminaObra(Obra o1) {
+/*bool Construtora::eliminaObra(Obra o1) {
 
 	for(unsigned int i=0; i<obras.size(); i++) {
 		if(obras[i].getNr()==o1.getNr()) {
@@ -359,7 +359,7 @@ bool Construtora::eliminaObra(Obra o1) {
 	}
 	//throw ObraInexistente();
 	return false;
-}
+}*/
 
 bool Construtora::eliminaObra(unsigned int n) {
 
@@ -369,7 +369,7 @@ bool Construtora::eliminaObra(unsigned int n) {
 			return true;
 		}
 	}
-	//throw ObraInexistente();
+	throw ObraInexistente(n);
 	return false;
 }
 

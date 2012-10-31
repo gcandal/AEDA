@@ -41,6 +41,8 @@ Funcionalidades que podemos implementar:
 
 Coisas que precisamos de ver:
 
+- EXCEÇOOOOOOOOOOOOOOOOES!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
 - onde devemos implementar as exceçoes
 - se criamos ou nao a classe empresa (eu deixei comentada, fiz tendo uma string empresa na classe trabalho)
 - funcionalidades "mais originais" e "mais complicadas"

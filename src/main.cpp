@@ -11,6 +11,9 @@ int pedirValor() {
 	ss << str;
 	ss >> res;
 
+	if(res<0)
+		throw ValorInvalido(res);
+
 	return res;
 }
 
@@ -154,13 +157,13 @@ Trabalho* inserirTrabalho() {
 
 	do {
 		cout << "Duracao: ";
-	} while (lerTrabalho(tmpn[0]));
+	} while (lerTrabalho(tmpn[0]) || tmpn[0]<0);
 
 	cout << endl;
 
 	do {
 		cout << "Custo: ";
-	} while (lerTrabalho(tmpn[1]));
+	} while (lerTrabalho(tmpn[1]) || tmpn[1]<0);
 
 	cout << endl;
 
@@ -170,13 +173,13 @@ Trabalho* inserirTrabalho() {
 
 	do {
 		cout << "ID da Rua/Habitacao: ";
-	} while (lerTrabalho(tmpn[2]));
+	} while (lerTrabalho(tmpn[2]) || tmpn[2]<0);
 
 	cout << endl;
 
 	do {
 		cout << "Quantidade de material: ";
-	} while (lerTrabalho(tmpn[3]));
+	} while (lerTrabalho(tmpn[3]) || tmpn[3]<0);
 
 	cout << endl;
 
@@ -222,19 +225,20 @@ void novoTrabalho(Obra& o1) {
 		cout << "Quer adicionar um novo trabalho a obra? (s/n)";
 		cin >> op;
 
-		if(o1.getTamanho()==0)
+		if(o1.getTamanho()==0 && op=="n") {
 			cout << "A Obra tem que ter pelo menos um trabalho!\n";
+			o1.adicionaTrabalho(inserirTrabalho());
+		}
 		else {
-
-			if (op == "s" || op == "S")
+			if (op == "s")
 				o1.adicionaTrabalho(inserirTrabalho());
-			else if (op == "n" || op == "N")
+			else if (op == "n")
 				cout << endl;
 			else
 				cout << "Opcao invalida.\n";
 		}
 
-	} while ((op != "n" && op != "N") || o1.getTamanho()==0);
+	} while ((op != "n") || o1.getTamanho()==0);
 
 }
 
