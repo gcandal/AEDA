@@ -71,9 +71,9 @@ void infoConstrutora(const Construtora& c1) {
 		case 24:
 			cout << c1.getMadeiraTotal() << endl;
 			break;
-			/*case 31:
-			 valor = pedirValor();
-			 printVector = c1.obrasAsfaltoMenor(valor);
+			case 31:
+			 /*valor = pedirValor();
+			 printVector = c1.obrasAsfaltoMenor();
 			 imprimeVectorTrabalhos(printVector); //VER SE FUNCIONA E ADICIONAR AOS OUTROS
 			 break;
 			 case 32:
