@@ -702,10 +702,17 @@ void Construtora::procuraTipoTrabalho() {
 	stringstream ss;
 	int op;
 	string str;
-	int valor;
 	tipoTrabalho t;
-	vector<tipoTrabalho> vctr = { arruamento, saneamento, trolha, eletricista,
-			carpinteiro };
+	vector<tipoTrabalho> vctr;
+	//= {arruamento, saneamento, trolha, eletricista, carpinteiro};
+
+	vctr.push_back(arruamento);
+	vctr.push_back(saneamento);
+	vctr.push_back(trolha);
+	vctr.push_back(eletricista);
+	vctr.push_back(carpinteiro);
+
+
 	bool valid = false;
 
 	cout << "Tipo de trabalho" << endl;
@@ -737,7 +744,10 @@ void Construtora::procuraTipoTrabalho() {
 		if(v.size() > 0)
 		{
 			cout << obras[i].getNr();
-			imprimeVectorTrabalhos(v);
+			for (int j = 0; j < v.size(); j++)
+			{
+				cout << v[i]->getNum();
+			}
 		}
 	}
 }

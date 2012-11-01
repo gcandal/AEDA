@@ -11,8 +11,8 @@ int pedirValor() {
 	ss << str;
 	ss >> res;
 
-	if(res<0)
-		throw ValorInvalido(res);
+	/*if(res<0)
+		throw ValorInvalido(res);*/ //comentei isto porque ValorInvalido não aparece definido em lado nenhum ou aparece e eu não encontro (João)
 
 	return res;
 }
