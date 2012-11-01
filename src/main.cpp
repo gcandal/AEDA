@@ -119,12 +119,15 @@ void infoConstrutora( Construtora& c1) {
 		case 7:
 			valor = pedirValor();
 			c1.obrasDuracaoMenor(valor);
+			break;
 		case 8:
 			valor = pedirValor();
 			c1.obrasCustoMaior(valor);
+			break;
 		case 9:
 			valor = pedirValor();
 			c1.obrasCustoMenor(valor);
+			break;
 		case 10:
 			cout << endl;
 			break;
