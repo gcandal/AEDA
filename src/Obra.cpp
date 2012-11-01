@@ -300,6 +300,22 @@ vector<Trabalho *> Obra::trabalhosHabitacao(int id) const {
 	return t;
 }
 
+vector<Trabalho *> Obra::trabalhosTipo(tipoTrabalho tp){
+	vector<Trabalho *> t;
+
+	for (int i = 0; i < getTamanho(); i++)
+	{
+		if (trabalhos[i]->getTipoTrabalho() == tp)
+		{
+			t.push_back(trabalhos[i]);
+		}
+	}
+
+	return t;
+}
+
+
+
 void Obra::imprimeFicheiro(ofstream& ficheiro_escrita) const {
 
 	ficheiro_escrita << "+Obra " << nr << endl << endl;
@@ -682,4 +698,46 @@ void Construtora::escreverFicheiro(ofstream& ficheiro_escrita) const {
 	}
 }
 
+void Construtora::procuraTipoTrabalho() {
+	stringstream ss;
+	int op;
+	string str;
+	int valor;
+	tipoTrabalho t;
+	vector<tipoTrabalho> vctr = { arruamento, saneamento, trolha, eletricista,
+			carpinteiro };
+	bool valid = false;
 
+	cout << "Tipo de trabalho" << endl;
+	cout << "1: Arruamento" << endl;
+	cout << "2: Saneamento" << endl;
+	cout << "3: Trolha" << endl;
+	cout << "4: Eletricista" << endl;
+	cout << "5: Carpinteiro" << endl;
+
+	do {
+		cin >> str;
+		ss << str;
+		ss >> op;
+
+		if (op < 1 || op > 5) {
+			cout << "Operacao invalida \n";
+			break;
+		}
+
+		t = vctr[op - 1];
+		valid = true;
+	} while (!valid);
+
+
+	for(int i = 0; i < getTamanho(); i++)
+	{
+		vector<Trabalho *> v;
+		v = obras[i].trabalhosTipo(t);
+		if(v.size() > 0)
+		{
+			cout << obras[i].getNr();
+			imprimeVectorTrabalhos(v);
+		}
+	}
+}

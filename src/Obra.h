@@ -11,15 +11,14 @@
 
 using namespace std;
 
-
 /*class Empresa {
-	string nome;
-	vector <Trabalho *> trab;
-public:
-	void adicionaTrabalho(Trabalho *t1);
-	void setNome(string nome);
-	string getNome();
-};*/
+ string nome;
+ vector <Trabalho *> trab;
+ public:
+ void adicionaTrabalho(Trabalho *t1);
+ void setNome(string nome);
+ string getNome();
+ };*/
 
 class Obra {
 	vector<Trabalho *> trabalhos;
@@ -60,6 +59,7 @@ public:
 	vector<Trabalho *> trabalhosEmpresa(string emp) const;
 	vector<Trabalho *> trabalhosRua(int id) const;
 	vector<Trabalho *> trabalhosHabitacao(int id) const;
+	vector<Trabalho *> trabalhosTipo(tipoTrabalho tp);
 	void imprimeFicheiro(ofstream& ficheiro_escrita) const;
 
 	class TrabalhoInexistente {
@@ -103,12 +103,14 @@ public:
 	vector<Obra> obrasBetaoMaior(int b) const;
 	vector<Obra> obrasCaboMaior(int c) const;
 	vector<Obra> obrasMadeiraMaior(int m) const;
+	void procuraTipoTrabalho();
 	void escreverFicheiro(ofstream& ficheiro_escrita) const;
 	void lerFicheiro(ifstream& ficheiro_leitura);
 
 	class ErroFicheiro {
 	public:
-		ErroFicheiro() {}
+		ErroFicheiro() {
+		}
 	};
 
 	class ObraInexistente {

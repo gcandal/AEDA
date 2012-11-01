@@ -18,18 +18,20 @@ int pedirValor() {
 }
 
 void imprimeVectorTrabalhos(vector<Trabalho *> vctr) {
-	for (unsigned int i = 0; i < vctr.size(); i++) {
-		cout << vctr[i]->info();
+	if (vctr.size() > 0) {
+		for (unsigned int i = 0; i < vctr.size(); i++) {
+			cout << vctr[i]->info();
+		}
 	}
 }
 
-void imprimeVectorObras(vector<Obra> vctr){
+void imprimeVectorObras(vector<Obra> vctr) {
 	for (unsigned int i = 0; i < vctr.size(); i++) {
-			cout << vctr[i].getNr() << endl;
-		}
+		cout << vctr[i].getNr() << endl;
+	}
 }
 
-void infoConstrutora( Construtora& c1) {
+void infoConstrutora(Construtora& c1) {
 
 	stringstream ss;
 	int op;
@@ -46,7 +48,8 @@ void infoConstrutora( Construtora& c1) {
 		cout << "7. Obras que vao demorar menos do que..." << endl;
 		cout << "8. Obras que vao custar mais do que..." << endl;
 		cout << "9. Obras que vao custar menos do que..." << endl;
-		cout << "10. Voltar ao menu anterior" << endl << endl;
+		cout << "10. Trabalhos de um determinado tipo..." << endl;
+		cout << "11. Voltar ao menu anterior" << endl << endl;
 
 		cout << "Valores de x:" << endl;
 		cout << "1: Asfalto" << endl;
@@ -59,7 +62,6 @@ void infoConstrutora( Construtora& c1) {
 		ss << str;
 		ss >> op;
 		cout << "\n";
-
 
 		switch (op) {
 		case 1:
@@ -83,52 +85,58 @@ void infoConstrutora( Construtora& c1) {
 			break;
 		case 32:
 			valor = pedirValor();
-			c1.obrasBetaoMenor(valor);
+			imprimeVectorObras(c1.obrasBetaoMenor(valor));
 			break;
 		case 33:
 			valor = pedirValor();
-			c1.obrasCaboMenor(valor);
+			imprimeVectorObras(c1.obrasCaboMenor(valor));
 			break;
 		case 34:
 			valor = pedirValor();
-			c1.obrasMadeiraMenor(valor);
+			imprimeVectorObras(c1.obrasMadeiraMenor(valor));
 			break;
 		case 41:
 			valor = pedirValor();
-			c1.obrasAsfaltoMaior(valor);
+			imprimeVectorObras(c1.obrasAsfaltoMaior(valor));
 			break;
 		case 42:
 			valor = pedirValor();
-			c1.obrasBetaoMaior(valor);
+			imprimeVectorObras(c1.obrasBetaoMaior(valor));
 			break;
 		case 43:
 			valor = pedirValor();
-			c1.obrasCaboMaior(valor);
+			imprimeVectorObras(c1.obrasCaboMaior(valor));
 			break;
 		case 44:
 			valor = pedirValor();
-			c1.obrasMadeiraMaior(valor);
+			imprimeVectorObras(c1.obrasMadeiraMaior(valor));
 			break;
 		case 5:
 			cout << c1.getTamanho();
 			break;
 		case 6:
 			valor = pedirValor();
-			c1.obrasDuracaoMaior(valor);
+			imprimeVectorObras(c1.obrasDuracaoMaior(valor));
 			break;
 		case 7:
 			valor = pedirValor();
-			c1.obrasDuracaoMenor(valor);
+			imprimeVectorObras(c1.obrasDuracaoMenor(valor));
+			break;
 			break;
 		case 8:
 			valor = pedirValor();
-			c1.obrasCustoMaior(valor);
+			imprimeVectorObras(c1.obrasCustoMaior(valor));
+			break;
 			break;
 		case 9:
 			valor = pedirValor();
-			c1.obrasCustoMenor(valor);
+			imprimeVectorObras(c1.obrasCustoMenor(valor));
+			break;
 			break;
 		case 10:
+			c1.procuraTipoTrabalho();
+			break;
+		case 11:
 			cout << endl;
 			break;
 		default:
