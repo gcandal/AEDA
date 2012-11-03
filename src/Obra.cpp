@@ -634,6 +634,7 @@ vector<Obra> Construtora::obrasMadeiraMaior(int m) const {
 	return o;
 }
 
+
 void Construtora::imprime() const {
 
 	for(unsigned int i=0; i<obras.size(); i++) {
@@ -764,7 +765,7 @@ void Construtora::procuraTipoTrabalho() {
 
 	bool valid = false;
 
-	cout << "Tipo de trabalho" << endl;
+	cout << "Escolha um tipo de trabalho" << endl;
 	cout << "1: Arruamento" << endl;
 	cout << "2: Saneamento" << endl;
 	cout << "3: Trolha" << endl;
@@ -777,7 +778,7 @@ void Construtora::procuraTipoTrabalho() {
 		ss >> op;
 
 		if (op < 1 || op > 5) {
-			cout << "Opcao invalida \n";
+			cout << "Opcao invalida \n" << endl;
 			break;
 		}
 
@@ -792,11 +793,12 @@ void Construtora::procuraTipoTrabalho() {
 		v = obras[i].trabalhosTipo(t);
 		if(v.size() > 0)
 		{
-			cout << obras[i].getNr();
+			cout << endl << "Obra: " << obras[i].getNr() << endl;
 			for (unsigned int j = 0; j < v.size(); j++)
 			{
-				cout << v[i]->getNum() << endl;
+				cout << "Trabalho numero: " << v[i]->getNum() << endl;
 			}
+			cout << endl;
 		}
 	}
 }

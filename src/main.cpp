@@ -17,7 +17,7 @@ int pedirValor() {
 		if(res<0)
 			throw ValorInvalido(res);
 	} catch(ValorInvalido &v) {
-		cout << "Valor invalido" << endl;
+		cout << "Valor invalido" << endl << endl;
 		pedirValor();
 	}
 
@@ -25,17 +25,27 @@ int pedirValor() {
 }
 
 void imprimeVectorTrabalhos(vector<Trabalho *> vctr) {
+
 	if (vctr.size() > 0) {
+		cout << endl;
 		for (unsigned int i = 0; i < vctr.size(); i++) {
 			cout << vctr[i]->info();
 		}
+		cout << endl;
 	}
 }
 
 void imprimeVectorObras(vector<Obra> vctr) {
-	for (unsigned int i = 0; i < vctr.size(); i++) {
-		cout << "Obra numero " << vctr[i].getNr() << endl;
+
+	cout << endl;
+	if(vctr.size()==0)
+		cout << "Não há nenhuma obra com as condições pretendidas." << endl;
+	else {
+		for (unsigned int i = 0; i < vctr.size(); i++) {
+			cout << "Obra numero " << vctr[i].getNr() << endl;
+		}
 	}
+	cout << endl;
 }
 
 void calConstrutora(Construtora& c1) {
@@ -95,7 +105,7 @@ void calConstrutora(Construtora& c1) {
 			break;
 		case 51:
 			valor = pedirValor();
-			imprimeVectorObras(c1.obrasAsfaltoMenor(valor)); //VER SE FUNCIONA E ADICIONAR AOS OUTROS
+			imprimeVectorObras(c1.obrasAsfaltoMenor(valor));
 			break;
 		case 52:
 			valor = pedirValor();
@@ -149,7 +159,7 @@ void calConstrutora(Construtora& c1) {
 			menuPrinc(c1);
 			break;
 		default:
-			cout << "Opcao invalida.\n";
+			cout << "Opcao invalida.\n" << endl;
 			break;
 		}
 		ss.clear();
@@ -231,7 +241,7 @@ Trabalho* inserirTrabalho() {
 			res = new Carpinteiro(tmpn[0], tmpn[1], str, tmpn[2], tmpn[3]);
 			return res;
 		}
-		cout << "Opcao invalida.\n";
+		cout << "Opcao invalida.\n" << endl;
 	}
 
 }
@@ -254,7 +264,7 @@ void novoTrabalho(Obra& o1) {
 			else if (op == "n")
 				cout << endl;
 			else
-				cout << "Opcao invalida.\n";
+				cout << "Opcao invalida.\n" << endl;
 		}
 
 	} while ((op != "n") || o1.getTamanho()==0);
@@ -279,10 +289,10 @@ void efetuarAlteracao(Construtora& c1, Trabalho& t1) {
 	unsigned int nr;
 	ifstream a;
 
-	cout << t1.info();
+	t1.imprime();
 
 	do {
-			cout << "1. Alterar Empresa" << endl;
+			cout << endl <<  "1. Alterar Empresa" << endl;
 			cout << "2. Alterar Duracao" << endl;
 			cout << "3. Alterar Custo" << endl;
 			cout << "4. Alterar Material" << endl;
@@ -357,7 +367,7 @@ void efetuarAlteracao(Construtora& c1, Trabalho& t1) {
 				menuPrinc(c1);
 				break;
 			default:
-				cout << "Opcao invalida.\n";
+				cout << "Opcao invalida.\n" << endl;
 				break;
 			}
 
@@ -423,6 +433,58 @@ void alterarObra(Construtora& c1) {
 
 void removerObra(Construtora& c1) {
 
+	string str;
+	stringstream ss;
+	unsigned int nr;
+	Obra o1;
+	bool valid=true;
+
+	cout << "Insira o numero da obra que pretende eliminar: " << endl;
+
+	do{
+
+		cin >> str;
+		ss << str;
+	} while(!(ss>>nr));
+
+	try {
+		o1=c1.getObra(nr);
+	} catch (Construtora::ObraInexistente& e) {
+		valid=false;
+		cout << "Nao existe nenhuma obra com numero:  " << e.id << endl;
+	}
+
+	if(valid)
+		if( c1.eliminaObra(nr) )
+			cout << "Obra eliminada com sucesso";
+
+}
+
+void consultarObra(Construtora& c1) {
+
+	string str;
+	stringstream ss;
+	unsigned int nr;
+	Obra o1;
+	bool valid=true;
+
+	cout << "Insira o numero da obra que pretende consultar: " << endl;
+
+	do{
+
+		cin >> str;
+		ss << str;
+	} while(!(ss>>nr));
+
+	try {
+		o1=c1.getObra(nr);
+	} catch (Construtora::ObraInexistente& e) {
+		valid=false;
+		cout << "Nao existe nenhuma obra com numero:  " << e.id << endl;
+	}
+
+	if(valid)
+		o1.imprime();
 }
 
 void menuPrinc(Construtora& c1) {
@@ -433,12 +495,13 @@ void menuPrinc(Construtora& c1) {
 
 	do {
 
-		cout << "1. Listagem das obras e trabalhos" << endl;
+		cout << endl <<  "1. Listagem das obras e trabalhos" << endl;
 		cout << "2. Calculos sobre a construtora" << endl;
 		cout << "3. Adicionar uma obra" << endl;
-		cout << "4. Alterar uma Obra" << endl;
-		cout << "5. Remover uma obra" << endl;
-		cout << "6. Sair" << endl;
+		cout << "4. Alterar uma obra" << endl;
+		cout << "5. Consultar uma obra" << endl;
+		cout << "6. Remover uma obra" << endl;
+		cout << "7. Sair" << endl;
 
 		cout << "\nEscolha uma opcao: ";
 		cin >> str;
@@ -461,18 +524,21 @@ void menuPrinc(Construtora& c1) {
 			alterarObra(c1);
 			break;
 		case 5:
-			removerObra(c1);
+			consultarObra(c1);
 			break;
 		case 6:
+			removerObra(c1);
+			break;
+		case 7:
 			cout << endl;
 			break;
 		default:
-			cout << "Opcao invalida. Tente outra vez.\n";
+			cout << "Opcao invalida. Tente outra vez.\n" << endl;
 			break;
 		}
 
 		ss.clear();
-	} while (op != 6);
+	} while (op != 7);
 }
 
 int main() {
@@ -515,12 +581,6 @@ int main() {
 	ficheiro_escrita.close();
 	remove(NOME_FICHEIRO.c_str());
 	rename(NOME_FICHEIRO_TMP.c_str(), NOME_FICHEIRO.c_str());
-
-	/*
-	 * O info está a imprimir as coisas duas vezes, já procurei o motivo e não encontro -_-' - Está aqui o test case
-	 *
-	Trabalho* t1=new Trolha(5, 3, "asd", 1, 4);
-	cout<<t1->info();*/
 
 	return 1;
 }
