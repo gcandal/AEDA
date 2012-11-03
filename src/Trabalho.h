@@ -34,6 +34,12 @@ public:
 	void setEmpresa(string str);
 	void setDuracao(unsigned int n);
 	void setCusto(unsigned int n);
+
+	class ValorIncorrecto {
+	public:
+		int v;
+		ValorIncorrecto(int v): v(v) {}
+	};
 };
 
 #endif

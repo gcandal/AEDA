@@ -13,31 +13,6 @@ int Domestico::getIdHabitacao() const {
 void Domestico::setID(unsigned int n) {
 	idHabitacao=n;
 }
-/*
- * Useless
-int Domestico::getAsfalto() const {
-	return 0;
-}
-
-int Domestico::getBetao() const {
-	return 0;
-}
-
-int Domestico::getCabo() const {
-	return 0;
-}
-
-int Domestico::getMadeira() const {
-	return 0;
-}
-
-int Domestico::getCusto() const {
- return Trabalho::getCusto();
- }
-
- int Domestico::getDuracao() const {
- return Trabalho::getDuracao();
- }*/
 
 string Domestico::info() const {
 	stringstream ss;
@@ -80,6 +55,9 @@ int Trolha::getMadeira() const {
 
 void Trolha::setMaterial(unsigned int n) {
 	quantBetao=n;
+
+	if(n<0)
+		throw ValorIncorrecto(n);
 }
 
 void Trolha::imprimeFicheiro(ofstream& ficheiro_escrita) const {
@@ -131,6 +109,9 @@ int Eletricista::getMadeira() const {
 
 void Eletricista::setMaterial(unsigned int n) {
 	compCabo=n;
+
+	if(n<0)
+		throw ValorIncorrecto(n);
 }
 
 void Eletricista::imprimeFicheiro(ofstream& ficheiro_escrita) const {
@@ -182,6 +163,9 @@ int Carpinteiro::getMadeira() const {
 
 void Carpinteiro::setMaterial(unsigned int n) {
 	areaMadeira=n;
+
+	if(n<0)
+		throw ValorIncorrecto(n);
 }
 
 void Carpinteiro::imprimeFicheiro(ofstream& ficheiro_escrita) const {

@@ -16,31 +16,6 @@ int InfraEstrutura::getIdRua() const {
 void InfraEstrutura::setID(unsigned int n) {
 	idRua=n;
 }
-/*
- * Useless
-int InfraEstrutura::getAsfalto() const {
-	return 0;
-}
-
-int InfraEstrutura::getBetao() const {
-	return 0;
-}
-
-int InfraEstrutura::getCabo() const {
-	return 0;
-}
-
-int InfraEstrutura::getMadeira() const {
-	return 0;
-}
-
-int InfraEstrutura::getCusto() const {
- return Trabalho::getCusto();
- }
-
- int InfraEstrutura::getDuracao() const {
- return Trabalho::getDuracao();
- }*/
 
 string InfraEstrutura::info() const {
 	stringstream ss;
@@ -68,6 +43,9 @@ Arruamento::Arruamento(int duracao, int custo, string empresa, int idRua,
 
 void Arruamento::setMaterial(unsigned int n) {
 	quantAsfalto=n;
+
+	if(n<0)
+		throw ValorIncorrecto(n);
 }
 
 int Arruamento::getAsfalto() const {
@@ -135,6 +113,9 @@ int Saneamento::getMadeira() const {
 
 void Saneamento::setMaterial(unsigned int n) {
 	quantBetao=n;
+
+	if(n<0)
+		throw ValorIncorrecto(n);
 }
 
 void Saneamento::imprimeFicheiro(ofstream & ficheiro_escrita) const {

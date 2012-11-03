@@ -54,11 +54,19 @@ void Trabalho::setEmpresa(string str) {
 };
 
 void Trabalho::setDuracao(unsigned int str) {
+
 	duracao=str;
+
+	if(str<0)
+		throw ValorIncorrecto(str);
 };
 
 void Trabalho::setCusto(unsigned int str) {
+
 	custo=str;
+
+	if(str<0)
+		throw ValorIncorrecto(str);
 };
 
 

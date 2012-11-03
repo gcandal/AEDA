@@ -145,9 +145,9 @@ Trabalho & Obra::trabalhoMaiorDuracao() {
 string Obra::searchNum(int search)
 {
 	string result = "Trabalho nao encontrado/n";
-	for (int i = 0; i < trabalhos.size(); i++)
+	for (unsigned int i = 0; i < trabalhos.size(); i++)
 	{
-		if(trabalhos[i]->getNum() == search)
+		if(trabalhos[i]->getNum() == (unsigned) search)
 		{
 			result = trabalhos[i]->info();
 			break;
@@ -760,7 +760,7 @@ void Construtora::procuraTipoTrabalho() {
 		ss >> op;
 
 		if (op < 1 || op > 5) {
-			cout << "Operacao invalida \n";
+			cout << "Opcao invalida \n";
 			break;
 		}
 
