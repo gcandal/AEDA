@@ -44,6 +44,7 @@ public:
 	Trabalho &trabalhoMaisCaro();
 	Trabalho &trabalhoMenorDuracao();
 	Trabalho &trabalhoMaiorDuracao();
+	string searchNum(int search);
 	vector<Trabalho *> trabalhosCustoMenor(int c) const;
 	vector<Trabalho *> trabalhosDuracaoMenor(int d) const;
 	vector<Trabalho *> trabalhosAsfaltoMenor(int a) const;

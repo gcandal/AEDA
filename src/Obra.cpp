@@ -142,6 +142,20 @@ Trabalho & Obra::trabalhoMaiorDuracao() {
 	return *trabalhos[j];
 }
 
+string Obra::searchNum(int search)
+{
+	string result = "Trabalho nao encontrado/n";
+	for (int i = 0; i < trabalhos.size(); i++)
+	{
+		if(trabalhos[i]->getNum() == search)
+		{
+			result = trabalhos[i]->info();
+			break;
+		}
+	}
+	return result;
+}
+
 vector<Trabalho *> Obra::trabalhosCustoMenor(int c) const {
 	vector<Trabalho *> t;
 
@@ -764,7 +778,7 @@ void Construtora::procuraTipoTrabalho() {
 			cout << obras[i].getNr();
 			for (unsigned int j = 0; j < v.size(); j++)
 			{
-				cout << v[i]->getNum();
+				cout << v[i]->getNum() << endl;
 			}
 		}
 	}
