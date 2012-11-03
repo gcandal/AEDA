@@ -26,6 +26,12 @@ string InfraEstrutura::info() const {
 	return ss.str();
 }
 
+void InfraEstrutura::imprime() const {
+
+	Trabalho::imprime();
+	cout << "ID Rua: " << idRua << endl;
+}
+
 //CLASSE ARRUAMENTO
 Arruamento::Arruamento(int duracao, int custo, string empresa, int idRua,
 		int quantAsfalto) :
@@ -81,6 +87,12 @@ string Arruamento::info() const {
 	return ss.str();
 }
 
+void Arruamento::imprime() const {
+
+	InfraEstrutura::imprime();
+	cout << "Tipo de trabalho: Arruamento" << ", " << "Quantidade de asfalto: " << quantAsfalto << endl;
+}
+
 //CLASSE SANEAMENTO
 Saneamento::Saneamento(int duracao, int custo, string empresa, int idRua,
 		int quantBetao) :
@@ -133,4 +145,10 @@ string Saneamento::info() const {
 	ss << Trabalho::info();
 
 	return ss.str();
+}
+
+void Saneamento::imprime() const {
+
+	InfraEstrutura::imprime();
+	cout << "Tipo de trabalho: Saneamento" << ", " << "Quantidade de betao: " << quantBetao << endl;
 }

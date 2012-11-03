@@ -371,6 +371,13 @@ Trabalho& Obra::getTrabalho(unsigned int n) {
 	throw TrabalhoInexistente(n);
 }
 
+void Obra::imprime() const {
+
+	cout << "Obra numero: " << nr << endl;
+	for(unsigned int i=0; i<trabalhos.size(); i++) {
+		trabalhos[i]->imprime();
+	}
+}
 
 //CLASSE CONSTRUTORA
 Construtora::Construtora() {};
@@ -625,6 +632,15 @@ vector<Obra> Construtora::obrasMadeiraMaior(int m) const {
 			o.push_back(obras[i]);
 	}
 	return o;
+}
+
+void Construtora::imprime() const {
+
+	for(unsigned int i=0; i<obras.size(); i++) {
+		obras[i].imprime();
+		cout << endl;
+	}
+	cout << endl << endl;
 }
 
 void Construtora::lerFicheiroTrabalho(Obra& o1, ifstream& ficheiro_leitura) {

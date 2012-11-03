@@ -21,6 +21,7 @@ public:
 	virtual int getMadeira() const;*/
 	virtual int getId() const {return idRua;}
 	virtual string info() const;
+	virtual void imprime() const;
 };
 
 class Arruamento: public InfraEstrutura {
@@ -39,6 +40,7 @@ public:
 	void imprimeFicheiro(ofstream& ficheiro_escrita) const;
 	tipoTrabalho getTipoTrabalho() const {return tipo;}
 	string info() const;
+	void imprime() const;
 };
 
 class Saneamento: public InfraEstrutura {
@@ -57,6 +59,7 @@ public:
 	void imprimeFicheiro(ofstream& ficheiro_escrita) const;
 	tipoTrabalho getTipoTrabalho() const {return tipo;}
 	string info() const;
+	void imprime() const;
 };
 
 #endif /* INFRAESTRUTURA_H_ */

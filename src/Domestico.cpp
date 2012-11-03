@@ -23,6 +23,12 @@ string Domestico::info() const {
 	return ss.str();
 }
 
+void Domestico::imprime() const {
+
+	Trabalho::imprime();
+	cout << "ID Habitacao: " << idHabitacao << endl;
+}
+
 //CLASSE TROLHA
 Trolha::Trolha(int duracao, int custo, string empresa, int idHabitacao,
 		int quantBetao) :
@@ -75,6 +81,12 @@ string Trolha::info() const {
 	ss << Trabalho::info();
 
 	return ss.str();
+}
+
+void Trolha::imprime() const {
+
+	Domestico::imprime();
+	cout << "Tipo de trabalho: Trolha" << ", " << "Quantidade de betao: " << quantBetao << endl;
 }
 
 //CLASSE ELETRICISTA
@@ -130,6 +142,13 @@ string Eletricista::info() const {
 
 	return ss.str();
 }
+
+void Eletricista::imprime() const {
+
+	Domestico::imprime();
+	cout << "Tipo de trabalho: Eletricista" << ", " << "Quantidade de cabo: " << compCabo << endl;
+}
+
 //CLASSE CARPINTEIRO
 Carpinteiro::Carpinteiro(int duracao, int custo, string empresa,
 		int idHabitacao, unsigned int areaMadeira) :
@@ -183,4 +202,10 @@ string Carpinteiro::info() const {
 	ss << Trabalho::info();
 
 	return ss.str();
+}
+
+void Carpinteiro::imprime() const {
+
+	Domestico::imprime();
+	cout << "Tipo de trabalho: Carpinteiro" << ", " << "Area de madeira: " << areaMadeira << endl;
 }

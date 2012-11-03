@@ -69,4 +69,9 @@ void Trabalho::setCusto(unsigned int str) {
 		throw ValorIncorrecto(str);
 };
 
+void Trabalho::imprime() const {
+
+	cout << endl << "Trabalho numero: " << num << endl
+			<< "Duracao: " << duracao << ", "<< "Custo " << custo << ", " << "Empresa associada: " << empresa << endl;
+}
 

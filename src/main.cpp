@@ -446,9 +446,10 @@ void menuPrinc(Construtora& c1) {
 		ss >> op;
 		cout << "\n";
 
+
 		switch (op) {
 		case 1:
-			//imprime;
+			c1.imprime();
 			break;
 		case 2:
 			calConstrutora(c1);

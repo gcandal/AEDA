@@ -20,6 +20,7 @@ public:
 	virtual int getMadeira() const;*/
 	virtual int getId() const {return idHabitacao;}
 	virtual string info() const;
+	virtual void imprime() const;
 };
 
 class Trolha: public Domestico {
@@ -37,6 +38,7 @@ public:
 	void imprimeFicheiro(ofstream& ficheiro_escrita) const;
 	virtual tipoTrabalho getTipoTrabalho() const {return tipo;}
 	virtual string info() const;
+	void imprime() const;
 };
 
 class Eletricista: public Domestico {
@@ -55,6 +57,7 @@ public:
 	void imprimeFicheiro(ofstream& ficheiro_escrita) const;
 	virtual tipoTrabalho getTipoTrabalho() const {return tipo;}
 	virtual string info() const;
+	void imprime() const;
 };
 
 class Carpinteiro: public Domestico {
@@ -73,6 +76,7 @@ public:
 	void imprimeFicheiro(ofstream& ficheiro_escrita) const;
 	virtual tipoTrabalho getTipoTrabalho() const {return tipo;}
 	virtual string info() const;
+	void imprime() const;
 };
 
 

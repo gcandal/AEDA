@@ -34,6 +34,7 @@ public:
 	void setEmpresa(string str);
 	void setDuracao(unsigned int n);
 	void setCusto(unsigned int n);
+	virtual void imprime() const;
 
 	class ValorIncorrecto {
 	public:
