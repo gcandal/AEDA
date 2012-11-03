@@ -263,20 +263,158 @@ void novaObra(Construtora& c1) {
 	c1.adicionaObra(o1);
 }
 
+void efetuarAlteracao(Trabalho& t1) {
+
+	string str;
+	stringstream ss;
+	int op;
+	unsigned int nr;
+	ifstream a;
+
+	cout << t1.info();
+
+	do {
+			cout << "1. Alterar Empresa" << endl;
+			cout << "2. Alterar Duracao" << endl;
+			cout << "3. Alterar Custo" << endl;
+			cout << "4. Alterar Material" << endl;
+			if(t1.getTipoTrabalho()==arruamento || t1.getTipoTrabalho()==saneamento)
+				cout << "5. Alterar ID da Rua" << endl;
+			else cout << "5. Alterar ID da Habitacao" << endl;
+			cout << "40. Sair" << endl;
+
+			cout << "\nEscolha opcao: ";
+			cin >> str;
+			ss << str;
+			ss >> op;
+			cout << "\n";
+			ss.clear();
+
+			switch (op) {
+			case 1:
+				cout << "Qual o nome da nova empresa?";
+				cin >> str;
+				cout << endl;
+				t1.setEmpresa(str);
+				break;
+			case 2:
+				cout << "Qual a nova duracao do trabalho?";
+				do{
+					cin >> str;
+					ss << str;
+				} while(!ss>>nr);
+				ss.clear();
+				t1.setDuracao(nr);
+				break;
+			case 3:
+				cout << "Qual o novo custo do trabalho?";
+				do{
+					cin >> str;
+					ss << str;
+				} while(!ss>>nr);
+				ss.clear();
+				t1.setCusto(nr);
+				break;
+			case 4:
+				cout << "Qual a nova quantidade de material que ira ser usada?";
+				do{
+					cin >> str;
+					ss << str;
+				} while(!ss>>nr);
+				ss.clear();
+				t1.setMaterial(nr);
+				break;
+			case 5:
+				cout << "Qual o novo ID?";
+				do{
+					cin >> str;
+					ss << str;
+				} while(!ss>>nr);
+				ss.clear();
+				t1.setID(nr);
+				break;
+			case 40:
+				cout << endl;
+				break;
+			default:
+				cout << "Opcao invalida.\n";
+				break;
+			}
+
+		} while (op != 40);
+
+}
+
+void alterarTrabalho(Obra& o1) {
+
+	string str;
+	stringstream ss;
+	unsigned int nr;
+	Trabalho* t1;
+	bool valid=true;
+
+	cout << "Insira o numero do trabalho que quer alterar: " << endl;
+
+	do{
+		cin >> str;
+		ss << str;
+	} while(!(ss>>nr));
+
+
+	try {
+		t1=&o1.getTrabalho(nr);
+	} catch (Obra::TrabalhoInexistente& e) {
+		valid=false;
+		cout << "Nao existe nenhum trabalho com o ID " << e.id << endl;
+	}
+
+	if(valid)
+		efetuarAlteracao(*t1);
+
+}
+
+void alterarObra(Construtora& c1) {
+
+	string str;
+	stringstream ss;
+	unsigned int nr;
+	Obra o1;
+	bool valid=true;
+
+	cout << "Insira o numero da obra que quer alterar: " << endl;
+
+	do{
+		cin >> str;
+		ss << str;
+	} while(!(ss>>nr));
+
+	try {
+		o1=c1.getObra(nr);
+	} catch (Construtora::ObraInexistente& e) {
+		valid=false;
+		cout << "Nao existe nenhuma obra com o ID " << e.id << endl;
+	}
+
+	if(valid)
+		alterarTrabalho(o1);
+
+}
+
 int main() {
 
-	string NOME_FICHEIRO = "obras", NOME_FICHEIRO_TMP = "obras_tmp";
+	string NOME_FICHEIRO = "obras.txt", NOME_FICHEIRO_TMP = "obras_tmp.txt";
 	Construtora c1;
 	string construtora;
 	stringstream ss;
 	int op;
 	string str;
 
+/*
 	cout << "Insira o numero da construtora sobre a qual quer trabalhar: ";
 	cin >> str;
 	cout << endl;
 	NOME_FICHEIRO += (str + ".txt");
-	NOME_FICHEIRO_TMP += (str + ".txt");
+	NOME_FICHEIRO_TMP += (str + ".txt");*/
 
 	ifstream ficheiro_leitura(NOME_FICHEIRO.c_str());
 	ofstream ficheiro_escrita(NOME_FICHEIRO_TMP.c_str());
@@ -301,7 +439,7 @@ int main() {
 		cout << "Construtora " << c1.getNome() << endl;
 		cout << "1. Informacao sobre Construtora" << endl;
 		cout << "2. Adicionar uma Obra" << endl;
-		cout << "3. (...)" << endl;
+		cout << "3. Alterar uma Obra" << endl;
 		cout << "40. Sair" << endl;
 
 		cout << "\nEscolha opcao: ";
@@ -316,6 +454,9 @@ int main() {
 			break;
 		case 2:
 			novaObra(c1);
+			break;
+		case 3:
+			alterarObra(c1);
 			break;
 		case 40:
 			cout << endl;
@@ -333,6 +474,12 @@ int main() {
 	ficheiro_escrita.close();
 	remove(NOME_FICHEIRO.c_str());
 	rename(NOME_FICHEIRO_TMP.c_str(), NOME_FICHEIRO.c_str());
+
+	/*
+	 * O info está a imprimir as coisas duas vezes, já procurei o motivo e não encontro -_-' - Está aqui o test case
+	 *
+	Trabalho* t1=new Trolha(5, 3, "asd", 1, 4);
+	cout<<t1->info();*/
 
 	return 1;
 }

@@ -348,6 +348,15 @@ int Obra::getDuracaoTrab(tipoTrabalho t) const {
 	return count;
 }
 
+Trabalho& Obra::getTrabalho(unsigned int n) {
+
+	for(vector<Trabalho *>::iterator it=trabalhos.begin(); it!=trabalhos.end(); it++)
+		if((*it)->getNum()==n)
+			return *(*it);
+
+	throw TrabalhoInexistente(n);
+}
+
 //CLASSE CONSTRUTORA
 Construtora::Construtora() {};
 
@@ -698,6 +707,15 @@ void Construtora::escreverFicheiro(ofstream& ficheiro_escrita) const {
 	}
 }
 
+Obra& Construtora::getObra(unsigned int nr) {
+
+	for(vector<Obra>::iterator it=obras.begin(); it!=obras.end(); it++)
+		if(it->getNr()==nr)
+			return *it;
+
+	throw ObraInexistente(nr);
+}
+
 void Construtora::procuraTipoTrabalho() {
 	stringstream ss;
 	int op;
@@ -744,7 +762,7 @@ void Construtora::procuraTipoTrabalho() {
 		if(v.size() > 0)
 		{
 			cout << obras[i].getNr();
-			for (int j = 0; j < v.size(); j++)
+			for (unsigned int j = 0; j < v.size(); j++)
 			{
 				cout << v[i]->getNum();
 			}

@@ -60,6 +60,7 @@ public:
 	vector<Trabalho *> trabalhosRua(int id) const;
 	vector<Trabalho *> trabalhosHabitacao(int id) const;
 	vector<Trabalho *> trabalhosTipo(tipoTrabalho tp);
+	Trabalho& getTrabalho(unsigned int n);
 	void imprimeFicheiro(ofstream& ficheiro_escrita) const;
 
 	class TrabalhoInexistente {
@@ -106,6 +107,7 @@ public:
 	void procuraTipoTrabalho();
 	void escreverFicheiro(ofstream& ficheiro_escrita) const;
 	void lerFicheiro(ifstream& ficheiro_leitura);
+	Obra& getObra(unsigned int nr);
 
 	class ErroFicheiro {
 	public:

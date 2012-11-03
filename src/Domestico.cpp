@@ -9,6 +9,10 @@ Domestico::Domestico(int duracao, int custo, string empresa, int idHabitacao) :
 int Domestico::getIdHabitacao() const {
 	return idHabitacao;
 }
+
+void Domestico::setID(unsigned int n) {
+	idHabitacao=n;
+}
 /*
  * Useless
 int Domestico::getAsfalto() const {
@@ -74,6 +78,10 @@ int Trolha::getMadeira() const {
  return Trabalho::getDuracao();
  }*/
 
+void Trolha::setMaterial(unsigned int n) {
+	quantBetao=n;
+}
+
 void Trolha::imprimeFicheiro(ofstream& ficheiro_escrita) const {
 
 	ficheiro_escrita << Trabalho::getDuracao() << '\n' << Trabalho::getCusto() << '\n' << Domestico::getIdHabitacao() << '\n'
@@ -121,6 +129,10 @@ int Eletricista::getMadeira() const {
  return Trabalho::getDuracao();
  }*/
 
+void Eletricista::setMaterial(unsigned int n) {
+	compCabo=n;
+}
+
 void Eletricista::imprimeFicheiro(ofstream& ficheiro_escrita) const {
 
 	ficheiro_escrita << Trabalho::getDuracao() << '\n' << Trabalho::getCusto() << '\n' << Domestico::getIdHabitacao() << '\n'
@@ -167,6 +179,10 @@ int Carpinteiro::getMadeira() const {
  int Carpinteiro::getDuracao() const {
  return Trabalho::getDuracao();
  }*/
+
+void Carpinteiro::setMaterial(unsigned int n) {
+	areaMadeira=n;
+}
 
 void Carpinteiro::imprimeFicheiro(ofstream& ficheiro_escrita) const {
 

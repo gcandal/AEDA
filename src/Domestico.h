@@ -7,10 +7,11 @@
 using namespace std;
 
 class Domestico: public Trabalho {
-	const unsigned int idHabitacao;
+	unsigned int idHabitacao;
 public:
 	Domestico(int duracao, int custo, string empresa, int idHabitacao);
 	int getIdHabitacao() const;
+	void setID(unsigned int n);
 	/*
 	 * Useless
 	virtual int getAsfalto() const;
@@ -22,7 +23,7 @@ public:
 };
 
 class Trolha: public Domestico {
-	const unsigned int quantBetao;
+	unsigned int quantBetao;
 	const static tipoTrabalho tipo = trolha;
 public:
 	Trolha(int duracao, int custo, string empresa, int idRua, int quantBetao);
@@ -32,13 +33,14 @@ public:
 	int getMadeira() const;
 	//int getCusto() const;
 	//int getDuracao() const;
+	void setMaterial(unsigned int n);
 	void imprimeFicheiro(ofstream& ficheiro_escrita) const;
 	virtual tipoTrabalho getTipoTrabalho() const {return tipo;}
 	virtual string info() const;
 };
 
 class Eletricista: public Domestico {
-	const unsigned int compCabo;
+	unsigned int compCabo;
 	const static tipoTrabalho tipo = eletricista;
 public:
 	Eletricista(int duracao, int custo, string empresa, int idRua,
@@ -49,13 +51,14 @@ public:
 	int getMadeira() const;
 	//int getCusto() const;
 	//int getDuracao() const;
+	void setMaterial(unsigned int n);
 	void imprimeFicheiro(ofstream& ficheiro_escrita) const;
 	virtual tipoTrabalho getTipoTrabalho() const {return tipo;}
 	virtual string info() const;
 };
 
 class Carpinteiro: public Domestico {
-	const unsigned int areaMadeira;
+	unsigned int areaMadeira;
 	const static tipoTrabalho tipo = carpinteiro;
 public:
 	Carpinteiro(int duracao, int custo, string empresa, int idRua,
@@ -66,6 +69,7 @@ public:
 	int getMadeira() const;
 	//int getCusto() const;
 	//int getDuracao() const;
+	void setMaterial(unsigned int n);
 	void imprimeFicheiro(ofstream& ficheiro_escrita) const;
 	virtual tipoTrabalho getTipoTrabalho() const {return tipo;}
 	virtual string info() const;

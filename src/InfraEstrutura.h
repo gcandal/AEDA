@@ -8,10 +8,11 @@ using namespace std;
 
 class InfraEstrutura: public Trabalho {
 private:
-	const unsigned int idRua;
+	unsigned int idRua;
 public:
 	InfraEstrutura(int duracao, int custo, string empresa, int idRua);
 	int getIdRua() const;
+	void setID(unsigned int n);
 	/*
 	 * Useless
 	virtual int getAsfalto() const;
@@ -23,7 +24,7 @@ public:
 };
 
 class Arruamento: public InfraEstrutura {
-	const unsigned int quantAsfalto;
+	unsigned int quantAsfalto;
 	const static tipoTrabalho tipo = arruamento;
 public:
 	Arruamento(int duracao, int custo, string empresa, int idRua,
@@ -34,13 +35,14 @@ public:
 	int getMadeira() const;
 	//int getCusto() const;
 	//int getDuracao() const;
+	void setMaterial(unsigned int n);
 	void imprimeFicheiro(ofstream& ficheiro_escrita) const;
 	tipoTrabalho getTipoTrabalho() const {return tipo;}
 	string info() const;
 };
 
 class Saneamento: public InfraEstrutura {
-	const unsigned int quantBetao;
+	unsigned int quantBetao;
 	const static tipoTrabalho tipo = saneamento;
 public:
 	Saneamento(int duracao, int custo, string empresa, int idRua,
@@ -51,6 +53,7 @@ public:
 	int getMadeira() const;
 	//int getCusto() const;
 	//int getDuracao() const;
+	void setMaterial(unsigned int n);
 	void imprimeFicheiro(ofstream& ficheiro_escrita) const;
 	tipoTrabalho getTipoTrabalho() const {return tipo;}
 	string info() const;

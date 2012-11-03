@@ -44,10 +44,21 @@ string Trabalho::info() const {
 
 	stringstream ss;
 
-	ss << "Empresa: " << empresa << "\nDuracao: " << duracao << "\nCusto: " << custo << '\n';
+	ss << "Empresa: " << empresa << "\nDuracao: " << duracao << "\nCusto: " << custo << "\nID: " << num << '\n';
 
 	return ss.str();
 }
 
+void Trabalho::setEmpresa(string str) {
+	empresa=str;
+};
+
+void Trabalho::setDuracao(unsigned int str) {
+	duracao=str;
+};
+
+void Trabalho::setCusto(unsigned int str) {
+	custo=str;
+};
 
 

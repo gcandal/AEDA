@@ -12,6 +12,10 @@ InfraEstrutura::InfraEstrutura(int duracao, int custo, string empresa,
 int InfraEstrutura::getIdRua() const {
 	return idRua;
 }
+
+void InfraEstrutura::setID(unsigned int n) {
+	idRua=n;
+}
 /*
  * Useless
 int InfraEstrutura::getAsfalto() const {
@@ -61,6 +65,10 @@ Arruamento::Arruamento(int duracao, int custo, string empresa, int idRua,
  int Arruamento::getDuracao() const {
  return Trabalho::getDuracao();
  }*/
+
+void Arruamento::setMaterial(unsigned int n) {
+	quantAsfalto=n;
+}
 
 int Arruamento::getAsfalto() const {
 	return quantAsfalto;
@@ -124,6 +132,10 @@ int Saneamento::getMadeira() const {
  int Saneamento::getDuracao() const {
  return Trabalho::getDuracao();
  }*/
+
+void Saneamento::setMaterial(unsigned int n) {
+	quantBetao=n;
+}
 
 void Saneamento::imprimeFicheiro(ofstream & ficheiro_escrita) const {
 
