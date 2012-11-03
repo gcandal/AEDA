@@ -371,6 +371,7 @@ Trabalho& Obra::getTrabalho(unsigned int n) {
 	throw TrabalhoInexistente(n);
 }
 
+
 //CLASSE CONSTRUTORA
 Construtora::Construtora() {};
 
