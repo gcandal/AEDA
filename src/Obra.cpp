@@ -28,7 +28,6 @@ bool Obra::eliminaTrab(unsigned int n) {
 
 	for(unsigned int i=0; i<trabalhos.size(); i++) {
 		if(trabalhos[i]->getNum() ==  n) {
-			//delete trabalhos[i];
 			trabalhos.erase(trabalhos.begin()+i);
 			return true;
 		}
@@ -59,7 +58,11 @@ int Obra::getAsfaltoTotal() const {
 	int count = 0;
 
 	for (int i = 0; i < getTamanho(); i++)
+	{
+		cout << "Id " << i << endl;
+		cout << trabalhos[i]->getAsfalto() << endl;
 		count += trabalhos[i]->getAsfalto();
+	}
 
 	return count;
 }
@@ -94,7 +97,7 @@ int Obra::getMadeiraTotal() const {
 Trabalho & Obra::trabalhoMaisBarato() {
 	int j = 0;
 
-	for (int i = 1; i < getTamanho(); i++) {
+	for (int i = 0; i < getTamanho(); i++) {
 		if (trabalhos[j]->getCusto() < trabalhos[i]->getCusto())
 			j = i;
 	}
@@ -104,7 +107,7 @@ Trabalho & Obra::trabalhoMaisBarato() {
 Trabalho & Obra::trabalhoMaisCaro() {
 	int j = 0;
 
-	for (int i = 1; i < getTamanho(); i++) {
+	for (int i = 0; i < getTamanho(); i++) {
 		if (trabalhos[j]->getCusto() > trabalhos[i]->getCusto())
 			j = i;
 	}
@@ -114,7 +117,7 @@ Trabalho & Obra::trabalhoMaisCaro() {
 Trabalho & Obra::trabalhoMenorDuracao() {
 	int j = 0;
 
-	for (int i = 1; i < getTamanho(); i++) {
+	for (int i = 0; i < getTamanho(); i++) {
 		if (trabalhos[j]->getDuracao() < trabalhos[i]->getDuracao())
 			j = i;
 	}
@@ -124,7 +127,7 @@ Trabalho & Obra::trabalhoMenorDuracao() {
 Trabalho & Obra::trabalhoMaiorDuracao() {
 	int j = 0;
 
-	for (int i = 1; i < getTamanho(); i++) {
+	for (int i = 0; i < getTamanho(); i++) {
 		if (trabalhos[j]->getDuracao() > trabalhos[i]->getDuracao())
 			j = i;
 	}
@@ -452,7 +455,7 @@ int Construtora::getMadeiraTotal() const {
 Obra & Construtora::obraMaisBarato() {
 	int j = 0;
 
-	for (int i = 1; i < getTamanho(); i++) {
+	for (int i = 0; i < getTamanho(); i++) {
 		if (obras[j].getCustoTotal() > obras[i].getCustoTotal())
 			j = i;
 	}
@@ -462,7 +465,7 @@ Obra & Construtora::obraMaisBarato() {
 Obra & Construtora::obraMaisCaro() {
 	int j = 0;
 
-	for (int i = 1; i < getTamanho(); i++) {
+	for (int i = 0; i < getTamanho(); i++) {
 		if (obras[j].getCustoTotal() > obras[i].getCustoTotal())
 			j = i;
 	}
@@ -472,7 +475,7 @@ Obra & Construtora::obraMaisCaro() {
 Obra & Construtora::obraMenorDuracao() {
 	int j = 0;
 
-	for (int i = 1; i < getTamanho(); i++) {
+	for (int i = 0; i < getTamanho(); i++) {
 		if (obras[j].getDuracaoTotal() < obras[i].getDuracaoTotal())
 			j = i;
 	}
@@ -482,7 +485,7 @@ Obra & Construtora::obraMenorDuracao() {
 Obra & Construtora::obraMaiorDuracao() {
 	int j = 0;
 
-	for (int i = 1; i < getTamanho(); i++) {
+	for (int i = 0; i < getTamanho(); i++) {
 		if (obras[j].getDuracaoTotal() > obras[i].getDuracaoTotal())
 			j = i;
 	}
@@ -492,7 +495,7 @@ Obra & Construtora::obraMaiorDuracao() {
 vector<Obra> Construtora::obrasCustoMenor(int c) const {
 	vector<Obra> o;
 
-	for (int i = 1; i < getTamanho(); i++) {
+	for (int i = 0; i < getTamanho(); i++) {
 		if (obras[i].getCustoTotal() < c)
 			o.push_back(obras[i]);
 	}
@@ -502,7 +505,7 @@ vector<Obra> Construtora::obrasCustoMenor(int c) const {
 vector<Obra> Construtora::obrasDuracaoMenor(int d) const {
 	vector<Obra> o;
 
-	for (int i = 1; i < getTamanho(); i++) {
+	for (int i = 0; i < getTamanho(); i++) {
 		if (obras[i].getDuracaoTotal() < d)
 			o.push_back(obras[i]);
 	}
@@ -512,7 +515,7 @@ vector<Obra> Construtora::obrasDuracaoMenor(int d) const {
 vector<Obra> Construtora::obrasAsfaltoMenor(int a) const {
 	vector<Obra> o;
 
-	for (int i = 1; i < getTamanho(); i++) {
+	for (int i = 0; i < getTamanho(); i++) {
 		if (obras[i].getAsfaltoTotal() < a)
 			o.push_back(obras[i]);
 	}
@@ -522,7 +525,7 @@ vector<Obra> Construtora::obrasAsfaltoMenor(int a) const {
 vector<Obra> Construtora::obrasBetaoMenor(int b) const {
 	vector<Obra> o;
 
-	for (int i = 1; i < getTamanho(); i++) {
+	for (int i = 0; i < getTamanho(); i++) {
 		if (obras[i].getBetaoTotal() < b)
 			o.push_back(obras[i]);
 	}
@@ -532,7 +535,7 @@ vector<Obra> Construtora::obrasBetaoMenor(int b) const {
 vector<Obra> Construtora::obrasCaboMenor(int c) const {
 	vector<Obra> o;
 
-	for (int i = 1; i < getTamanho(); i++) {
+	for (int i = 0; i < getTamanho(); i++) {
 		if (obras[i].getCaboTotal() < c)
 			o.push_back(obras[i]);
 	}
@@ -542,7 +545,7 @@ vector<Obra> Construtora::obrasCaboMenor(int c) const {
 vector<Obra> Construtora::obrasMadeiraMenor(int m) const {
 	vector<Obra> o;
 
-	for (int i = 1; i < getTamanho(); i++) {
+	for (int i = 0; i < getTamanho(); i++) {
 		if (obras[i].getMadeiraTotal() < m)
 			o.push_back(obras[i]);
 	}
@@ -552,7 +555,7 @@ vector<Obra> Construtora::obrasMadeiraMenor(int m) const {
 vector<Obra> Construtora::obrasCustoMaior(int c) const {
 	vector<Obra> o;
 
-	for (int i = 1; i < getTamanho(); i++) {
+	for (int i = 0; i < getTamanho(); i++) {
 		if (obras[i].getCustoTotal() > c)
 			o.push_back(obras[i]);
 	}
@@ -562,7 +565,7 @@ vector<Obra> Construtora::obrasCustoMaior(int c) const {
 vector<Obra> Construtora::obrasDuracaoMaior(int d) const {
 	vector<Obra> o;
 
-	for (int i = 1; i < getTamanho(); i++) {
+	for (int i = 0; i < getTamanho(); i++) {
 		if (obras[i].getDuracaoTotal() > d)
 			o.push_back(obras[i]);
 	}
@@ -572,7 +575,7 @@ vector<Obra> Construtora::obrasDuracaoMaior(int d) const {
 vector<Obra> Construtora::obrasAsfaltoMaior(int a) const {
 	vector<Obra> o;
 
-	for (int i = 1; i < getTamanho(); i++) {
+	for (int i = 0; i < getTamanho(); i++) {
 		if (obras[i].getAsfaltoTotal() > a)
 			o.push_back(obras[i]);
 	}
@@ -582,7 +585,7 @@ vector<Obra> Construtora::obrasAsfaltoMaior(int a) const {
 vector<Obra> Construtora::obrasBetaoMaior(int b) const {
 	vector<Obra> o;
 
-	for (int i = 1; i < getTamanho(); i++) {
+	for (int i = 0; i < getTamanho(); i++) {
 		if (obras[i].getBetaoTotal() > b)
 			o.push_back(obras[i]);
 	}
@@ -592,7 +595,7 @@ vector<Obra> Construtora::obrasBetaoMaior(int b) const {
 vector<Obra> Construtora::obrasCaboMaior(int c) const {
 	vector<Obra> o;
 
-	for (int i = 1; i < getTamanho(); i++) {
+	for (int i = 0; i < getTamanho(); i++) {
 		if (obras[i].getCaboTotal() > c)
 			o.push_back(obras[i]);
 	}
@@ -602,7 +605,7 @@ vector<Obra> Construtora::obrasCaboMaior(int c) const {
 vector<Obra> Construtora::obrasMadeiraMaior(int m) const {
 	vector<Obra> o;
 
-	for (int i = 1; i < getTamanho(); i++) {
+	for (int i = 0; i < getTamanho(); i++) {
 		if (obras[i].getMadeiraTotal() > m)
 			o.push_back(obras[i]);
 	}
@@ -714,11 +717,11 @@ void Construtora::escreverFicheiro(ofstream& ficheiro_escrita) const {
 	}
 }
 
-Obra& Construtora::getObra(unsigned int nr) {
+Obra* Construtora::getObra(unsigned int nr) {
 
 	for(vector<Obra>::iterator it=obras.begin(); it!=obras.end(); it++)
 		if(it->getNr()==nr)
-			return *it;
+			return &(*it);
 
 	throw ObraInexistente(nr);
 }

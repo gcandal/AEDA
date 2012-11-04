@@ -108,7 +108,7 @@ public:
 	void imprime() const;
 	void escreverFicheiro(ofstream& ficheiro_escrita) const;
 	void lerFicheiro(ifstream& ficheiro_leitura);
-	Obra& getObra(unsigned int nr);
+	Obra* getObra(unsigned int nr);
 
 	class ErroFicheiro {
 	public:

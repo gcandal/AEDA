@@ -48,6 +48,7 @@ void Trabalho::setDuracao(unsigned int str) {
 
 	duracao=str;
 
+	cout << str;
 	if(str<0)
 		throw ValorIncorrecto(str);
 };
