@@ -286,11 +286,6 @@ void novaObra(Construtora& c1) {
 	c1.adicionaObra(o1);
 }
 
-void apagarTrab() {
-
-	//implementar
-}
-
 void efetuarAlteracao(Construtora& c1, Obra& o1, Trabalho& t1) {
 
 	string str;
@@ -466,6 +461,33 @@ void consultarTrabalho(Construtora& c1, Obra& o1) {
 		o1.imprime();
 
 }
+
+void removerTrabalho(Construtora& c1, Obra& o1) {
+
+	string str;
+	stringstream ss;
+	unsigned int nr;
+	Trabalho *t1;
+	bool valid=true;
+
+	cout << "Insira o numero do trabalho que pretende eliminar: " << endl;
+
+	do{
+		cin >> str;
+		ss << str;
+	} while(!(ss>>nr));
+
+	try {
+		o1.eliminaTrab(nr);
+	} catch (Obra::TrabalhoInexistente& e) {
+		valid=false;
+		cout << "Nao existe nenhum trabalho com o numero:  " << e.id << " na Obra nr " << o1.getNr() << endl;
+	}
+
+	if(valid)
+		o1.imprime();
+}
+
 void removerObra(Construtora& c1) {
 
 	string str;
@@ -644,7 +666,9 @@ void menuS(Construtora& c1, Obra& o1) {
 			alterarTrabalho(c1, o1);
 			break;
 		case 4:
-			//removerTrabalho(c1); IMPLEMENTAR
+			if(o1.getTamanho()<2)
+				cout << "A obra apenas possui um trabalho, e no minimo tem que ter um. Remocao impossivel.\n";
+			else removerTrabalho(c1, o1);
 			break;
 		case 5:
 			menuPrinc(c1);

@@ -28,6 +28,7 @@ bool Obra::eliminaTrab(unsigned int n) {
 
 	for(unsigned int i=0; i<trabalhos.size(); i++) {
 		if(trabalhos[i]->getNum() ==  n) {
+			//delete trabalhos[i];
 			trabalhos.erase(trabalhos.begin()+i);
 			return true;
 		}
