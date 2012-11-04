@@ -12,14 +12,7 @@ public:
 	Domestico(int duracao, int custo, string empresa, int idHabitacao);
 	int getIdHabitacao() const;
 	void setID(unsigned int n);
-	/*
-	 * Useless
-	virtual int getAsfalto() const;
-	virtual int getBetao() const;
-	virtual int getCabo() const;
-	virtual int getMadeira() const;*/
 	virtual int getId() const {return idHabitacao;}
-	virtual string info() const;
 	virtual void imprime() const;
 };
 
@@ -32,12 +25,9 @@ public:
 	int getAsfalto() const;
 	int getCabo() const;
 	int getMadeira() const;
-	//int getCusto() const;
-	//int getDuracao() const;
 	void setMaterial(unsigned int n);
 	void imprimeFicheiro(ofstream& ficheiro_escrita) const;
 	virtual tipoTrabalho getTipoTrabalho() const {return tipo;}
-	virtual string info() const;
 	void imprime() const;
 };
 
@@ -51,12 +41,9 @@ public:
 	int getBetao() const;
 	int getAsfalto() const;
 	int getMadeira() const;
-	//int getCusto() const;
-	//int getDuracao() const;
 	void setMaterial(unsigned int n);
 	void imprimeFicheiro(ofstream& ficheiro_escrita) const;
 	virtual tipoTrabalho getTipoTrabalho() const {return tipo;}
-	virtual string info() const;
 	void imprime() const;
 };
 
@@ -70,12 +57,9 @@ public:
 	int getBetao() const;
 	int getAsfalto() const;
 	int getMadeira() const;
-	//int getCusto() const;
-	//int getDuracao() const;
 	void setMaterial(unsigned int n);
 	void imprimeFicheiro(ofstream& ficheiro_escrita) const;
 	virtual tipoTrabalho getTipoTrabalho() const {return tipo;}
-	virtual string info() const;
 	void imprime() const;
 };
 

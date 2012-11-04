@@ -14,15 +14,6 @@ void Domestico::setID(unsigned int n) {
 	idHabitacao=n;
 }
 
-string Domestico::info() const {
-	stringstream ss;
-
-	ss << "ID Habitacao: " << idHabitacao << '\n';
-	ss << Trabalho::info();
-
-	return ss.str();
-}
-
 void Domestico::imprime() const {
 
 	Trabalho::imprime();
@@ -51,14 +42,6 @@ int Trolha::getMadeira() const {
 	return 0;
 }
 
-/*int Trolha::getCusto() const {
- return Trabalho::getCusto();
- }
-
- int Trolha::getDuracao() const {
- return Trabalho::getDuracao();
- }*/
-
 void Trolha::setMaterial(unsigned int n) {
 	quantBetao=n;
 
@@ -70,17 +53,6 @@ void Trolha::imprimeFicheiro(ofstream& ficheiro_escrita) const {
 
 	ficheiro_escrita << Trabalho::getDuracao() << '\n' << Trabalho::getCusto() << '\n' << Domestico::getIdHabitacao() << '\n'
 			<< quantBetao << '\n' << "Trolha" << '\n' << Trabalho::getEmpresa() << '\n';
-}
-
-string Trolha::info() const {
-	stringstream ss;
-
-	ss << "Tipo de trabalho: Trolha \n";
-	ss << "Quantidade de betao: " << quantBetao << '\n';
-	ss << Domestico::info();
-	ss << Trabalho::info();
-
-	return ss.str();
 }
 
 void Trolha::imprime() const {
@@ -111,14 +83,6 @@ int Eletricista::getMadeira() const {
 	return 0;
 }
 
-/*int Eletricista::getCusto() const {
- return Trabalho::getCusto();
- }
-
- int Eletricista::getDuracao() const {
- return Trabalho::getDuracao();
- }*/
-
 void Eletricista::setMaterial(unsigned int n) {
 	compCabo=n;
 
@@ -132,16 +96,6 @@ void Eletricista::imprimeFicheiro(ofstream& ficheiro_escrita) const {
 			<< compCabo << '\n' << "Eletricista" << '\n' << Trabalho::getEmpresa() << '\n';
 }
 
-string Eletricista::info() const {
-	stringstream ss;
-
-	ss << "Tipo de trabalho: Eletricista \n";
-	ss << "Comprimento de cabo: " << compCabo << '\n';
-	ss << Domestico::info();
-	ss << Trabalho::info();
-
-	return ss.str();
-}
 
 void Eletricista::imprime() const {
 
@@ -172,14 +126,6 @@ int Carpinteiro::getMadeira() const {
 	return areaMadeira;
 }
 
-/*int Carpinteiro::getCusto() const {
- return Trabalho::getCusto();
- }
-
- int Carpinteiro::getDuracao() const {
- return Trabalho::getDuracao();
- }*/
-
 void Carpinteiro::setMaterial(unsigned int n) {
 	areaMadeira=n;
 
@@ -191,17 +137,6 @@ void Carpinteiro::imprimeFicheiro(ofstream& ficheiro_escrita) const {
 
 	ficheiro_escrita << Trabalho::getDuracao() << '\n' << Trabalho::getCusto() << '\n' << Domestico::getIdHabitacao() << '\n'
 			<< areaMadeira << '\n' << "Carpinteiro" << '\n' << Trabalho::getEmpresa() << '\n';
-}
-
-string Carpinteiro::info() const {
-	stringstream ss;
-
-	ss << "Tipo de trabalho: Carpinteiro \n";
-	ss << "Area de madeira: " << areaMadeira << '\n';
-	ss << Domestico::info();
-	ss << Trabalho::info();
-
-	return ss.str();
 }
 
 void Carpinteiro::imprime() const {

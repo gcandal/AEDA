@@ -30,7 +30,6 @@ public:
 	virtual void imprimeFicheiro(ofstream& ficheiro_escrita) const =0;
 	virtual tipoTrabalho getTipoTrabalho() const =0;
 	virtual int getId() const =0;
-	virtual string info() const;
 	void setEmpresa(string str);
 	void setDuracao(unsigned int n);
 	void setCusto(unsigned int n);

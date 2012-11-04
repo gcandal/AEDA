@@ -36,18 +36,6 @@ bool Obra::eliminaTrab(unsigned int n) {
 	return false;
 }
 
-/*bool Obra::eliminaTrab(Trabalho *t1) {
-
-	for(unsigned int i=0; i<trabalhos.size(); i++) {
-		if(trabalhos[i]->getNum() ==  t1->getNum()) {
-			trabalhos.erase(trabalhos.begin()+i);
-			return true;
-		}
-	}
-	//throw TrabalhoInexistente;
-	return false;
-}*/
-
 int Obra::getCustoTotal() const {
 	int count = 0;
 
@@ -142,19 +130,19 @@ Trabalho & Obra::trabalhoMaiorDuracao() {
 	return *trabalhos[j];
 }
 
-string Obra::searchNum(int search)
+/*string Obra::searchNum(int search)
 {
 	string result = "Trabalho nao encontrado/n";
 	for (unsigned int i = 0; i < trabalhos.size(); i++)
 	{
 		if(trabalhos[i]->getNum() == (unsigned) search)
 		{
-			result = trabalhos[i]->info();
+			result = trabalhos[i]->imprime();
 			break;
 		}
 	}
 	return result;
-}
+}*/
 
 vector<Trabalho *> Obra::trabalhosCustoMenor(int c) const {
 	vector<Trabalho *> t;
@@ -328,8 +316,6 @@ vector<Trabalho *> Obra::trabalhosTipo(tipoTrabalho tp){
 	return t;
 }
 
-
-
 void Obra::imprimeFicheiro(ofstream& ficheiro_escrita) const {
 
 	ficheiro_escrita << "+Obra " << nr << endl << endl;
@@ -395,18 +381,6 @@ int Construtora::getTamanho() const {
 void Construtora::adicionaObra(Obra o1) {
 	obras.push_back(o1);
 }
-
-/*bool Construtora::eliminaObra(Obra o1) {
-
-	for(unsigned int i=0; i<obras.size(); i++) {
-		if(obras[i].getNr()==o1.getNr()) {
-			obras.erase(obras.begin()+i);
-			return true;
-		}
-	}
-	//throw ObraInexistente();
-	return false;
-}*/
 
 bool Construtora::eliminaObra(unsigned int n) {
 

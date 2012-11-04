@@ -29,7 +29,6 @@ public:
 	int getTamanho() const;
 	static unsigned int getUltimoNr();
 	void adicionaTrabalho(Trabalho *t1);
-	//bool eliminaTrab(Trabalho *t1);
 	bool eliminaTrab(unsigned int n);
 	unsigned int getNr() const;
 	int getCustoTotal() const;
@@ -62,7 +61,6 @@ public:
 	vector<Trabalho *> trabalhosHabitacao(int id) const;
 	vector<Trabalho *> trabalhosTipo(tipoTrabalho tp);
 	Trabalho* getTrabalho(unsigned int n);
-
 	void imprime() const;
 	void imprimeFicheiro(ofstream& ficheiro_escrita) const;
 
@@ -83,7 +81,6 @@ public:
 	string getNome() const;
 	int getTamanho() const;
 	void adicionaObra(Obra o1);
-	//bool eliminaObra(Obra o1);
 	bool eliminaObra(unsigned int n);
 	int getCustoTotal() const;
 	int getDuracaoTotal() const;

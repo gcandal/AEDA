@@ -40,15 +40,6 @@ int Trabalho::getMadeira() const {
 	return 0;
 }
 
-string Trabalho::info() const {
-
-	stringstream ss;
-
-	ss << "Empresa: " << empresa << "\nDuracao: " << duracao << "\nCusto: " << custo << "\nID: " << num << '\n';
-
-	return ss.str();
-}
-
 void Trabalho::setEmpresa(string str) {
 	empresa=str;
 };

@@ -17,15 +17,6 @@ void InfraEstrutura::setID(unsigned int n) {
 	idRua=n;
 }
 
-string InfraEstrutura::info() const {
-	stringstream ss;
-
-	ss << "ID Rua: " << idRua << '\n';
-	ss << Trabalho::info();
-
-	return ss.str();
-}
-
 void InfraEstrutura::imprime() const {
 
 	Trabalho::imprime();
@@ -38,14 +29,6 @@ Arruamento::Arruamento(int duracao, int custo, string empresa, int idRua,
 		InfraEstrutura(duracao, custo, empresa, idRua), quantAsfalto(
 				quantAsfalto) {
 }
-
-/*int Arruamento::getCusto() const {
- return Trabalho::getCusto();
- }
-
- int Arruamento::getDuracao() const {
- return Trabalho::getDuracao();
- }*/
 
 void Arruamento::setMaterial(unsigned int n) {
 	quantAsfalto=n;
@@ -76,17 +59,6 @@ void Arruamento::imprimeFicheiro(ofstream& ficheiro_escrita) const {
 			<< quantAsfalto << '\n' << "Arruamento" << '\n' << Trabalho::getEmpresa() << '\n';
 }
 
-string Arruamento::info() const {
-	stringstream ss;
-
-	ss << "Tipo de trabalho: Arruamento \n";
-	ss << "Quantidade de asfalto: " << quantAsfalto << '\n';
-	ss << InfraEstrutura::info();
-	ss << Trabalho::info();
-
-	return ss.str();
-}
-
 void Arruamento::imprime() const {
 
 	InfraEstrutura::imprime();
@@ -115,14 +87,6 @@ int Saneamento::getMadeira() const {
 	return 0;
 }
 
-/*int Saneamento::getCusto() const {
- return Trabalho::getCusto();
- }
-
- int Saneamento::getDuracao() const {
- return Trabalho::getDuracao();
- }*/
-
 void Saneamento::setMaterial(unsigned int n) {
 	quantBetao=n;
 
@@ -134,17 +98,6 @@ void Saneamento::imprimeFicheiro(ofstream & ficheiro_escrita) const {
 
 	ficheiro_escrita << Trabalho::getDuracao() << '\n' << Trabalho::getCusto() << '\n' << InfraEstrutura::getIdRua() << '\n'
 			<< quantBetao << '\n' << "Saneamento" << '\n' << Trabalho::getEmpresa() << '\n';
-}
-
-string Saneamento::info() const {
-	stringstream ss;
-
-	ss << "Tipo de trabalho: Saneamento \n";
-	ss << "Quantidade de betao: " << quantBetao << '\n';
-	ss << InfraEstrutura::info();
-	ss << Trabalho::info();
-
-	return ss.str();
 }
 
 void Saneamento::imprime() const {
