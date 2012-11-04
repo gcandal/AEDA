@@ -4,7 +4,7 @@ void menuPrinc(Construtora& c1);
 void consultarObra(Construtora& c1);
 void menuS(Construtora& c1, Obra* o1);
 
-bool debug= true;
+bool debug= false;
 
 bool isNumber(string str)
 {

@@ -774,7 +774,7 @@ void Construtora::procuraTipoTrabalho() {
 			cout << endl << "Obra: " << obras[i].getNr() << endl;
 			for (unsigned int j = 0; j < v.size(); j++)
 			{
-				cout << "Trabalho numero: " << v[i]->getNum() << endl;
+				cout << "Trabalho numero: " << v[j]->getNum() << endl;
 			}
 			cout << endl;
 		}
