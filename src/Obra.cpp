@@ -58,11 +58,7 @@ int Obra::getAsfaltoTotal() const {
 	int count = 0;
 
 	for (int i = 0; i < getTamanho(); i++)
-	{
-		cout << "Id " << i << endl;
-		cout << trabalhos[i]->getAsfalto() << endl;
 		count += trabalhos[i]->getAsfalto();
-	}
 
 	return count;
 }
@@ -133,20 +129,6 @@ Trabalho & Obra::trabalhoMaiorDuracao() {
 	}
 	return *trabalhos[j];
 }
-
-/*string Obra::searchNum(int search)
-{
-	string result = "Trabalho nao encontrado/n";
-	for (unsigned int i = 0; i < trabalhos.size(); i++)
-	{
-		if(trabalhos[i]->getNum() == (unsigned) search)
-		{
-			result = trabalhos[i]->imprime();
-			break;
-		}
-	}
-	return result;
-}*/
 
 vector<Trabalho *> Obra::trabalhosCustoMenor(int c) const {
 	vector<Trabalho *> t;

@@ -4,13 +4,12 @@ void menuPrinc(Construtora& c1);
 void consultarObra(Construtora& c1);
 void menuS(Construtora& c1, Obra* o1);
 
-bool debug= false;
+bool debug=false;
 
 bool isNumber(string str)
 {
 	bool ret = false;
-	for(unsigned int i=0; i < str.size(); i++)
-	{
+	for(unsigned int i=0; i < str.size(); i++) {
 		if(isdigit(str[i]))
 			ret=true;
 		else
@@ -27,10 +26,8 @@ int pedirValor() {
 
 	try {
 		do{
-
 			cout << "Insira um limite: ";
 			cin >> str;
-
 		} while(!isNumber(str));
 
 		res = atoi(str.c_str());
@@ -41,7 +38,6 @@ int pedirValor() {
 		cout << "Valor invalido" << endl << endl;
 		res = pedirValor();
 	}
-
 	return res;
 }
 
@@ -56,7 +52,6 @@ void imprimeVectorTrabalhos(vector<Trabalho*> vctr) {
 		}
 		cout << endl;
 	}
-
 }
 
 void imprimeVectorObras(vector<Obra> vctr) {
@@ -91,8 +86,12 @@ void calConstrutora(Construtora& c1) {
 		cout << "8. Obras com duracao menor que..." << endl;
 		cout << "9. Obras com custo maior que..." << endl;
 		cout << "10. Obras com custo menor que..." << endl;
-		cout << "11. Trabalhos de um determinado tipo" << endl;
-		cout << "12. Voltar ao menu anterior" << endl << endl;
+		cout << "11. Obra com maior duracao" << endl;
+		cout << "12. Obra com menor duracao" << endl;
+		cout << "13. Obra com maior custo" << endl;
+		cout << "14. Obra com menor custo" << endl;
+		cout << "15. Trabalhos de um determinado tipo" << endl;
+		cout << "16. Voltar ao menu anterior" << endl << endl;
 
 		cout << "Valores de x:" << endl;
 		cout << "1 - Asfalto" << endl;
@@ -177,9 +176,21 @@ void calConstrutora(Construtora& c1) {
 			imprimeVectorObras(c1.obrasCustoMenor(valor));
 			break;
 		case 11:
-			c1.procuraTipoTrabalho();
+			cout << "Obra numero: " << (c1.obraMaiorDuracao()).getNr() << ", duracao total: " << (c1.obraMaiorDuracao()).getDuracaoTotal() << endl << endl;
 			break;
 		case 12:
+			cout << "Obra numero: " << (c1.obraMenorDuracao()).getNr() << ", duracao total: " << (c1.obraMenorDuracao()).getDuracaoTotal() << endl << endl;
+			break;
+		case 13:
+			cout << "Obra numero: " << (c1.obraMaisCaro()).getNr() << ", custo total: " << (c1.obraMaisCaro()).getDuracaoTotal() << endl << endl;
+			break;
+		case 14:
+			cout << "Trabalho numero: " << (c1.obraMaisBarato()).getNr() << ", custo total: " << (c1.obraMaisBarato()).getDuracaoTotal() << endl << endl;
+			break;
+		case 15:
+			c1.procuraTipoTrabalho();
+			break;
+		case 16:
 			cout << endl;
 			menu = false;
 			menuPrinc(c1);
@@ -189,22 +200,19 @@ void calConstrutora(Construtora& c1) {
 			break;
 		}
 	} while (menu);
-
 }
 
 bool lerTrabalho(int& a) {
 
 	string str;
 	cin >> str;
-	if(isNumber(str))
-	{
+	if(isNumber(str)) {
 		cout << "<" << endl;
 		a = atoi(str.c_str());
 		return false;
 	}
 	else
 		return true;
-
 }
 
 Trabalho* inserirTrabalho() {
@@ -226,7 +234,6 @@ Trabalho* inserirTrabalho() {
 	cin.clear();
 
 	cout << endl;
-
 	cout << "Empresa associada: ";
 	cin >> str;
 	cout << endl;
@@ -236,13 +243,11 @@ Trabalho* inserirTrabalho() {
 		cout << "ID da Rua (p/infra-estruturas) ou Habitacao (para domesticos): ";
 	} while (lerTrabalho(tmpn[2]) || tmpn[2]<0);
 	cin.clear();
-
 	cout << endl;
 
 	do {
 		cout << "Quantidade de material: ";
 	} while (lerTrabalho(tmpn[3]) || tmpn[3]<0);
-
 	cout << endl;
 
 	cout << "Escolha um tipo de trabalho: " << endl;
@@ -276,7 +281,6 @@ Trabalho* inserirTrabalho() {
 		} else
 			cout << "Opcao invalida.\n" << endl;
 	}
-
 }
 
 void novoTrabalho(Obra& o1) {
@@ -301,7 +305,6 @@ void novoTrabalho(Obra& o1) {
 		}
 
 	} while ((op != "n") || o1.getTamanho()==0);
-
 }
 
 void novaObra(Construtora& c1) {
@@ -310,7 +313,6 @@ void novaObra(Construtora& c1) {
 	cout << "A criar Obra numero " << o1.getNr() << ":\n";
 
 	novoTrabalho(o1);
-
 	c1.adicionaObra(o1);
 }
 
@@ -325,7 +327,6 @@ void efetuarAlteracao(Construtora& c1, Obra* o1, Trabalho& t1) {
 		int op;
 		int nr;
 		ifstream a;
-
 
 		cout << endl <<  "1. Alterar Empresa" << endl;
 		cout << "2. Alterar Duracao" << endl;
@@ -352,14 +353,10 @@ void efetuarAlteracao(Construtora& c1, Obra* o1, Trabalho& t1) {
 			break;
 		case 2:
 			do{
-
 				cout << "Qual a nova duracao do trabalho?";
 				cin >> str1;
-
 			} while(!isNumber(str1));
-
 			nr = atoi(str1.c_str());
-
 			try {
 				t1.setDuracao(nr); }
 			catch(Trabalho::ValorIncorrecto &val) {
@@ -368,12 +365,9 @@ void efetuarAlteracao(Construtora& c1, Obra* o1, Trabalho& t1) {
 			break;
 		case 3:
 			do{
-
 				cout << "Qual o novo custo do trabalho?";
 				cin >> str1;
-
 			} while(!isNumber(str1));
-
 			nr = atoi(str1.c_str());
 			try {
 				t1.setCusto(nr); }
@@ -383,12 +377,9 @@ void efetuarAlteracao(Construtora& c1, Obra* o1, Trabalho& t1) {
 			break;
 		case 4:
 			do{
-
 				cout << "Qual a nova quantidade de material que ira ser usada?";
 				cin >> str1;
-
 			} while(!isNumber(str1));
-
 			nr = atoi(str1.c_str());
 			try {
 				t1.setMaterial(nr); }
@@ -397,14 +388,10 @@ void efetuarAlteracao(Construtora& c1, Obra* o1, Trabalho& t1) {
 			}
 			break;
 		case 5:
-
 			do{
-
 				cout << "Qual o novo ID?";
 				cin >> str1;
-
 			} while(!isNumber(str1));
-
 			nr = atoi(str1.c_str());
 			t1.setID(nr);
 			break;
@@ -416,9 +403,7 @@ void efetuarAlteracao(Construtora& c1, Obra* o1, Trabalho& t1) {
 			cout << "Opcao invalida.\n" << endl;
 			break;
 		}
-
 	} while (menu);
-
 }
 
 void alterarTrabalho(Construtora& c1, Obra* o1) {
@@ -430,19 +415,14 @@ void alterarTrabalho(Construtora& c1, Obra* o1) {
 	bool valid=true;
 
 	do{
-
 		cout << "Insira o numero do trabalho que pretende alterar: " << endl;
 		cin >> str;
-
 	} while(!isNumber(str));
-
 	nr = atoi(str.c_str());
-
 
 	try {
 		if(debug)
 			cout << "Consultar trabalho numero " << nr << "!!!"<< endl;
-
 		t1=o1->getTrabalho(nr);
 
 		if(debug)
@@ -455,7 +435,6 @@ void alterarTrabalho(Construtora& c1, Obra* o1) {
 
 	if(valid)
 		efetuarAlteracao(c1, o1, *t1);
-
 }
 
 
@@ -468,10 +447,8 @@ void consultarObra(Construtora& c1) {
 	bool valid=true;
 
 	do{
-
 		cout << "Insira o numero da obra que pretende consultar: " << endl;
 		cin >> str;
-
 	} while(!isNumber(str));
 
 	nr = atoi(str.c_str());
@@ -485,7 +462,6 @@ void consultarObra(Construtora& c1) {
 
 	if(valid)
 		o1->imprime();
-
 }
 
 
@@ -498,10 +474,8 @@ void consultarTrabalho(Construtora& c1, Obra& o1) {
 	bool valid=true;
 
 	do{
-
 		cout << "Insira o numero do trabalho que pretende consultar: " << endl;
 		cin >> str;
-
 	} while(!isNumber(str));
 
 	nr = atoi(str.c_str());
@@ -513,7 +487,6 @@ void consultarTrabalho(Construtora& c1, Obra& o1) {
 		valid=false;
 		cout << "Nao existe nenhum trabalho  com numero:  " << e.id << endl;
 	}
-
 	if(valid)
 		t1->imprime();
 }
@@ -526,16 +499,13 @@ void removerTrabalho(Construtora& c1, Obra* o1) {
 	bool valid=true;
 
 	do{
-
 		cout << "Insira o numero do trabalho que pretende eliminar: " << endl;
 		cin >> str;
-
 	} while(!isNumber(str));
 
 	nr = atoi(str.c_str());
 
 	try {
-
 		if(debug)
 			cout << "Eliminando trabalho" << nr << " !!" <<endl;
 
@@ -562,17 +532,13 @@ void removerObra(Construtora& c1) {
 	bool valid=true;
 
 	do{
-
 		cout << "Insira o numero da obra que pretende eliminar: " << endl;
 		cin >> str;
-
 	} while(!isNumber(str));
 
 	nr = atoi(str.c_str());
 
 	try {
-
-
 		o1=c1.getObra(nr);
 
 		if(debug)
@@ -585,7 +551,6 @@ void removerObra(Construtora& c1) {
 	if(valid)
 		if(c1.eliminaObra(nr))
 			cout << "Obra eliminada com sucesso";
-
 }
 
 void calcObras(Construtora& c1, Obra* o1) {
@@ -607,7 +572,11 @@ void calcObras(Construtora& c1, Obra* o1) {
 		cout << "8. Trabalhos com duracao menor que..." << endl;
 		cout << "9. Trabalhos com custo maior que..." << endl;
 		cout << "10. Trabalhos com custo menor que..." << endl;
-		cout << "11. Voltar ao menu anterior" << endl << endl;
+		cout << "11. Trabalho com maior duracao" << endl;
+		cout << "12. Trabalho com menor duracao" << endl;
+		cout << "13. Trabalho mais barato" << endl;
+		cout << "14. Trabalho mais caro" << endl;
+		cout << "15. Voltar ao menu anterior" << endl << endl;
 
 		cout << "Valores de x:" << endl;
 		cout << "1 - Asfalto" << endl;
@@ -692,6 +661,18 @@ void calcObras(Construtora& c1, Obra* o1) {
 			imprimeVectorTrabalhos(o1->trabalhosCustoMenor(valor));
 			break;
 		case 11:
+			cout << "Trabalho numero: " << (o1->trabalhoMaiorDuracao()).getNum() << ", duracao total: " << (o1->trabalhoMaiorDuracao()).getDuracao() << endl << endl;
+			break;
+		case 12:
+			cout << "Trabalho numero: " << (o1->trabalhoMenorDuracao()).getNum() << ", duracao total: " << (o1->trabalhoMenorDuracao()).getDuracao() << endl << endl;
+			break;
+		case 13:
+			cout << "Trabalho numero: " << (o1->trabalhoMaisCaro()).getNum() << ", custo total: " << (o1->trabalhoMaisCaro()).getDuracao() << endl << endl;
+			break;
+		case 14:
+			cout << "Trabalho numero: " << (o1->trabalhoMaisBarato()).getNum() << ", custo total: " << (o1->trabalhoMaisBarato()).getDuracao() << endl << endl;
+			break;
+		case 15:
 			cout << endl;
 			menu = false;
 			menuS(c1, o1);
@@ -701,7 +682,6 @@ void calcObras(Construtora& c1, Obra* o1) {
 			break;
 		}
 	} while (menu);
-
 }
 
 void menuS(Construtora& c1, Obra* o1) {
@@ -723,7 +703,6 @@ void menuS(Construtora& c1, Obra* o1) {
 		ss << str;
 		ss >> op;
 		cout << "\n";
-
 
 		switch (op) {
 		case 1:
@@ -761,10 +740,8 @@ void alterarObra(Construtora& c1) {
 	stringstream ss;
 
 	do{
-
 		cout << "Insira o numero da obra que pretende alterar: " << endl;
 		cin >> str;
-
 	} while(!isNumber(str));
 
 	nr = atoi(str.c_str());
@@ -774,7 +751,6 @@ void alterarObra(Construtora& c1) {
 
 		if(debug)
 			o1->imprime();
-
 	} catch (Construtora::ObraInexistente& e) {
 		valid=false;
 		cout << "Nao existe nenhuma obra com numero:  " << e.id << endl;
@@ -785,6 +761,7 @@ void alterarObra(Construtora& c1) {
 }
 
 void menuPrinc(Construtora& c1) {
+
 	bool menu = true;
 	do {
 		stringstream ss;
@@ -804,7 +781,6 @@ void menuPrinc(Construtora& c1) {
 		ss << str;
 		ss >> op;
 		cout << "\n";
-
 
 		switch (op) {
 		case 1:
@@ -835,7 +811,6 @@ void menuPrinc(Construtora& c1) {
 			str.clear();
 			break;
 		}
-
 		ss.clear();
 	} while (menu);
 }

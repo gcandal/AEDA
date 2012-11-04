@@ -96,7 +96,6 @@ void Eletricista::imprimeFicheiro(ofstream& ficheiro_escrita) const {
 			<< compCabo << '\n' << "Eletricista" << '\n' << Trabalho::getEmpresa() << '\n';
 }
 
-
 void Eletricista::imprime() const {
 
 	Domestico::imprime();
