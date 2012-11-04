@@ -11,14 +11,6 @@
 
 using namespace std;
 
-/*class Empresa {
- string nome;
- vector <Trabalho *> trab;
- public:
- void adicionaTrabalho(Trabalho *t1);
- void setNome(string nome);
- string getNome();
- };*/
 
 class Obra {
 	vector<Trabalho *> trabalhos;

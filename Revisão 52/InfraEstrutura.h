@@ -24,7 +24,9 @@ public:
 	 * @param Novo ID
 	 */
 	void setID(unsigned int n);
-	//FUNÇÃO REPETIDA, ESCOLHER UMA
+	/*
+	 * @result Devolve o ID da rua onde está a ser realizado o trabalho
+	 */
 	virtual int getId() const {
 		return idRua;
 	}

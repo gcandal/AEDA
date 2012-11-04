@@ -23,7 +23,6 @@ public:
 	 * @param Novo ID
 	 */
 	void setID(unsigned int n);
-	//FUNÇÃO REPETIDA, ESCOLHER UMA
 	virtual int getId() const {
 		return idHabitacao;
 	}
