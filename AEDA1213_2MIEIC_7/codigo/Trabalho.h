@@ -16,33 +16,33 @@ class Trabalho {
 	static unsigned int ultimoNum;
 	unsigned int num;
 public:
-	/*
-	 * @brief Construtor da classe Trabalho
-	 * @param Duração, custo e empresa responsavél pelo trabalho
+	/*!
+	 * /brief Construtor da classe Trabalho
+	 * /param Duração, custo e empresa responsavél pelo trabalho
 	 */
 	Trabalho(int duracao, int custo, string empresa);
-	/*
-	 * @brief Destrutor da classe Trabalho
+	/*!
+	 * /brief Destrutor da classe Trabalho
 	 */
 	virtual ~Trabalho() {
 	}
-	/*
-	 * @return Devolve o número do trabalho
+	/*!
+	 * /return Devolve o número do trabalho
 	 */
 	unsigned int getNum() const;
-	/*
-	 * @return Devolve a empresa responsavél pelo trabalho
+	/*!
+	 * /return Devolve a empresa responsavél pelo trabalho
 	 */
 	string getEmpresa() const;
-	/*
-	 * @return Devolve o custo do trabalho
+	/*!
+	 * /return Devolve o custo do trabalho
 	 */
-	/*virtual*/
+	/*!virtual*/
 	int getCusto() const;
-	/*
-	 * @return Devolve a duração do trabalho
+	/*!
+	 * /return Devolve a duração do trabalho
 	 */
-	/*virtual*/
+	/*!virtual*/
 	int getDuracao() const;
 	virtual int getAsfalto() const = 0;
 	virtual int getBetao() const;
@@ -53,24 +53,24 @@ public:
 	virtual void imprimeFicheiro(ofstream& ficheiro_escrita) const =0;
 	virtual tipoTrabalho getTipoTrabalho() const =0;
 	virtual int getId() const =0;
-	/*
-	 * @brief Altera a empresa responsavél
-	 * @param Empresa pretendida
+	/*!
+	 * /brief Altera a empresa responsavél
+	 * /param Empresa pretendida
 	 */
 	void setEmpresa(string str);
-	/*
-	 * @brief Altera a duração do trabalho
-	 * @param Duração pretendida
+	/*!
+	 * /brief Altera a duração do trabalho
+	 * /param Duração pretendida
 	 */
 	void setDuracao(unsigned int n);
-	/*
-	 * @brief Altera o custo do trabalho
-	 * @param Custo pretendido
+	/*!
+	 * /brief Altera o custo do trabalho
+	 * /param Custo pretendido
 	 */
 	void setCusto(unsigned int n);
-	/*
-	 *  @brief Guarda no ficheiro de escrita informações sobre o trabalho
-	 *  @param Ficheiro onde se pretende guardar as informações
+	/*!
+	 *  /brief Guarda no ficheiro de escrita informações sobre o trabalho
+	 *  /param Ficheiro onde se pretende guardar as informações
 	 */
 	virtual void imprime() const;
 
