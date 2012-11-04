@@ -200,6 +200,7 @@ public:
 				id(id) {
 		}
 	};
+
 };
 
 class Construtora {
@@ -359,6 +360,9 @@ public:
 	 */
 	Obra* getObra(unsigned int nr);
 
+	void procuraID() const;
+	void procuraEmpresa() const;
+
 	class ErroFicheiro {
 	public:
 		ErroFicheiro() {
@@ -370,6 +374,21 @@ public:
 		int id;
 		ObraInexistente(int id) :
 				id(id) {
+		}
+	};
+
+	class EmpresaInexistente {
+	public:
+		string empresa;
+		EmpresaInexistente(string empresa): empresa(empresa) {};
+	};
+
+	class idInexistente {
+	public:
+		int id;
+		tipoTrabalho t;
+		idInexistente(int id, tipoTrabalho t) :
+			id(id), t(t) {
 		}
 	};
 

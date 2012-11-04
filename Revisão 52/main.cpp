@@ -92,7 +92,9 @@ void calConstrutora(Construtora& c1) {
 		cout << "9. Obras com custo maior que..." << endl;
 		cout << "10. Obras com custo menor que..." << endl;
 		cout << "11. Trabalhos de um determinado tipo" << endl;
-		cout << "12. Voltar ao menu anterior" << endl << endl;
+		cout << "12. Trabalhos com um determinado ID" << endl;
+		cout << "13. Trabalhos sub-contratados a uma determinada empresa" << endl;
+		cout << "14. Voltar ao menu anterior" << endl << endl;
 
 		cout << "Valores de x:" << endl;
 		cout << "1 - Asfalto" << endl;
@@ -180,6 +182,12 @@ void calConstrutora(Construtora& c1) {
 			c1.procuraTipoTrabalho();
 			break;
 		case 12:
+			c1.procuraID();
+			break;
+		case 13:
+			c1.procuraEmpresa();
+			break;
+		case 14:
 			cout << endl;
 			menu = false;
 			menuPrinc(c1);
