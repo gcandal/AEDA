@@ -227,7 +227,7 @@ bool lerTrabalho(int& a) {
 	string str;
 	cin >> str;
 	if(isNumber(str)) {
-		cout << "<" << endl;
+		//cout << "<" << endl;
 		a = atoi(str.c_str());
 		return false;
 	}
