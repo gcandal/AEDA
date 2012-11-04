@@ -362,11 +362,11 @@ int Obra::getDuracaoTrab(tipoTrabalho t) const {
 	return count;
 }
 
-Trabalho& Obra::getTrabalho(unsigned int n) {
+Trabalho* Obra::getTrabalho(unsigned int n) {
 
 	for(vector<Trabalho *>::iterator it=trabalhos.begin(); it!=trabalhos.end(); it++)
 		if((*it)->getNum()==n)
-			return *(*it);
+			return *it;
 
 	throw TrabalhoInexistente(n);
 }

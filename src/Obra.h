@@ -61,7 +61,7 @@ public:
 	vector<Trabalho *> trabalhosRua(int id) const;
 	vector<Trabalho *> trabalhosHabitacao(int id) const;
 	vector<Trabalho *> trabalhosTipo(tipoTrabalho tp);
-	Trabalho& getTrabalho(unsigned int n);
+	Trabalho* getTrabalho(unsigned int n);
 
 	void imprime() const;
 	void imprimeFicheiro(ofstream& ficheiro_escrita) const;
