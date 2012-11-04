@@ -58,7 +58,11 @@ int Obra::getAsfaltoTotal() const {
 	int count = 0;
 
 	for (int i = 0; i < getTamanho(); i++)
+	{
+		cout << "Id " << i << endl;
+		cout << trabalhos[i]->getAsfalto() << endl;
 		count += trabalhos[i]->getAsfalto();
+	}
 
 	return count;
 }
@@ -129,6 +133,20 @@ Trabalho & Obra::trabalhoMaiorDuracao() {
 	}
 	return *trabalhos[j];
 }
+
+/*string Obra::searchNum(int search)
+{
+	string result = "Trabalho nao encontrado/n";
+	for (unsigned int i = 0; i < trabalhos.size(); i++)
+	{
+		if(trabalhos[i]->getNum() == (unsigned) search)
+		{
+			result = trabalhos[i]->imprime();
+			break;
+		}
+	}
+	return result;
+}*/
 
 vector<Trabalho *> Obra::trabalhosCustoMenor(int c) const {
 	vector<Trabalho *> t;
@@ -760,5 +778,105 @@ void Construtora::procuraTipoTrabalho() {
 			}
 			cout << endl;
 		}
+	}
+}
+
+void Construtora::procuraID() const {
+	stringstream ss;
+	int op, id;
+	string str;
+	tipoTrabalho t;
+	vector<tipoTrabalho> vctr;
+	//= {arruamento, saneamento, trolha, eletricista, carpinteiro};
+
+	vctr.push_back(arruamento);
+	vctr.push_back(saneamento);
+	vctr.push_back(trolha);
+	vctr.push_back(eletricista);
+	vctr.push_back(carpinteiro);
+
+
+	bool valid = false;
+
+	cout << "Escolha um tipo de trabalho" << endl;
+	cout << "1: Arruamento" << endl;
+	cout << "2: Saneamento" << endl;
+	cout << "3: Trolha" << endl;
+	cout << "4: Eletricista" << endl;
+	cout << "5: Carpinteiro" << endl;
+
+	do {
+		cin >> str;
+		ss << str;
+		ss >> op;
+		ss.clear();
+
+		if (op < 1 || op > 5) {
+			cout << "Opcao invalida \n" << endl;
+			break;
+		}
+
+		t = vctr[op - 1];
+		valid = true;
+	} while (!valid);
+
+	if(t<2)
+		cout << "Insira o ID da Rua: ";
+	else cout << "Insira o ID da Habitacao: ";
+
+	do {
+		ss.clear();
+		cin >> str;
+		ss << str;
+	} while(!(ss>>id));
+
+	for(int i = 0; i < getTamanho(); i++)
+	{
+		vector<Trabalho *> v;
+		if(t<2)
+			v = obras[i].trabalhosRua(id);
+		else v = obras[i].trabalhosHabitacao(id);
+
+
+		if(v.size() > 0)
+		{
+			cout << endl << "Obra: " << obras[i].getNr() << endl;
+			for (unsigned int j = 0; j < v.size(); j++)
+			{
+				cout << "Trabalho numero: " << v[j]->getNum() << endl;
+			}
+			cout << endl;
+		} else throw idInexistente(id,t,obras[i].getNr());
+	}
+}
+
+void Construtora::procuraEmpresa() const {
+	stringstream ss;
+	int op;
+	string str;
+
+
+	bool valid = false;
+
+	cout << "Escolha o nome da empresa sub-contratada a procurar:" << endl;
+	cin >> str;
+	cout << endl;
+
+
+	for(int i = 0; i < getTamanho(); i++)
+	{
+		vector<Trabalho *> v;
+		v = obras[i].trabalhosEmpresa(str);
+
+
+		if(v.size() > 0)
+		{
+			cout << endl << "Obra: " << obras[i].getNr() << endl;
+			for (unsigned int j = 0; j < v.size(); j++)
+			{
+				cout << "Trabalho numero: " << v[j]->getNum() << endl;
+			}
+			cout << endl;
+		} else throw EmpresaInexistente(str,obras[i].getNr());
 	}
 }
