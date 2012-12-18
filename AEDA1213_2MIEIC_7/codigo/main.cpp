@@ -390,7 +390,9 @@ void efetuarAlteracao(Construtora& c1, Obra* o1, Trabalho& t1) {
 			} while(!isNumber(str1));
 			nr = atoi(str1.c_str());
 			try {
-				t1.setCusto(nr); }
+				t1.setCusto(nr);
+				o1->fila_atualizaTrab(&t1);
+			}
 			catch(Trabalho::ValorIncorrecto &val) {
 				cout << "Valor invalido: " << val.v << endl;
 			}
@@ -480,8 +482,44 @@ void consultarObra(Construtora& c1) {
 		cout << "Nao existe nenhuma obra com numero:  " << e.id << endl;
 	}
 
-	if(valid)
-		o1->imprime();
+	if(valid) {
+		bool menu = true;
+
+		do {
+			stringstream ss;
+			int op;
+			string str;
+
+			cout << "1. Imprimir trabalhos indiscriminadamente" << endl;
+			cout << "2. Imprimir trabalhos por ordem de pagamento" << endl;
+			cout << "3. Sair" << endl;
+
+			cout << "\nEscolha opcao: ";
+			cin >> str;
+			ss << str;
+			ss >> op;
+			cout << "\n";
+
+			switch (op) {
+			case 1:
+				o1->imprime();
+				cout << endl << endl;
+				break;
+			case 2:
+				o1->fila_imprime();
+				cout << endl << endl;
+				break;
+			case 3:
+				cout << endl;
+				menu = false;
+				menuPrinc(c1);
+				break;
+			default:
+				cout << "Opcao invalida.\n" << endl;
+				break;
+			}
+		} while (menu);
+	}
 }
 
 
@@ -859,7 +897,6 @@ int main() {
 
 	cout << c1.getNome() << endl << endl;
 	menuPrinc(c1);
-
 	c1.escreverFicheiro(ficheiro_escrita);
 	ficheiro_leitura.close();
 	ficheiro_escrita.close();

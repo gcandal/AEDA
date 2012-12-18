@@ -20,7 +20,42 @@ unsigned int Obra::getUltimoNr() {
 	return ultimoNr;
 }
 
+void Obra::fila_adicionaTrabalho(Trabalho *t1) {
+	fila_trabalhos.push(t1);
+}
+
+bool Obra::fila_eliminaTrab(unsigned int n) {
+
+	priority_queue<Trabalho *,vector<Trabalho *>,ComparaTrabalhos> tmp;
+	bool found=false;
+
+	while(!fila_trabalhos.empty()) {
+
+		if(fila_trabalhos.top()->getNum()==n) {
+			found=true;
+			fila_trabalhos.pop();
+			break;
+		}
+
+		tmp.push(fila_trabalhos.top());
+
+		fila_trabalhos.pop();
+	}
+
+	while(!tmp.empty()) {
+		fila_trabalhos.push(tmp.top());
+		tmp.pop();
+	}
+
+	return found;
+}
+
+Trabalho* Obra::fila_proximoAPagar() const {
+	return fila_trabalhos.top();
+}
+
 void Obra::adicionaTrabalho(Trabalho *t1) {
+	fila_adicionaTrabalho(t1);
 	trabalhos.push_back(t1);
 }
 
@@ -29,11 +64,20 @@ bool Obra::eliminaTrab(unsigned int n) {
 	for(unsigned int i=0; i<trabalhos.size(); i++) {
 		if(trabalhos[i]->getNum() ==  n) {
 			trabalhos.erase(trabalhos.begin()+i);
+			fila_eliminaTrab(n);
 			return true;
 		}
 	}
 	throw TrabalhoInexistente(n);
 	return false;
+}
+
+void Obra::fila_atualizaTrab(Trabalho* t1) {
+
+
+	fila_eliminaTrab(t1->getNum());
+	fila_adicionaTrabalho(t1);
+
 }
 
 int Obra::getCustoTotal() const {
@@ -348,6 +392,17 @@ void Obra::imprime() const {
 	cout << "Obra numero: " << nr << endl;
 	for(unsigned int i=0; i<trabalhos.size(); i++) {
 		trabalhos[i]->imprime();
+	}
+}
+
+void Obra::fila_imprime() const {
+	priority_queue<Trabalho *,vector<Trabalho *>,ComparaTrabalhos> tmp=fila_trabalhos;
+
+	cout << "Ordem de pagamento da Obra numero " << nr << " :" << endl;
+
+	while(!tmp.empty()) {
+		tmp.top()->imprime();
+		tmp.pop();
 	}
 }
 

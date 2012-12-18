@@ -5,15 +5,26 @@
 #include <fstream>
 #include <ctime>
 #include <sstream>
+#include <queue>
 #include "Domestico.h"
 #include "InfraEstrutura.h"
 #include "Trabalho.h"
 
 using namespace std;
 
-
+struct ComparaTrabalhos : public std::binary_function<Trabalho*, Trabalho*, bool>
+{
+  bool operator()(const Trabalho* t1, const Trabalho* t2) const
+  {
+    return t1->getCusto() > t2->getCusto();
+  }
+};
+//Atualizar prioridade
 class Obra {
 	vector<Trabalho *> trabalhos;
+	priority_queue<Trabalho *,vector<Trabalho *>,ComparaTrabalhos> fila_trabalhos;
+	void fila_adicionaTrabalho(Trabalho *t1);
+	bool fila_eliminaTrab(unsigned int n);
 	static unsigned int ultimoNr;
 	unsigned int nr;
 public:
@@ -36,6 +47,15 @@ public:
 	 * \param Número do trabalho a ser eliminado
 	 */
 	bool eliminaTrab(unsigned int n);
+	/*!
+	 * \brief Atualiza o custo de um trabalho
+	 * \param Trabalho que foi atualizado
+	 */
+	void fila_atualizaTrab(Trabalho* t1);
+	/*!
+	 * \return Devolve o proximo trabalho a ser pago
+	 */
+	Trabalho* fila_proximoAPagar() const;
 	/*!
 	 * \return Devolve o numero da obra
 	 */
@@ -187,6 +207,10 @@ public:
 	 *  \brief Imprime na consola informações sobre a obra
 	 */
 	void imprime() const;
+	/*!
+	 *  \brief Imprime na consola informações sobre a ordem de pagamento da Tesouraria
+	 */
+	void fila_imprime() const;
 	/*!
 	 *  \brief Guarda no ficheiro de escrita informações sobre a obra
 	 *  \param Ficheiro onde se pretende guardar as informações
