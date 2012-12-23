@@ -42,6 +42,7 @@ public:
 	 * \param Apontador para o trabalho a ser adicionado
 	 */
 	void adicionaTrabalho(Trabalho *t1);
+	vector<Trabalho *> getTrabalhos() const;
 	/*!
 	 * \brief Elimina um trabalho
 	 * \param Número do trabalho a ser eliminado
@@ -230,6 +231,8 @@ public:
 class Construtora {
 	string nome;
 	vector<Obra> obras;
+	priority_queue<Trabalho *,vector<Trabalho *>,ComparaTrabalhos> fila_trabalhos_totais;
+	void fila_adicionaTrabalho(Trabalho *t1);
 	/*!
 	 * \brief Lê no ficheiro de texto as informações relativas a uma obra
 	 * \param Obra pretendida, ficheiro de texto
@@ -373,6 +376,10 @@ public:
 	 *  \param Ficheiro onde se pretende guardar as informações
 	 */
 	void escreverFicheiro(ofstream& ficheiro_escrita) const;
+	/*!
+	 *  \brief Imprime na consola informações sobre a ordem de pagamento da Tesouraria
+	 */
+	void fila_imprime();
 	/*!
 	 *  \brief Lê no ficheiro de escrita informações sobre a construtora
 	 *  \param Ficheiro de onde se pretende ler as informações

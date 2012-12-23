@@ -832,7 +832,8 @@ void menuPrinc(Construtora& c1) {
 		cout << "4. Alterar uma obra" << endl;
 		cout << "5. Consultar uma obra" << endl;
 		cout << "6. Remover uma obra" << endl;
-		cout << "7. Sair" << endl;
+		cout << "7. Listagem da ordem de pagamento de todas as obras" << endl;
+		cout << "8. Sair" << endl;
 
 		cout << "\nEscolha uma opcao: ";
 		cin >> str;
@@ -860,6 +861,9 @@ void menuPrinc(Construtora& c1) {
 			removerObra(c1);
 			break;
 		case 7:
+			c1.fila_imprime();
+			break;
+		case 8:
 			menu=false;
 			cout << endl;
 			break;

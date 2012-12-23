@@ -59,6 +59,10 @@ void Obra::adicionaTrabalho(Trabalho *t1) {
 	trabalhos.push_back(t1);
 }
 
+vector<Trabalho *> Obra::getTrabalhos() const {
+	return trabalhos;
+}
+
 bool Obra::eliminaTrab(unsigned int n) {
 
 	for(unsigned int i=0; i<trabalhos.size(); i++) {
@@ -649,6 +653,26 @@ vector<Obra> Construtora::obrasMadeiraMaior(int m) const {
 	return o;
 }
 
+void Construtora::fila_imprime() {
+	vector<Trabalho *> tmp2;
+
+	for(vector<Obra>::const_iterator it=obras.begin(); it!=obras.end(); it++) {
+		tmp2=it->getTrabalhos();
+
+		for(vector<Trabalho *>::const_iterator it2=tmp2.begin(); it2!=tmp2.end(); it2++)
+			fila_adicionaTrabalho(*it2);
+	}
+
+
+	priority_queue<Trabalho *,vector<Trabalho *>,ComparaTrabalhos> tmp=fila_trabalhos_totais;
+
+	cout << "Ordem de pagamento da Construtora " << nome << " :" << endl;
+
+	while(!tmp.empty()) {
+		tmp.top()->imprime();
+		tmp.pop();
+	}
+}
 
 void Construtora::imprime() const {
 
@@ -657,6 +681,10 @@ void Construtora::imprime() const {
 		cout << endl;
 	}
 	cout << endl << endl;
+}
+
+void Construtora::fila_adicionaTrabalho(Trabalho *t1) {
+	fila_trabalhos_totais.push(t1);
 }
 
 void Construtora::lerFicheiroTrabalho(Obra& o1, ifstream& ficheiro_leitura) {
