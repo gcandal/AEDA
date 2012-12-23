@@ -12,6 +12,7 @@
 
 using namespace std;
 
+//Usado para conter comparador das filas de prioridade
 struct ComparaTrabalhos : public std::binary_function<Trabalho*, Trabalho*, bool>
 {
   bool operator()(const Trabalho* t1, const Trabalho* t2) const
@@ -19,11 +20,18 @@ struct ComparaTrabalhos : public std::binary_function<Trabalho*, Trabalho*, bool
     return t1->getCusto() > t2->getCusto();
   }
 };
-//Atualizar prioridade
+
 class Obra {
 	vector<Trabalho *> trabalhos;
 	priority_queue<Trabalho *,vector<Trabalho *>,ComparaTrabalhos> fila_trabalhos;
+	/*!
+	 * \brief Adiciona um trabalho à fila de prioridade de pagamento
+	 */
 	void fila_adicionaTrabalho(Trabalho *t1);
+	/*!
+	 * \brief Elimina um trabalho da fila de prioridade de pagamento
+	 * \param Número do trabalho a ser eliminado
+	 */
 	bool fila_eliminaTrab(unsigned int n);
 	static unsigned int ultimoNr;
 	unsigned int nr;
