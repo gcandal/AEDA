@@ -656,6 +656,10 @@ vector<Obra> Construtora::obrasMadeiraMaior(int m) const {
 void Construtora::fila_imprime() {
 	vector<Trabalho *> tmp2;
 
+	//Limpa a fila e volta a inserir trabalhos de cada obra
+	while(!fila_trabalhos_totais.empty())
+		fila_trabalhos_totais.pop();
+
 	for(vector<Obra>::const_iterator it=obras.begin(); it!=obras.end(); it++) {
 		tmp2=it->getTrabalhos();
 
