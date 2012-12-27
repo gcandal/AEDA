@@ -44,4 +44,12 @@ void efetuarAlteracao(Construtora& c1, Obra* o1, Trabalho& t1);
 void menuPrinc(Construtora& c1);
 void menuS(Construtora& c1, Obra* o1);
 
+void menuEmp();
+void adicionaEmp();
+void alteraEmp();
+void alteraContEmp(string nome);
+void alteraAnoEmp(string nome);
+void eliminaEmp();
+void eliminAnoEmp();
+
 #endif

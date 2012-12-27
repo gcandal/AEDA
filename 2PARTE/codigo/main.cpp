@@ -607,14 +607,14 @@ void removerTrabalho(Construtora& c1, Obra* o1) {
 
 	nr = atoi(str.c_str());
 
+	/*try {
+		if(debug)
+			cout << "Eliminando trabalho" << nr << " !!" <<endl;*/
+
+	Trabalho *tb1;
+
 	try {
-		if(debug)
-			cout << "Eliminando trabalho" << nr << " !!" <<endl;
-
-		o1->eliminaTrab(nr);
-
-		if(debug)
-			o1->imprime();
+		tb1 = o1->getTrabalho(nr);
 
 	} catch (Obra::TrabalhoInexistente& e) {
 		valid=false;
@@ -622,7 +622,19 @@ void removerTrabalho(Construtora& c1, Obra* o1) {
 		return;
 	}
 
-	Trabalho * tb1 = o1->getTrabalho(nr);
+	o1->eliminaTrab(nr);
+
+
+	/*if(debug)
+			o1->imprime();
+
+	} catch (Obra::TrabalhoInexistente& e) {
+		valid=false;
+		cout << "Nao existe nenhum trabalho com o numero:  " << e.id << " na Obra nr " << o1->getNr() << endl;
+		return;
+	}*/
+
+	//Trabalho * tb1 = o1->getTrabalho(nr);
 	string empresa = tb1->getEmpresa();
 	Empresa e1(empresa);
 	empGuard.inserirEmpresa(e1);
@@ -647,6 +659,7 @@ void removerObra(Construtora& c1) {
 	nr = atoi(str.c_str());
 
 	try {
+
 		o1=c1.getObra(nr);
 
 		if(debug)
@@ -654,10 +667,10 @@ void removerObra(Construtora& c1) {
 	} catch (Construtora::ObraInexistente& e) {
 		valid=false;
 		cout << "Nao existe nenhuma obra com numero:  " << e.id << endl;
+		return;
 	}
 
 	if(valid) {
-		Obra *o1=c1.getObra(nr);
 		vector<Trabalho *> temp = o1->getTrabalhos();
 		string nome;
 		for(unsigned int i=0; i<temp.size(); i++) {
@@ -668,7 +681,7 @@ void removerObra(Construtora& c1) {
 		if(c1.eliminaObra(nr))
 			cout << "Obra eliminada com sucesso";
 	}
-
+	return;
 }
 
 void calcObras(Construtora& c1, Obra* o1) {
@@ -878,6 +891,138 @@ void alterarObra(Construtora& c1) {
 		menuS(c1, o1);
 }
 
+void adicionaEmp() {
+
+	string nome, tempc, tempa;
+	int contacto, ano;
+
+	cout << "Insira o nome da empresa: ";
+	cin >> nome;
+
+	do{
+		cout << endl << "Insira o contacto da empresa: ";
+		cin >> tempc;
+	} while(!isNumber(tempc));
+
+	contacto=atoi(tempc.c_str());
+
+	do{
+		cout << endl << "Insira o ultimo ano de contratacao da empresa: ";
+		cin >> tempa;
+	} while(!isNumber(tempa));
+
+	ano=atoi(tempa.c_str());
+
+	Empresa e1(nome, contacto, ano);
+	empGuard.inserirEmpresa(e1);
+}
+
+
+
+void alteraContEmp(string nome) {
+
+	string temp;
+	int cont;
+
+	do{
+		cout << endl << "Insira o novo contacto: ";
+		cin >> temp;
+		if(!isNumber(temp))
+			cout << endl << "Valor invalido. Tente outra vez.";
+	} while(!isNumber(temp));
+
+	cont=atoi(temp.c_str());
+	empGuard.alterarContacto(nome, cont);
+}
+
+void alteraAnoEmp(string nome) {
+
+	string temp;
+	int ano;
+
+	do{
+		cout << endl << "Insira o novo contacto: ";
+		cin >> temp;
+		if(!isNumber(temp))
+			cout << endl << "Valor invalido. Tente outra vez.";
+	} while(!isNumber(temp));
+
+	ano=atoi(temp.c_str());
+	empGuard.alterarAno(nome, ano);
+}
+
+void alteraEmp() {
+
+	string nome, str;
+	int op;
+	stringstream ss;
+
+	do {
+		cout << "Insira o nome da empresa a alterar: ";
+		cin >> nome;
+		if(!empGuard.existeEmpresa(nome))
+			cout << endl << "Nome invalido. Tente outra vez" << endl;
+	} while(!empGuard.existeEmpresa(nome));
+
+	cout << endl << "Pretende alterar" << endl;
+	cout << "1. O contacto da empresa" << endl;
+	cout << "2. O ultimo ano de contratacao da empresa" << endl;
+
+	cout << "\nEscolha uma opcao: ";
+	cin >> str;
+	ss << str;
+	ss >> op;
+	cout << "\n";
+
+	switch (op) {
+	case 1: //alterar contacto
+		alteraContEmp(nome);
+		cout << endl;
+		break;
+	case 2: //alterar ano
+		alteraAnoEmp(nome);
+		cout << endl;
+		break;
+	default:
+		cout << "Opcao invalida. Tente outra vez.\n" << endl;
+		ss.clear();
+		str.clear();
+		alteraEmp();
+	}
+}
+
+void eliminaEmp() {
+
+	string nome;
+
+	do {
+		cout << "Insira o nome da empresa a eliminar: ";
+		cin >> nome;
+		if(!empGuard.existeEmpresa(nome))
+			cout << endl << "Nome invalido. Tente outra vez" << endl;
+	} while(!empGuard.existeEmpresa(nome));
+
+	empGuard.removerEmpresa(nome);
+}
+
+void eliminAnoEmp() {
+
+	string temp;
+	int num, ano;
+
+	do {
+		cout << "Insira o ano minimo: ";
+		cin >> temp;
+		if(!isNumber(temp))
+			cout << endl << "Valor invalido. Tente outra vez" << endl;
+	} while(!isNumber(temp));
+
+	ano=atoi(temp.c_str());
+	num = empGuard.removerEmpresas(ano);
+
+	cout << "Foram removidas " << num << " empresas." << endl;
+}
+
 void menuEmp() {
 
 	bool menu = true;
@@ -889,8 +1034,9 @@ void menuEmp() {
 		cout << endl <<  "1. Consultar empresas guardadas" << endl;
 		cout << "2. Adicionar uma empresa" << endl;
 		cout << "3. Alterar uma empresa" << endl;
-		cout << "4. Eliminar uma empresa" << endl;
-		cout << "5. Sair" << endl;
+		cout << "4. Eliminar uma empresa por nome" << endl;
+		cout << "5. Eliminar empresas com ano menor que.." << endl;
+		cout << "6. Sair" << endl;
 
 		cout << "\nEscolha uma opcao: ";
 		cin >> str;
@@ -904,32 +1050,20 @@ void menuEmp() {
 			cout << endl << endl;
 			break;
 		case 2:
-			//string nome;
-			int contacto, ano;
-			cout << "Insira o nome da empresa: ";
-			//cin >> nome;
-			cout << endl << "Insira o contacto da empresa: ";
-			cin >> contacto;
-			cout << endl << "Insira o ultimo ano de contratacao da empresa: ";
-			cin >> ano;
+			adicionaEmp();
+			cout << endl;
 			break;
 		case 3:
-			//string nom;
-			//int num;
-			cout << "Pretende alterar o nome(n), contacto(c), ou ultimo ano de contratacao(u) da empresa?" << endl;
-			//case
-			cout << "Insira o nome da empresa: ";
-			//cin >> nom;
-			cout << "Insira o novo valor: ";
-			//cin >> num;
-			//alterar
+			alteraEmp();
+			cout << endl;
 			break;
 		case 4:
-			cout << "Insira o nome da empresa a eliminar: ";
-			//cin >> no;
-			//eliminar
+			eliminaEmp();
 			break;
 		case 5:
+			eliminAnoEmp();
+			break;
+		case 6:
 			menu=false;
 			cout << endl;
 			break;

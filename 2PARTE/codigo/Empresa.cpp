@@ -91,6 +91,16 @@ void EmpresasGuardadas::alterarAno(string nome, int ano) {
 	}
 }
 
+bool EmpresasGuardadas::existeEmpresa(string nome) {
+
+	Empresa e1(nome);
+	Tabela::iterator it=empresas.find(e1);
+
+	if(it==empresas.end())
+		return false;
+	else return true;
+}
+
 void EmpresasGuardadas::consultaEmpresas() {
 
 	Tabela::iterator it=empresas.begin();
