@@ -109,15 +109,28 @@ public:
 	 * /brief Mostra os detalhes de cada empresa da tabela empresas
 	 */
 	void consultaEmpresas();
-
+	/*!
+	 * /brief Verifica se a empresa com nome especificado no parametro existe
+	 * /param Nome a procurar
+	 * /result true/false
+	 */
 	bool existeEmpresa(string nome);
-
-
+	/*!
+	 * /brief Le os dados de um ficheiro
+	 * /param Ficheiro de leitura
+	 */
 	void leFicheiro(ifstream& ficheiro_leitura);
+	/*!
+	 * /brief Escreve os dados num ficheiro
+	 * /param Ficheiro de escrita
+	 */
 	void escreveFicheiro(ofstream& ficheiro_escrita);
 
 	class ErroNoFicheiro {
 	public:
+		/*!
+		 * /brief Construtor da classe ErroNoFicheiro
+		 */
 		ErroNoFicheiro() {}
 	};
 

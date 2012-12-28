@@ -4,7 +4,6 @@ using namespace std;
 
 int main() {
 
-
 	string NOME_FICHEIRO = "obras.txt", NOME_FICHEIRO_TMP = "obras_tmp.txt";
 	string NOME_F = "empresas.txt", NOME_F_TMP = "empresas_tmp.txt";
 	Construtora c1;

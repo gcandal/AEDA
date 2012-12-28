@@ -20,6 +20,7 @@ public:
 	ValorInvalido(int valor): valor(valor) {}
 };
 
+
 bool isNumber(string str);
 int pedirValor();
 
