@@ -109,6 +109,7 @@ public:
 	 * /brief Mostra os detalhes de cada empresa da tabela empresas
 	 */
 	void consultaEmpresas();
+
 	bool existeEmpresa(string nome);
 
 

@@ -49,7 +49,6 @@ int EmpresasGuardadas::removerEmpresas(int anoMinimo) {
 
 	int count=0;
 	Tabela::iterator it=empresas.begin();
-	Empresa e1;
 
 	while(it!=empresas.end()) {
 		if(it->getAno()<anoMinimo) {
@@ -106,7 +105,7 @@ void EmpresasGuardadas::consultaEmpresas() {
 	Tabela::iterator it=empresas.begin();
 
 	while(it!=empresas.end()) {
-		cout<<"Empresa: "<<it->getNome()<<", Ultima Contratacao: "<<it->getAno()<<", Contacto: "<<it->getContacto()<<endl;
+		cout<<"Empresa: "<<it->getNome()<<", Contacto: "<<it->getContacto()<<", Ultima Contratacao: "<<it->getAno() <<endl;
 		it++;
 	}
 }
@@ -128,7 +127,7 @@ void EmpresasGuardadas::leFicheiro(ifstream& ficheiro_leitura) {
 			contacto = atoi(temp1.c_str());
 			ultimoAno = atoi(temp2.c_str());
 
-			Empresa e1(nome, contacto, ultimoAno);
+			Empresa e1(nome, ultimoAno, contacto);
 			inserirEmpresa(e1);
 		}
 	}

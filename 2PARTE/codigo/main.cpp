@@ -29,9 +29,9 @@ int main() {
 	}
 
 	try {
-		empGuard.leFicheiro(ficheiro_leitura);
+		empGuard.leFicheiro(f_leitura);
 	} catch (EmpresasGuardadas::ErroNoFicheiro &e1) {
-		cout << endl;
+		cout <<endl;
 	}
 
 	cout << c1.getNome() << endl << endl;
@@ -913,7 +913,7 @@ void adicionaEmp() {
 
 	ano=atoi(tempa.c_str());
 
-	Empresa e1(nome, contacto, ano);
+	Empresa e1(nome, ano, contacto);
 	empGuard.inserirEmpresa(e1);
 }
 
@@ -1066,6 +1066,7 @@ void menuEmp() {
 		case 6:
 			menu=false;
 			cout << endl;
+			return;
 			break;
 		default:
 			cout << "Opcao invalida. Tente outra vez.\n" << endl;
@@ -1129,6 +1130,7 @@ void menuPrinc(Construtora& c1) {
 		case 9:
 			menu=false;
 			cout << endl;
+			return;
 			break;
 		default:
 			cout << "Opcao invalida. Tente outra vez.\n" << endl;
