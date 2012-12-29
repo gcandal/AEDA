@@ -3,6 +3,7 @@
 
 #include "Obra.h"
 #include "Empresa.h"
+#include "SubContratada.h"
 #include <iostream>
 #include <fstream>
 #include <vector>
@@ -13,6 +14,7 @@ using namespace std;
 
 bool debug=false;
 EmpresasGuardadas empGuard;
+Empresas e1;
 
 class ValorInvalido {
 public:
@@ -53,4 +55,13 @@ void alteraAnoEmp(string nome);
 void eliminaEmp();
 void eliminAnoEmp();
 
+
+void menuSub();
+void adicionaSub();
+void alteraSub();
+void alteraTipoSub(string nome);
+void alteraNumSub(string nome);
+void alteraVolSub(string nome);
+void eliminaSub();
+void listSub();
 #endif
