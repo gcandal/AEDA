@@ -836,7 +836,7 @@ void menuPrinc(Construtora& c1) {
 		case 7:
 			menu=false;
 			cout << endl;
-			break;
+			return;
 		default:
 			cout << "Opcao invalida. Tente outra vez.\n" << endl;
 			ss.clear();

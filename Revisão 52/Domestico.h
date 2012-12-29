@@ -9,12 +9,13 @@ using namespace std;
 class Domestico: public Trabalho {
 	unsigned int idHabitacao;
 public:
-	/*
+	/**
+	 *
 	 * @brief Construtor da classe Doméstico
 	 * @param Duração, custo, empresa responsável e id da habitação onde vai ser realizado o trabalho
 	 */
 	Domestico(int duracao, int custo, string empresa, int idHabitacao);
-	/*
+	/**
 	 * @result Devolve o ID da habitação onde está a ser realizado o trabalho
 	 */
 	int getIdHabitacao() const;
