@@ -12,7 +12,9 @@
 
 using namespace std;
 
-//Usado para conter comparador das filas de prioridade
+/*!
+ * \brief Estrutura usada para conter comparador das filas de prioridade
+ */
 struct ComparaTrabalhos : public std::binary_function<Trabalho*, Trabalho*, bool>
 {
   bool operator()(const Trabalho* t1, const Trabalho* t2) const
@@ -21,16 +23,19 @@ struct ComparaTrabalhos : public std::binary_function<Trabalho*, Trabalho*, bool
   }
 };
 
+/*!
+ * \brief Classe que representa uma obra
+ */
 class Obra {
 	vector<Trabalho *> trabalhos;
 	priority_queue<Trabalho *,vector<Trabalho *>,ComparaTrabalhos> fila_trabalhos;
 	/*!
-	 * \brief Adiciona um trabalho à fila de prioridade de pagamento
+	 * \brief Adiciona um trabalho a fila de prioridade de pagamento
 	 */
 	void fila_adicionaTrabalho(Trabalho *t1);
 	/*!
 	 * \brief Elimina um trabalho da fila de prioridade de pagamento
-	 * \param Número do trabalho a ser eliminado
+	 * \param Numero do trabalho a ser eliminado
 	 */
 	bool fila_eliminaTrab(unsigned int n);
 	static unsigned int ultimoNr;
@@ -38,22 +43,26 @@ class Obra {
 public:
 	Obra();
 	/*!
-	 * \return Devolve o número de trabalhos na obra
+	 * \return Devolve o numero de trabalhos na obra
 	 */
 	int getTamanho() const;
 	/*!
-	 * \return Devolve o ultimo número de identificação atribuído a uma obra
+	 * \return Devolve o ultimo numero de identificacao atribuido a uma obra
 	 */
 	static unsigned int getUltimoNr();
 	/*!
-	 * \brief Adiciona um trabalho à obra
+	 * \brief Adiciona um trabalho a obra
 	 * \param Apontador para o trabalho a ser adicionado
 	 */
 	void adicionaTrabalho(Trabalho *t1);
+	/*!
+	 * \brief Devolve os trabalhos da obra
+	 * \result Vector de trabalhos
+	 */
 	vector<Trabalho *> getTrabalhos() const;
 	/*!
 	 * \brief Elimina um trabalho
-	 * \param Número do trabalho a ser eliminado
+	 * \param Numero do trabalho a ser eliminado
 	 */
 	bool eliminaTrab(unsigned int n);
 	/*!
@@ -80,13 +89,13 @@ public:
 	 */
 	int getCustoTrab(tipoTrabalho t) const;
 	/*!
-	 * \brief Calcula a duração total de todos os trabalhos de um determinado tipo
+	 * \brief Calcula a duracao total de todos os trabalhos de um determinado tipo
 	 * \param Tipo de trabalho
-	 * \return Duração total dos trabalhos
+	 * \return Duracao total dos trabalhos
 	 */
 	int getDuracaoTrab(tipoTrabalho t) const;
 	/*!
-	 * \return Devolve a duração total da obra
+	 * \return Devolve a duracao total da obra
 	 */
 	int getDuracaoTotal() const;
 	/*!
@@ -94,7 +103,7 @@ public:
 	 */
 	int getAsfaltoTotal() const;
 	/*!
-	 * \return Devolve o betão total na obra
+	 * \return Devolve o betao total na obra
 	 */
 	int getBetaoTotal() const;
 	/*!
@@ -114,17 +123,17 @@ public:
 	 */
 	Trabalho &trabalhoMaisCaro();
 	/*!
-	 * \return Devolve o trabalho com menor duração
+	 * \return Devolve o trabalho com menor duracao
 	 */
 	Trabalho &trabalhoMenorDuracao();
 	/*!
-	 * \return Devolve o trabalho com maior duração
+	 * \return Devolve o trabalho com maior duracao
 	 */
 	Trabalho &trabalhoMaiorDuracao();
 	/*!
-	 * \brief Procura um trabalho pelo seu número
-	 * \param Número do trabalho
-	 * \return Devolve o trabalho com o número correspondente
+	 * \brief Procura um trabalho pelo seu numero
+	 * \param Numero do trabalho
+	 * \return Devolve o trabalho com o numero correspondente
 	 */
 	string searchNum(int search);
 	/*!
@@ -133,18 +142,18 @@ public:
 	 */
 	vector<Trabalho *> trabalhosCustoMenor(int c) const;
 	/*!
-	 * \param Valor da duração pretendida
-	 * \result Devolve os trabalhos com duração inferior à introduzida
+	 * \param Valor da duracao pretendida
+	 * \result Devolve os trabalhos com duracao inferior a introduzida
 	 */
 	vector<Trabalho *> trabalhosDuracaoMenor(int d) const;
 	/*!
-	 * \param Quandtidade de asfalto pretendida
-	 * \result Devolve os trabalhos com quantidade de asfalto inferior à introduzida
+	 * \param Quantidade de asfalto pretendida
+	 * \result Devolve os trabalhos com quantidade de asfalto inferior a introduzida
 	 */
 	vector<Trabalho *> trabalhosAsfaltoMenor(int a) const;
 	/*!
-	 * \param Quandtidade de betão pretendida
-	 * \result Devolve os trabalhos com quantidade de betão inferior à introduzida
+	 * \param Quandtidade de betao pretendida
+	 * \result Devolve os trabalhos com quantidade de betao inferior a introduzida
 	 */
 	vector<Trabalho *> trabalhosBetaoMenor(int b) const;
 	/*!
@@ -153,8 +162,8 @@ public:
 	 */
 	vector<Trabalho *> trabalhosCaboMenor(int c) const;
 	/*!
-	 * \param Área de madeira pretendida
-	 * \result Devolve os trabalhos com área de madeira inferior à introduzida
+	 * \param Area de madeira pretendida
+	 * \result Devolve os trabalhos com area de madeira inferior a introduzida
 	 */
 	vector<Trabalho *> trabalhosMadeiraMenor(int m) const;
 	/*!
@@ -163,18 +172,18 @@ public:
 	 */
 	vector<Trabalho *> trabalhosCustoMaior(int c) const;
 	/*!
-	 * \param Duração pretendida
-	 * \result Devolve os trabalhos com duração superior à introduzida
+	 * \param Duracao pretendida
+	 * \result Devolve os trabalhos com duracao superior a introduzida
 	 */
 	vector<Trabalho *> trabalhosDuracaoMaior(int d) const;
 	/*!
-	 * \param Quandtidade de asfalto pretendida
-	 * \result Devolve os trabalhos com quantidade de asfalto superior à introduzida
+	 * \param Quantidade de asfalto pretendida
+	 * \result Devolve os trabalhos com quantidade de asfalto superior a introduzida
 	 */
 	vector<Trabalho *> trabalhosAsfaltoMaior(int a) const;
 	/*!
-	 * \param Quandtidade de asfalto pretendida
-	 * \result Devolve os trabalhos com quantidade de betão superior à introduzida
+	 * \param Quantidade de asfalto pretendida
+	 * \result Devolve os trabalhos com quantidade de betao superior a introduzida
 	 */
 	vector<Trabalho *> trabalhosBetaoMaior(int b) const;
 	/*!
@@ -183,8 +192,8 @@ public:
 	 */
 	vector<Trabalho *> trabalhosCaboMaior(int c) const;
 	/*!
-	 * \param Área de madeira pretendida
-	 * \result Devolve os trabalhos com área de madeira superior à introduzida
+	 * \param Area de madeira pretendida
+	 * \result Devolve os trabalhos com area de madeira superior a introduzida
 	 */
 	vector<Trabalho *> trabalhosMadeiraMaior(int m) const;
 	/*!
@@ -198,8 +207,8 @@ public:
 	 */
 	vector<Trabalho *> trabalhosRua(int id) const;
 	/*!
-	 * \param ID da habitação
-	 * \return Devolve todos os trabalhos a serem feitos numa determinada habitação
+	 * \param ID da habitacao
+	 * \return Devolve todos os trabalhos a serem feitos numa determinada habitacao
 	 */
 	vector<Trabalho *> trabalhosHabitacao(int id) const;
 	/*!
@@ -208,24 +217,26 @@ public:
 	 */
 	vector<Trabalho *> trabalhosTipo(tipoTrabalho tp);
 	/*!
-	 * \param Número do trabalho pretendido
-	 * \return Devolve o trabalho com um determinado número
+	 * \param Numero do trabalho pretendido
+	 * \return Devolve o trabalho com um determinado numero
 	 */
 	Trabalho* getTrabalho(unsigned int n);
 	/*!
-	 *  \brief Imprime na consola informações sobre a obra
+	 *  \brief Imprime na consola informacoes sobre a obra
 	 */
 	void imprime() const;
 	/*!
-	 *  \brief Imprime na consola informações sobre a ordem de pagamento da Tesouraria
+	 *  \brief Imprime na consola informacoes sobre a ordem de pagamento da Tesouraria
 	 */
 	void fila_imprime() const;
 	/*!
-	 *  \brief Guarda no ficheiro de escrita informações sobre a obra
-	 *  \param Ficheiro onde se pretende guardar as informações
+	 *  \brief Guarda no ficheiro de escrita informacoes sobre a obra
+	 *  \param Ficheiro onde se pretende guardar as informacoes
 	 */
 	void imprimeFicheiro(ofstream& ficheiro_escrita) const;
-
+	/*!
+	 *  \brief Classe que representa trabalhos inexistentes
+	 */
 	class TrabalhoInexistente {
 	public:
 		int id;
@@ -236,13 +247,16 @@ public:
 
 };
 
+/*!
+ *  \brief Classe que representa a construtora
+ */
 class Construtora {
 	string nome;
 	vector<Obra> obras;
 	priority_queue<Trabalho *,vector<Trabalho *>,ComparaTrabalhos> fila_trabalhos_totais;
 	void fila_adicionaTrabalho(Trabalho *t1);
 	/*!
-	 * \brief Lê no ficheiro de texto as informações relativas a uma obra
+	 * \brief Lê no ficheiro de texto as informacoes relativas a uma obra
 	 * \param Obra pretendida, ficheiro de texto
 	 */
 	void lerFicheiroTrabalho(Obra& o1, ifstream& ficheiro_leitura);
@@ -252,13 +266,16 @@ public:
 	 * \param Nome da construtora
 	 */
 	Construtora(string nome);
+	/*!
+	 * \brief Construtor da classe Construtora
+	 */
 	Construtora();
 	/*!
 	 * \return Devolve o nome da construtora
 	 */
 	string getNome() const;
 	/*!
-	 * \return Devolve o número de obras da construtora
+	 * \return Devolve o numero de obras da construtora
 	 */
 	int getTamanho() const;
 	/*!
@@ -267,8 +284,8 @@ public:
 	 */
 	void adicionaObra(Obra o1);
 	/*!
-	 * \brief Elimina uma obra com um determinado número
-	 * \param Número da obra pretendida
+	 * \brief Elimina uma obra com um determinado numero
+	 * \param Numero da obra pretendida
 	 */
 	bool eliminaObra(unsigned int n);
 	/*!
@@ -276,7 +293,7 @@ public:
 	 */
 	int getCustoTotal() const;
 	/*!
-	 * \return Calcula a duração total da obra
+	 * \return Calcula a duracao total da obra
 	 */
 	int getDuracaoTotal() const;
 	/*!
@@ -284,7 +301,7 @@ public:
 	 */
 	int getAsfaltoTotal() const;
 	/*!
-	 * \return Calcula o betão total da obra
+	 * \return Calcula o betao total da obra
 	 */
 	int getBetaoTotal() const;
 	/*!
@@ -292,7 +309,7 @@ public:
 	 */
 	int getCaboTotal() const;
 	/*!
-	 * \return Calcula a área de madeira total da obra
+	 * \return Calcula a area de madeira total da obra
 	 */
 	int getMadeiraTotal() const;
 	/*!
@@ -304,11 +321,11 @@ public:
 	 */
 	Obra &obraMaisCaro();
 	/*!
-	 * \return Devolve a obra com menor duração
+	 * \return Devolve a obra com menor duracao
 	 */
 	Obra &obraMenorDuracao();
 	/*!
-	 * \return Devolve a obra com maior duração
+	 * \return Devolve a obra com maior duracao
 	 */
 	Obra &obraMaiorDuracao();
 	/*!
@@ -317,8 +334,8 @@ public:
 	 */
 	vector<Obra> obrasCustoMenor(int c) const;
 	/*!
-	 * \param Duração pretendida
-	 * \return Devolve as obras com duração menor do que a pretendida
+	 * \param Duracao pretendida
+	 * \return Devolve as obras com duracao menor do que a pretendida
 	 */
 	vector<Obra> obrasDuracaoMenor(int d) const;
 	/*!
@@ -327,8 +344,8 @@ public:
 	 */
 	vector<Obra> obrasAsfaltoMenor(int a) const;
 	/*!
-	 * \param Quantidade de betão pretendida
-	 * \return Devolve as obras com quantidade de betão menor do que a pretendida
+	 * \param Quantidade de betao pretendida
+	 * \return Devolve as obras com quantidade de betao menor do que a pretendida
 	 */
 	vector<Obra> obrasBetaoMenor(int b) const;
 	/*!
@@ -337,8 +354,8 @@ public:
 	 */
 	vector<Obra> obrasCaboMenor(int c) const;
 	/*!
-	 * \param Área de madeira pretendida
-	 * \return Devolve as obras com área de madeira menor do que a pretendida
+	 * \param area de madeira pretendida
+	 * \return Devolve as obras com area de madeira menor do que a pretendida
 	 */
 	vector<Obra> obrasMadeiraMenor(int m) const;
 	/*!
@@ -347,8 +364,8 @@ public:
 	 */
 	vector<Obra> obrasCustoMaior(int c) const;
 	/*!
-	 * \param Duração pretendida
-	 * \return Devolve as obras com duração maior do que a pretendida
+	 * \param Duracao pretendida
+	 * \return Devolve as obras com duracao maior do que a pretendida
 	 */
 	vector<Obra> obrasDuracaoMaior(int d) const;
 	/*!
@@ -357,8 +374,8 @@ public:
 	 */
 	vector<Obra> obrasAsfaltoMaior(int a) const;
 	/*!
-	 * \param Quantidade de betão pretendida
-	 * \return Devolve as obras com quantidade de betão maior do que a pretendida
+	 * \param Quantidade de betao pretendida
+	 * \return Devolve as obras com quantidade de betao maior do que a pretendida
 	 */
 	vector<Obra> obrasBetaoMaior(int b) const;
 	/*!
@@ -367,8 +384,8 @@ public:
 	 */
 	vector<Obra> obrasCaboMaior(int c) const;
 	/*!
-	 * \param Área de madeira pretendida
-	 * \return Devolve as obras com área de madeira maior do que a pretendida
+	 * \param area de madeira pretendida
+	 * \return Devolve as obras com area de madeira maior do que a pretendida
 	 */
 	vector<Obra> obrasMadeiraMaior(int m) const;
 	/*!
@@ -376,38 +393,47 @@ public:
 	 */
 	void procuraTipoTrabalho();
 	/*!
-	 * \brief Imprime na consola informações sobre a construtora
+	 * \brief Imprime na consola informacoes sobre a construtora
 	 */
 	void imprime() const;
 	/*!
-	 *  \brief Guarda no ficheiro de escrita informações sobre a construtora
-	 *  \param Ficheiro onde se pretende guardar as informações
+	 *  \brief Guarda no ficheiro de escrita informacoes sobre a construtora
+	 *  \param Ficheiro onde se pretende guardar as informacoes
 	 */
 	void escreverFicheiro(ofstream& ficheiro_escrita) const;
 	/*!
-	 *  \brief Imprime na consola informações sobre a ordem de pagamento da Tesouraria
+	 *  \brief Imprime na consola informacoes sobre a ordem de pagamento da Tesouraria
 	 */
 	void fila_imprime();
 	/*!
-	 *  \brief Lê no ficheiro de escrita informações sobre a construtora
-	 *  \param Ficheiro de onde se pretende ler as informações
+	 *  \brief Le no ficheiro de escrita informacoes sobre a construtora
+	 *  \param Ficheiro de onde se pretende ler as informacoes
 	 */
 	void lerFicheiro(ifstream& ficheiro_leitura);
 	/*!
-	 * \param Número da obra pretendida
-	 * \result Devolve a obra com o número pretendido
+	 * \param Numero da obra pretendida
+	 * \result Devolve a obra com o numero pretendido
 	 */
 	Obra* getObra(unsigned int nr);
-
+	/*!
+	 * \brief Menu que procura um determinado ID
+	 */
 	void procuraID() const;
+	/*!
+	 * \brief Menu que procura uma determinada empresa
+	 */
 	void procuraEmpresa() const;
-
+	/*!
+	 * \brief Classe que representa Erro no Ficheiro
+	 */
 	class ErroFicheiro {
 	public:
 		ErroFicheiro() {
 		}
 	};
-
+	/*!
+	 * \brief Classe que representa uma obra inexistente
+	 */
 	class ObraInexistente {
 	public:
 		int id;
@@ -415,14 +441,18 @@ public:
 				id(id) {
 		}
 	};
-
+	/*!
+	 * \brief Classe que representa uma empresa inexistente
+	 */
 	class EmpresaInexistente {
 	public:
 		string empresa;
 		unsigned int num;
 		EmpresaInexistente(string empresa,unsigned int num): empresa(empresa), num(num) {};
 	};
-
+	/*!
+	 * \brief Classe que representa um id inexistente
+	 */
 	class idInexistente {
 	public:
 		int id;

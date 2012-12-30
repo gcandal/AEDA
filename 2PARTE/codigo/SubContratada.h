@@ -17,6 +17,10 @@ enum tipo
 {
 	domestico, infraEstrutura, null
 };
+
+/*!
+ * \brief Classe que representa uma empresa sub contratada
+ */
 class SubContratada
 {
 	string nome;
@@ -25,8 +29,8 @@ class SubContratada
 	double volumeMedio;
 public:
 	/*!
-	 * /brief Construtor da classe SubContratada
-	 * /param Nome, tipo de trabalhos que realiza, número de empregados e volume médio anual de negócios
+	 * \brief Construtor da classe SubContratada
+	 * \param Nome, tipo de trabalhos que realiza, numero de empregados e volume medio anual de negocios
 	 */
 	SubContratada(string n, tipo t, int nE, double vM) :
 			nome(n), tipoTrabalhos(t), numEmpregados(nE), volumeMedio(vM)
@@ -34,74 +38,74 @@ public:
 
 	}
 	/*!
-	 * /brief Devolve o nome da Sub-contratada
+	 * \brief Devolve o nome da Sub-contratada
 	 */
 	string getNome()
 	{
 		return nome;
 	}
 	/*!
-	 * /brief Devolve o tipo de trabalhos realizados pela empresa
+	 * \brief Devolve o tipo de trabalhos realizados pela empresa
 	 */
 	tipo getTipo()
 	{
 		return tipoTrabalhos;
 	}
 	/*!
-	 * /brief Devolve o número de trabalhos da empresa
+	 * \brief Devolve o numero de trabalhos da empresa
 	 */
 	int getNumEmpregados()
 	{
 		return numEmpregados;
 	}
 	/*!
-	 * /brief Devolve o volume médio anual de negócios da empresa
+	 * \brief Devolve o volume medio anual de negocios da empresa
 	 */
 	double getVolumeMedio()
 	{
 		return volumeMedio;
 	}
 	/*!
-	 * /brief Altera o nome da Sub-contratada
+	 * \brief Altera o nome da Sub-contratada
 	 */
 	void setNome(string n)
 	{
 		nome = n;
 	}
 	/*!
-	 * /brief Altera o tipo de trabalhos realizados pela empresa
+	 * \brief Altera o tipo de trabalhos realizados pela empresa
 	 */
 	void setTipo(tipo t)
 	{
 		tipoTrabalhos = t;
 	}
 	/*!
-	 * /brief Altera o número de trabalhos da empresa
+	 * \brief Altera o numero de trabalhos da empresa
 	 */
 	void setNumEmpregados(int n)
 	{
 		numEmpregados = n;
 	}
 	/*!
-	 * /brief Altera o volume médio anual de negócios da empresa
+	 * \brief Altera o volume medio anual de negocios da empresa
 	 */
 	void setVolumeMedio(double v)
 	{
 		volumeMedio = v;
 	}
 	/*
-	 *  /brief Operador '<' da classe SubContratada
+	 *  \brief Operador '<' da classe SubContratada
 	 *
 	 */
 	bool operator<(const SubContratada &sc) const;
 	/*
-	 *  /brief Operador '==' da classe SubContratada
-	 *  /return Devolve True se o nome das sub-contratadas for igual
+	 *  \brief Operador '==' da classe SubContratada
+	 *  \result Devolve True se o nome das sub-contratadas for igual
 	 */
 	bool operator==(SubContratada &sc) const;
 
 	/*!
-	 *  /Imprime na consola informações sobre a empresa
+	 *  /Imprime na consola informacoes sobre a empresa
 	 */
 	friend ostream & operator<<(ostream & o, const SubContratada &sc)
 	{
@@ -119,10 +123,16 @@ public:
 	}
 };
 
+/*!
+ * \brief Classe que representa as Empresas subcontratadas
+ */
 class Empresas
 {
 	BST<SubContratada> arvoreEmpresas;
 public:
+	/*!
+	 * \brief Construtor classe empresas
+	 */
 	Empresas() :
 			arvoreEmpresas(SubContratada("", null, 0, 0))
 	{
@@ -130,71 +140,71 @@ public:
 	;
 
 	/*!
-	 * /brief Devolve a árvore com as empresas passíveis de serem sub-contratadas
+	 * \brief Devolve a arvore com as empresas passiveis de serem sub-contratadas
 	 */
 	BST<SubContratada> getEmpresas()
 	{
 		return arvoreEmpresas;
 	}
 	/*!
-	 *  /brief Adiciona uma nova empresa passível de ser sub-contratada
+	 *  \brief Adiciona uma nova empresa passivel de ser sub-contratada
 	 */
 	void adicionaEmpresa(const SubContratada &sc);
 	/*!
-	 *  /brief Remove uma nova empresa passível de ser sub-contratada
+	 *  \brief Remove uma nova empresa passivel de ser sub-contratada
 	 */
 	void removeEmpresa(SubContratada sc);
 	/*!
-	 *  /brief Imprime, por ordem alfabética, as empresas contidas na árvore
+	 *  \brief Imprime, por ordem alfabetica, as empresas contidas na arvore
 	 */
 	void imprime();
 
 	/*!
-	 *  /brief Altera o tipo de trabalhos realizados por uma empresa
-	 *  /param Nome da empresa, novo tipo de trabalhos
-	 *  /return True se a operação tiver sido realizada com sucesso
+	 *  \brief Altera o tipo de trabalhos realizados por uma empresa
+	 *  \param Nome da empresa, novo tipo de trabalhos
+	 *  \result True se a operaçao tiver sido realizada com sucesso
 	 */
 	bool alteraTipoTrabalho(string n, tipo t);
 
 	/*!
-	 *  /brief Altera o número de empregados numa empresa
-	 *  /param Nome da empresa, novo número de trabalhadores
-	 *  /return True se a operação tiver sido realizada com sucesso
+	 *  \brief Altera o numero de empregados numa empresa
+	 *  \param Nome da empresa, novo numero de trabalhadores
+	 *  \result True se a operaçao tiver sido realizada com sucesso
 	 */
 	bool alteraNumEmpregados(string n, int x);
 
 	/*!
-	 *  /brief Altera o volume médio anual de negócios numa empresa
-	 *  /param Nome da empresa, novo volume médio anual de negócios
-	 *  /return True se a operação tiver sido realizada com sucesso
+	 *  \brief Altera o volume medio anual de negocios numa empresa
+	 *  \param Nome da empresa, novo volume medio anual de negocios
+	 *  \result True se a operaçao tiver sido realizada com sucesso
 	 */
 	bool alteraVolumeMedio(string n, double v);
 
 	//LISTAGENS
 
 	/*!
-	 * /brief Imprime todos as emprsas que realizam trabalhos de um dado tipo
-	 * /param Tipo de trabalho desejado
+	 * \brief Imprime todos as emprsas que realizam trabalhos de um dado tipo
+	 * \param Tipo de trabalho desejado
 	 */
 	void imprimeTipoTrabalho(tipo t);
 	/*
-	 *  /brief Imprime todos as empresas com um número de empregados superior ao introduzido
-	 *  /param Número de trabalhadores pretendido
+	 *  \brief Imprime todos as empresas com um numero de empregados superior ao introduzido
+	 *  \param Numero de trabalhadores pretendido
 	 */
 	void imprimeEmpregadosSup(int n);
 	/*
-	 *  /brief Imprime todos as empresas com um número de empregados inferior ao introduzido
-	 *  /param Número de trabalhadores pretendido
+	 *  \brief Imprime todos as empresas com um numero de empregados inferior ao introduzido
+	 *  \param Numero de trabalhadores pretendido
 	 */
 	void imprimeEmpregadosInf(int n);
 	/*
-	 *  /brief Imprime todos as empresas com um volume médio anual de negócios superior ao introduzido
-	 *  /param Volume médio anual de negócios pretendido
+	 *  \brief Imprime todos as empresas com um volume medio anual de negocios superior ao introduzido
+	 *  \param Volume medio anual de negocios pretendido
 	 */
 	void imprimeVolumeSup(double n);
 	/*
-	 *  /brief Imprime todos as empresas com um volume médio anual de negócios inferior ao introduzido
-	 *  /param Volume médio anual de negócios pretendido
+	 *  \brief Imprime todos as empresas com um volume medio anual de negocios inferior ao introduzido
+	 *  \param Volume medio anual de negocios pretendido
 	 */
 	void imprimeVolumeInf(double n);
 };

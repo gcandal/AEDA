@@ -10,6 +10,9 @@ enum tipoTrabalho {
 	arruamento, saneamento, trolha, eletricista, carpinteiro
 };
 
+/*!
+ * \brief Classe que representa um trabalho
+ */
 class Trabalho {
 	unsigned int duracao, custo;
 	string empresa;
@@ -17,30 +20,30 @@ class Trabalho {
 	unsigned int num;
 public:
 	/*!
-	 * /brief Construtor da classe Trabalho
-	 * /param Duração, custo e empresa responsavél pelo trabalho
+	 * \brief Construtor da classe Trabalho
+	 * \param Duracao, custo e empresa responsavel pelo trabalho
 	 */
 	Trabalho(int duracao, int custo, string empresa);
 	/*!
-	 * /brief Destrutor da classe Trabalho
+	 * \brief Destrutor da classe Trabalho
 	 */
 	virtual ~Trabalho() {
 	}
 	/*!
-	 * /return Devolve o número do trabalho
+	 * \return Devolve o numero do trabalho
 	 */
 	unsigned int getNum() const;
 	/*!
-	 * /return Devolve a empresa responsavél pelo trabalho
+	 * \return Devolve a empresa responsavel pelo trabalho
 	 */
 	string getEmpresa() const;
 	/*!
-	 * /return Devolve o custo do trabalho
+	 * \return Devolve o custo do trabalho
 	 */
 	/*!virtual*/
 	int getCusto() const;
 	/*!
-	 * /return Devolve a duração do trabalho
+	 * \return Devolve a duracao do trabalho
 	 */
 	/*!virtual*/
 	int getDuracao() const;
@@ -54,26 +57,28 @@ public:
 	virtual tipoTrabalho getTipoTrabalho() const =0;
 	virtual int getId() const =0;
 	/*!
-	 * /brief Altera a empresa responsavél
-	 * /param Empresa pretendida
+	 * \brief Altera a empresa responsavel
+	 * \param Empresa pretendida
 	 */
 	void setEmpresa(string str);
 	/*!
-	 * /brief Altera a duração do trabalho
-	 * /param Duração pretendida
+	 * \brief Altera a duracao do trabalho
+	 * \param Duracao pretendida
 	 */
 	void setDuracao(unsigned int n);
 	/*!
-	 * /brief Altera o custo do trabalho
-	 * /param Custo pretendido
+	 * \brief Altera o custo do trabalho
+	 * \param Custo pretendido
 	 */
 	void setCusto(unsigned int n);
 	/*!
-	 *  /brief Guarda no ficheiro de escrita informações sobre o trabalho
-	 *  /param Ficheiro onde se pretende guardar as informações
+	 *  \brief Guarda no ficheiro de escrita informacoes sobre o trabalho
+	 *  \param Ficheiro onde se pretende guardar as informacoes
 	 */
 	virtual void imprime() const;
-
+	/*!
+	 *  \brief Classe que representa um valor incorreto
+	 */
 	class ValorIncorrecto {
 	public:
 		int v;

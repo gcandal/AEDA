@@ -1205,15 +1205,13 @@ void alteraSub()
 	string nome, str;
 	int op;
 	stringstream ss;
-	bool valid = true;
-	;
 
 	cout << "Insira o nome da empresa a alterar: ";
 	cin >> nome;
 
 	cout << endl << "Pretende alterar" << endl;
-	cout << "1. O tipo de trabalhos efectuados pela empresa" << endl; //DONE
-	cout << "2. O numero de empregados da empresa" << endl; //DONE
+	cout << "1. O tipo de trabalhos efectuados pela empresa" << endl;
+	cout << "2. O numero de empregados da empresa" << endl;
 	cout << "3. O volume medio anual de negocios da empresa" << endl;
 
 	cout << "\nEscolha uma opcao: ";
